@@ -4,6 +4,7 @@ import 'package:service_360/view/landing_page.dart';
 import 'package:get/get.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     Center(
       child: ConstrainedBox(
