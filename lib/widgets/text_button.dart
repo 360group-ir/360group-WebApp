@@ -10,9 +10,9 @@ import 'package:service_360/view/360Group/group_3.dart';
 
 class CostumTextButton extends StatelessWidget {
   const CostumTextButton({
-    super.key,
+    super.key,  this.title = AppText.button,
   });
-
+final String title ;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -29,9 +29,9 @@ class CostumTextButton extends StatelessWidget {
           onPressed: () {
               Get.to(const Group3());
             },
-          child:  const Center(
+          child:   Center(
                 child: Text(
-              AppText.button,
+              title,
               style: AppTextStyles.descriptionTitleStyle,
             )),
         ),

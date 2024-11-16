@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:service_360/component/dimens.dart';
@@ -11,25 +10,24 @@ import 'package:service_360/widgets/req_form_textFeild.dart';
 
 class SendReqForm extends StatelessWidget {
   const SendReqForm({
-    super.key, required this.uploadResume, required this.color,
+    super.key,
+    required this.uploadResume,
+    required this.color,
   });
-    final bool uploadResume;
-    final Color color;
+  final bool uploadResume;
+  final Color color;
   @override
   Widget build(BuildContext context) {
-
     return Container(
-      height: 429,
+      // height: 429,
       width: double.infinity,
-      margin: const EdgeInsets.symmetric(
-          horizontal: AppDimens.padding),
+      margin: const EdgeInsets.symmetric(horizontal: AppDimens.padding),
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(4)),
+          color: Colors.white, borderRadius: BorderRadius.circular(4)),
       child: Column(
         children: [
           const Padding(
-            padding: EdgeInsets.all(AppDimens.padding),
+            padding: EdgeInsets.symmetric(horizontal:  AppDimens.padding , vertical: AppDimens.small),
             child: Align(
               alignment: Alignment.centerRight,
               child: Text(
@@ -40,48 +38,23 @@ class SendReqForm extends StatelessWidget {
             ),
           ),
           //Form
-          const Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.padding),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                AppText.sampleTex,
-                style: AppTextStyles.sendReqTextFeildTitle,
-                textDirection: TextDirection.rtl,
-              ),
-            ),
+
+          const ReqFormTextfeild(
+            hintText: 'نام و نام خانوادگی ',
+            maxLin: 1,
           ),
-          const ReqFormTextfeild(hintText: 'نام و نام خانوادگی '),
-          AppDimens.medium.height,
-          const Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.padding),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                AppText.sampleTex,
-                style: AppTextStyles.sendReqTextFeildTitle,
-                textDirection: TextDirection.rtl,
-              ),
-            ),
+
+          const ReqFormTextfeild(
+            hintText: ' شماره موبایل ',
+            maxLin: 1,
           ),
-          const ReqFormTextfeild(hintText: ' شماره موبایل '),
-          AppDimens.medium.height,
-          const Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: AppDimens.padding),
-            child: Align(
-              alignment: Alignment.centerRight,
-              child: Text(
-                AppText.sampleTex,
-                style: AppTextStyles.sendReqTextFeildTitle,
-                textDirection: TextDirection.rtl,
-              ),
-            ),
+
+          const ReqFormTextfeild(
+            hintText: 'متن درخواست  ',
+            maxLin: 6,
           ),
-          const ReqFormTextfeild(hintText: 'متن درخواست  '),
-          AppDimens.medium.height,
+          AppDimens.padding.height,
+          //UPLOAD button
           Visibility(
             visible: uploadResume,
             child: GestureDetector(
@@ -120,24 +93,23 @@ class SendReqForm extends StatelessWidget {
               ),
             ),
           ),
-          AppDimens.medium.height,
+          (AppDimens.padding * 2).height,
+          // Button
           Container(
             height: 48,
             width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-                horizontal: AppDimens.medium),
+            margin: const EdgeInsets.symmetric(horizontal: AppDimens.medium),
             decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(4)),
+                color: color, borderRadius: BorderRadius.circular(4)),
             child: TextButton(
               onPressed: () {},
               child: Text(
                 AppText.send,
-                style: AppTextStyles.landingPage
-                    .copyWith(fontSize: 16),
+                style: AppTextStyles.landingPage.copyWith(fontSize: 16),
               ),
             ),
           ),
+          AppDimens.small.height
         ],
       ),
     );

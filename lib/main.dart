@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       title: '360Groupe',
-      locale: const Locale("fa"),
+      locale: const Locale("En"),
       theme: ThemeData(
         dividerColor: Colors.transparent,
         textTheme: GoogleFonts.vazirmatnTextTheme(),

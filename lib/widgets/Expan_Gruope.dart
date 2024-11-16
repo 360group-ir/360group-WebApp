@@ -26,7 +26,7 @@ final List<Widget> children ;
             textAlign: TextAlign.right,
             style: AppTextStyles.tileTxtStyle,
           ),
-          childrenPadding: const EdgeInsets.all(AppDimens.small),
+          childrenPadding: const EdgeInsets.all(AppDimens.medium),
           iconColor: AppColors.primaryDefaultG,
           collapsedIconColor: Colors.black,
           children: children,

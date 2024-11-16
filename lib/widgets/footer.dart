@@ -40,7 +40,7 @@ class Footer extends StatelessWidget {
                   },
                   icon: SvgPicture.asset(
                     Assets.svg.vector1,
-                    height: 28,
+                    height: 30,
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn)
                   )),
@@ -50,8 +50,8 @@ class Footer extends StatelessWidget {
                     // launchUrl();
                   },
                   icon: SvgPicture.asset(
-                    Assets.svg.icon4,
-                    height: 28,
+                    Assets.svg.instagram,
+                    height: 32,
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn),
                   )),
@@ -63,8 +63,8 @@ class Footer extends StatelessWidget {
                     ));
                   },
                   icon: SvgPicture.asset(
-                    Assets.svg.icon2,
-                    height: 28,
+                    Assets.svg.mail,
+                    height: 38,
                     colorFilter:
                         const ColorFilter.mode(Colors.white, BlendMode.srcIn)
                   ))

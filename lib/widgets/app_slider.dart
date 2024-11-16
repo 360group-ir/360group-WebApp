@@ -13,9 +13,9 @@ class FullscreenSlider extends StatefulWidget {
 
 class _FullscreenSliderState extends State<FullscreenSlider> {
   final List<Widget> items = [
-    const ToolsWidget(),
-    const GroupeWidget(),
     const ServiceWidget(),
+    const GroupeWidget(),
+    const ToolsWidget(),
   ];
 
   final CarouselSliderController controller = CarouselSliderController();

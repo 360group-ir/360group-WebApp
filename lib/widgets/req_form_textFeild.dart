@@ -3,20 +3,23 @@ import 'package:service_360/component/dimens.dart';
 import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/text_styles.dart';
 
+
+
 class ReqFormTextfeild extends StatelessWidget {
   const ReqFormTextfeild({
     super.key,
-    required this.hintText,
+    required this.hintText, required this.maxLin,
   });
   final String hintText;
+  final int maxLin ;
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
-          vertical: AppDimens.small, horizontal: AppDimens.small),
+      padding: const EdgeInsets.fromLTRB(
+           AppDimens.small ,AppDimens.padding,AppDimens.small,0),
       child: Container(
-        height: 40,
-        padding:const EdgeInsets.all(AppDimens.small) ,
+        // height: 40,
+        padding:const EdgeInsets.symmetric(horizontal:  AppDimens.small) ,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(4)),
           color: Colors.white,
@@ -33,9 +36,11 @@ class ReqFormTextfeild extends StatelessWidget {
           ),
         ]),
         child: TextField(
-          textAlign: TextAlign.start,
+          textAlign: TextAlign.right,
+          maxLines: maxLin,
           decoration: InputDecoration(
               hintText: hintText,
+              hintTextDirection: TextDirection.rtl,
               hintStyle: AppTextStyles.sendReqTextFeildHint,
               focusColor: AppColors.neutralLight,
               fillColor: AppColors.neutralLight,

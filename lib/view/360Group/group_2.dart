@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -22,20 +23,29 @@ class Group2 extends StatelessWidget {
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
-                preferredSize: Size(size.width, size.height * 0.1),
+                preferredSize: Size(size.width, size.height * 0.08),
                 child: Container(
+                  height: size.height * 0.08,
                   color: AppColors.primaryDefaultG,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-
-                          },
-                          icon: SvgPicture.asset(Assets.svg.group)),
-                      AppDimens.small.width,
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.padding),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.left_chevron,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(Assets.svg.group)),
+                      ],
+                    ),
                   ),
                 )),
             body: SingleChildScrollView(
@@ -73,6 +83,7 @@ class Group2 extends StatelessWidget {
                         AppText.jobOfferTitle,
                         style: AppTextStyles.titleStyle,
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.justify,
                       ),
                     ),
                   ),
@@ -89,23 +100,17 @@ class Group2 extends StatelessWidget {
                   ),
                   // Pan list
                   const ExpanGroup(title: AppText.departman1, children: [
-                    CostumTextButton(),
-                    CostumTextButton(),
+                    CostumTextButton(title: 'طراح رابط کاربری',),
+                    CostumTextButton(title: 'طراح گرافیک',),
+                    CostumTextButton()
                   ]),
-                  const ExpanGroup(title: AppText.departman2, children: [
-                    CostumTextButton(),
-                    CostumTextButton(),
-                    CostumTextButton(),
-                  ]),
-                  const ExpanGroup(title: AppText.departman3, children:  [
-                    CostumTextButton(),
-                    CostumTextButton(),
-                    CostumTextButton(),
-                    CostumTextButton(),
-                  ]),
-                  (AppDimens.xlarge * 2).height,
 
-                   Footer(color: AppColors.primaryDefaultG,logoPath: Assets.svg.groper360 ,),
+                  (AppDimens.xlarge).height,
+
+                  Footer(
+                    color: AppColors.primaryDefaultG,
+                    logoPath: Assets.svg.groper360,
+                  ),
                 ],
               ),
             )));

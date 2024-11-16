@@ -36,7 +36,7 @@ class RequiermentList extends StatelessWidget {
                 minVerticalPadding: AppDimens.small,
                 minTileHeight: 15,
                 minLeadingWidth: 12,
-                leading: const Icon(
+                trailing: const Icon(
                   Icons.circle,
                   size: 4,
                   color: Colors.black,
@@ -46,12 +46,14 @@ class RequiermentList extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   style: AppTextStyles.descriptionStyle,
                 ),
+
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
               ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -61,12 +63,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                              contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -76,12 +80,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -91,12 +97,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -106,12 +114,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -121,27 +131,32 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
+
               ),
               title: Text(
                 _items[6],
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -151,12 +166,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -166,12 +183,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -181,12 +200,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
               minLeadingWidth: 12,
-              leading: const Icon(
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -196,12 +217,14 @@ class RequiermentList extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             ListTile(
               minVerticalPadding: AppDimens.small,
               minTileHeight: 15,
-              minLeadingWidth: 12,
-              leading: const Icon(
+              // minLeadingWidth: 12,
+              trailing: const Icon(
                 Icons.circle,
                 size: 4,
                 color: Colors.black,
@@ -209,8 +232,11 @@ class RequiermentList extends StatelessWidget {
               title: Text(
                 _items[11],
                 textDirection: TextDirection.rtl,
+                textAlign: TextAlign.right,
                 style: AppTextStyles.descriptionStyle,
               ),
+                contentPadding: const EdgeInsets.symmetric(horizontal:  AppDimens.small),
+
             ),
             AppDimens.padding.height
           ],

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -22,19 +23,29 @@ class Group1 extends StatelessWidget {
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
-                preferredSize: Size(size.width, size.height * 0.1),
+                preferredSize: Size(size.width, size.height * 0.08),
                 child: Container(
+                  height: size.height * 0.08,
                   color: AppColors.primaryDefaultG,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: SvgPicture.asset(Assets.svg.group)),
-                      AppDimens.small.width,
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.padding),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.left_chevron,
+                              color: Colors.white,
+                            )),
+                        IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(Assets.svg.group)),
+                      ],
+                    ),
                   ),
                 )),
             body: SingleChildScrollView(
@@ -62,26 +73,35 @@ class Group1 extends StatelessWidget {
                     ),
                   ),
                   //List tiles
+                  AppDimens.small.height,
                   // about us
-                  const ExpanGroup(
+                  ExpanGroup(
                     title: "درباره ما ",
                     children: [
-                      Text(
-                        AppText.lorem,
+                      Image.asset(Assets.png.imagePlaceH.path),
+                      AppDimens.padding.height,
+                      const Text(
+                        AppText.aboutUs,
                         style: AppTextStyles.tileChildrenStyle,
+                        textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.justify,
                       )
                     ],
                   ),
 
                   //Contact Us
                   ExpanGroup(title: 'راه‌های ارتباطی', children: [
-                    AppDimens.xlarge.height,
+                    AppDimens.small.height,
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: AppDimens.large),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
+                          IconWidget(
+                            assetsName: Assets.svg.vector,
+                            text: AppText.phone,
+                          ),
                           IconWidget(
                             assetsName: Assets.svg.icon,
                             text: AppText.website,
@@ -94,14 +114,10 @@ class Group1 extends StatelessWidget {
                             assetsName: Assets.svg.icon2,
                             text: AppText.email,
                           ),
-                          IconWidget(
-                            assetsName: Assets.svg.vector,
-                            text: AppText.phone,
-                          ),
                         ],
                       ),
                     ),
-                    (AppDimens.large + 12).height,
+                    (AppDimens.padding * 2).height,
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: AppDimens.large),
@@ -109,18 +125,17 @@ class Group1 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           IconWidget(
-                            assetsName: Assets.svg.icon4,
-                            text: AppText.insta,
+                            assetsName: Assets.svg.icon3,
+                            text: AppText.linkdin,
                           ),
                           (AppDimens.padding * 3).width,
                           IconWidget(
-                            assetsName: Assets.svg.icon3,
-                            text: AppText.linkdin,
+                            assetsName: Assets.svg.icon4,
+                            text: AppText.insta,
                           ),
                         ],
                       ),
                     ),
-                    AppDimens.xlarge.height
                   ]),
 
                   // Job offers
@@ -131,6 +146,7 @@ class Group1 extends StatelessWidget {
                         AppText.jobOffers,
                         maxLines: 10,
                         textDirection: TextDirection.rtl,
+                        textAlign: TextAlign.justify,
                         style: AppTextStyles.tileChildrenStyle,
                       ),
                     ),
@@ -154,7 +170,38 @@ class Group1 extends StatelessWidget {
                     AppDimens.small.height
                   ]),
                   // our Team
-                  const ExpanGroup(title: "تیم ما", children: []),
+                  ExpanGroup(title: "تیم ما", children: [
+                    SizedBox(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Image.network(
+                              "https://ramtindev.storage.c2.liara.space/360%20text/image.png"),
+                          AppDimens.small.height,
+                          const Text(
+                            "سینا گلزار",
+                            style: AppTextStyles.landingPageTools,
+                          ),
+                          AppDimens.small.height,
+                          const Text(
+                            "مدیر عامل",
+                            style: AppTextStyles.expansionTileChildren,
+                          ),
+                          Row(
+                            children: [
+                              IconWidget(
+                                  assetsName: Assets.svg.icon4,
+                                  text: AppText.insta),
+                              AppDimens.padding.width,
+                              IconWidget(
+                                  assetsName: Assets.svg.icon2,
+                                  text: AppText.email)
+                            ],
+                          )
+                        ],
+                      ),
+                    )
+                  ]),
 
                   (size.height * 0.13).height,
                   //TODO: footer

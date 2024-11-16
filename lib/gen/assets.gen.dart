@@ -44,6 +44,12 @@ class $AssetsSvgGen {
   /// File path: assets/svg/Icon.svg
   String get icon => 'assets/svg/Icon.svg';
 
+  /// File path: assets/svg/Instagram copy.svg
+  String get instagramCopy => 'assets/svg/Instagram copy.svg';
+
+  /// File path: assets/svg/Mail.svg
+  String get mail => 'assets/svg/Mail.svg';
+
   /// File path: assets/svg/Vector-1.svg
   String get vector1 => 'assets/svg/Vector-1.svg';
 
@@ -82,6 +88,8 @@ class $AssetsSvgGen {
         icon3,
         icon4,
         icon,
+        instagramCopy,
+        mail,
         vector1,
         vector2,
         vector,

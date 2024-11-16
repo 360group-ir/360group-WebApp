@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -22,26 +23,33 @@ class Group3 extends StatelessWidget {
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
-                preferredSize: Size(size.width, size.height*0.085),
+                preferredSize: Size(size.width, size.height * 0.08),
                 child: Container(
-                  height: size.height*0.085,
+                  height: size.height * 0.08,
                   color: AppColors.primaryDefaultG,
-                  child: Row(
-                    // mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      AppDimens.padding.width,
-                      IconButton(
-                          onPressed: () {
-                            Get.back();
-                          },
-                          icon: SvgPicture.asset(Assets.svg.group)),
-                      const Expanded(child: SizedBox()),
-                      SvgPicture.asset(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.padding),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                            onPressed: () {
+                              Get.back();
+                            },
+                            icon: const Icon(
+                              CupertinoIcons.left_chevron,
+                              color: Colors.white,
+                            )),
+                            SvgPicture.asset(
                         Assets.svg.groper360,
                         height: size.height*0.0343,
                       ),
-                      AppDimens.padding.width,
-                    ],
+                        IconButton(
+                            onPressed: () {},
+                            icon: SvgPicture.asset(Assets.svg.group)),
+                      ],
+                    ),
                   ),
                 )),
             body: SingleChildScrollView(
