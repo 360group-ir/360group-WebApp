@@ -41,10 +41,10 @@ class Group3 extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                            SvgPicture.asset(
-                        Assets.svg.groper360,
-                        height: size.height*0.0343,
-                      ),
+                        SvgPicture.asset(
+                          Assets.svg.groper360,
+                          height: size.height * 0.0343,
+                        ),
                         IconButton(
                             onPressed: () {},
                             icon: SvgPicture.asset(Assets.svg.group)),
@@ -83,7 +83,6 @@ class Group3 extends StatelessWidget {
                   AppDimens.xlarge.height,
                   // requirment 1
                   Container(
-                    // height: 628,
                     width: double.infinity,
                     margin: const EdgeInsets.symmetric(
                         horizontal: AppDimens.padding),
@@ -93,27 +92,31 @@ class Group3 extends StatelessWidget {
                     child: Column(
                       children: [
                         const Padding(
-                          padding: EdgeInsets.all(AppDimens.padding),
+                          padding: EdgeInsets.all(AppDimens.medium),
                           child: Align(
                             alignment: Alignment.centerRight,
                             child: Text(
-                              AppText.pishniyaz,
+                              AppText.requierd,
                               style: AppTextStyles.descriptionTitleStyle,
                               textDirection: TextDirection.rtl,
                             ),
                           ),
                         ),
-                        RequiermentList(),
+                        RequiermentList(items: frontItems,),
                       ],
                     ),
                   ),
                   // send req 2
                   AppDimens.xlarge.height,
-                   const SendReqForm(color: AppColors.primaryDefaultG,
+                  const SendReqForm(
+                    color: AppColors.primaryDefaultG,
                     uploadResume: true,
                   ),
                   AppDimens.large.height,
-                  Footer(color: AppColors.primaryDefaultG,logoPath: Assets.svg.groper360 ,),
+                  Footer(
+                    color: AppColors.primaryDefaultG,
+                    logoPath: Assets.svg.groper360,
+                  ),
                 ],
               ),
             )));

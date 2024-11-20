@@ -11,6 +11,7 @@ import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Group/group_2.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
 import 'package:service_360/widgets/Icon_widget.dart';
+import 'package:service_360/widgets/footer.dart';
 
 class Group1 extends StatelessWidget {
   const Group1({super.key});
@@ -49,7 +50,7 @@ class Group1 extends StatelessWidget {
                   ),
                 )),
             body: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               child: Column(
                 children: [
                   //Qr code groupe
@@ -203,8 +204,10 @@ class Group1 extends StatelessWidget {
                     )
                   ]),
 
-                  (size.height * 0.13).height,
-                  //TODO: footer
+                  (size.height * 0.1).height,
+                  Footer(
+                      color: AppColors.primaryDefaultG,
+                      logoPath: Assets.svg.groper360)
                 ],
               ),
             )));

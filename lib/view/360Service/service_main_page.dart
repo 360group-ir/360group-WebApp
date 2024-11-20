@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -21,25 +22,33 @@ class ServiceMainPage extends StatelessWidget {
         child: Scaffold(
       backgroundColor: AppColors.neutralLight,
       appBar: PreferredSize(
-          preferredSize: Size(size.width, size.height * 0.085),
+          preferredSize: Size(size.width, size.height * 0.08),
           child: Container(
-            height: size.height * 0.085,
+            height: size.height * 0.08,
             color: AppColors.primaryDefaultS,
-            child: Row(
-              children: [
-                AppDimens.padding.width,
-                IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: SvgPicture.asset(Assets.svg.group)),
-                const Expanded(child: SizedBox()),
-                SvgPicture.asset(
-                  Assets.svg.service360,
-                  height: size.height * 0.0343,
-                ),
-                AppDimens.padding.width,
-              ],
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: AppDimens.padding),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                      onPressed: () {
+                        Get.back();
+                      },
+                      icon: const Icon(
+                        CupertinoIcons.left_chevron,
+                        color: Colors.white,
+                      )),
+                  SvgPicture.asset(
+                    Assets.svg.service360,
+                    height: size.height * 0.0343,
+                  ),
+                  IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(Assets.svg.group)),
+                ],
+              ),
             ),
           )),
       body: SingleChildScrollView(
@@ -58,7 +67,7 @@ class ServiceMainPage extends StatelessWidget {
                 ),
               ),
             ),
-            // List view 
+            // List view
             ListView.builder(
               shrinkWrap: true,
               itemCount: serviceTitle.length,
@@ -67,11 +76,31 @@ class ServiceMainPage extends StatelessWidget {
                 return ExpanService(
                   title: serviceTitle[index],
                   children: [
-                    Image.asset(Assets.png.imagePlaceH.path),
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(
+                            ServiceSingle(
+                              title: serviceTitle[index],
+                              complement: serviceComplement[index],
+                              importance: serviceImportance[index],
+                            ),
+                            transition: Transition.leftToRight,
+                            fullscreenDialog: true);
+                      },
+                      child: SizedBox(
+                          // width: size.width,
+                          // height: size.width,
+                          child: Image.asset(
+                        Assets.png.imagePlaceH.path,
+                      )),
+                    ),
                     AppDimens.padding.height,
-                    const Text(
-                      AppText.lorem,
-                      style: AppTextStyles.tileChildrenStyle,
+                    Text(
+                      serviceDesc[index],
+                      style:
+                          AppTextStyles.tileChildrenStyle.copyWith(height: 2),
+                      textAlign: TextAlign.justify,
+                      textDirection: TextDirection.rtl,
                     ),
                     AppDimens.padding.height,
                     Container(
@@ -81,10 +110,14 @@ class ServiceMainPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4)),
                       child: TextButton(
                         onPressed: () {
-                          Get.to(const ServiceSingle(),
+                          Get.to(
+                              ServiceSingle(
+                                title: serviceTitle[index],
+                                complement: serviceComplement[index],
+                                importance: serviceImportance[index],
+                              ),
                               transition: Transition.leftToRight,
-                              fullscreenDialog: true
-                              );
+                              fullscreenDialog: true);
                         },
                         child: Text(
                           AppText.knowMore,
