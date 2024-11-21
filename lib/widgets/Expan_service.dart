@@ -6,7 +6,7 @@ import 'package:service_360/component/res/text_styles.dart';
 // ignore: must_be_immutable
 class ExpanService extends StatelessWidget {
   ExpanService({super.key, required this.title, required this.children});
-  final String title;
+  final String title; 
   List<Widget> children;
   @override
   Widget build(BuildContext context) {

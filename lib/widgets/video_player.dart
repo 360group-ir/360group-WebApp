@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:service_360/component/res/app_colors.dart';
 import 'package:video_player/video_player.dart';
 
 class SimpleVideoPlayer extends StatefulWidget {
@@ -36,6 +38,8 @@ class _SimpleVideoPlayerState extends State<SimpleVideoPlayer> {
             aspectRatio: _controller.value.aspectRatio,
             child: VideoPlayer(_controller),
           )
-        : const Center(child: CircularProgressIndicator());
+        : Center(
+            child: LoadingAnimationWidget.progressiveDots(
+                color: AppColors.primaryDefaultS, size: 50));
   }
 }

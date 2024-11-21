@@ -83,6 +83,7 @@ class ServiceMainPage extends StatelessWidget {
                               title: serviceTitle[index],
                               complement: serviceComplement[index],
                               importance: serviceImportance[index],
+                              keyword: keyWords[index]!.toList(growable: true),
                             ),
                             transition: Transition.leftToRight,
                             fullscreenDialog: true);
@@ -115,6 +116,7 @@ class ServiceMainPage extends StatelessWidget {
                                 title: serviceTitle[index],
                                 complement: serviceComplement[index],
                                 importance: serviceImportance[index],
+                                keyword: keyWords[index]!.toList(growable: true),
                               ),
                               transition: Transition.leftToRight,
                               fullscreenDialog: true);
@@ -130,7 +132,7 @@ class ServiceMainPage extends StatelessWidget {
                 );
               },
             ),
-            (size.height * 0.1).height,
+            (size.height * 0.05).height,
             Footer(
               color: AppColors.primaryDefaultS,
               logoPath: Assets.svg.service360,

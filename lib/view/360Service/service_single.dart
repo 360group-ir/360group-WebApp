@@ -11,7 +11,6 @@ import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/widgets/Expan_service.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/requierment_widget.dart';
-import 'package:service_360/widgets/text_button.dart';
 import 'package:service_360/widgets/video_player.dart';
 
 class ServiceSingle extends StatelessWidget {
@@ -19,11 +18,13 @@ class ServiceSingle extends StatelessWidget {
       {super.key,
       required this.title,
       required this.complement,
-      required this.importance});
+      required this.importance,
+      required this.keyword});
 
   final String title;
   final String complement;
   final String importance;
+  final List<String> keyword;
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +70,7 @@ class ServiceSingle extends StatelessWidget {
                       height: size.width,
                       width: size.width,
                       child: Center(
-                          child: SimpleVideoPlayer(
-                              videoUrl: Uri.parse(
-                                  "https://ramtindev.storage.c2.liara.space/360%20text/1030%281%29.mp4")))),
+                          child: SimpleVideoPlayer(videoUrl: Uri.parse("")))),
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: AppDimens.padding,
@@ -111,14 +110,21 @@ class ServiceSingle extends StatelessWidget {
                   ),
                   ExpanService(
                     title: AppText.keywords,
-                    children: [
-                      RequiermentList(
-                          items: keyWords[0]!.toList(growable: true))
-                    ],
+                    children: [RequiermentList(items: keyword)],
                   ),
                   (AppDimens.xlarge).height,
-                  const CostumTextButton(
-                    title: AppText.getadvise,
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: AppColors.primaryDefaultS,
+                        borderRadius: BorderRadius.circular(4)),
+                    child: TextButton(
+                      onPressed: () {},
+                      child: Text(
+                        AppText.knowMore,
+                        style: AppTextStyles.landingPage.copyWith(fontSize: 16),
+                      ),
+                    ),
                   ),
                   (AppDimens.xlarge).height,
                   Footer(

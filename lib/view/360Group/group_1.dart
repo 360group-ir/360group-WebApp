@@ -12,6 +12,7 @@ import 'package:service_360/view/360Group/group_2.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
 import 'package:service_360/widgets/Icon_widget.dart';
 import 'package:service_360/widgets/footer.dart';
+import 'package:service_360/widgets/user_cart.dart';
 
 class Group1 extends StatelessWidget {
   const Group1({super.key});
@@ -69,7 +70,7 @@ class Group1 extends StatelessWidget {
                         Image.asset(
                           Assets.png.qrcode.path,
                         ),
-                        (AppDimens.xlarge).height
+                        // (AppDimens.xlarge).height
                       ],
                     ),
                   ),
@@ -172,39 +173,17 @@ class Group1 extends StatelessWidget {
                   ]),
                   // our Team
                   ExpanGroup(title: "تیم ما", children: [
-                    SizedBox(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Image.network(
-                              "https://ramtindev.storage.c2.liara.space/360%20text/image.png"),
-                          AppDimens.small.height,
-                          const Text(
-                            "سینا گلزار",
-                            style: AppTextStyles.landingPageTools,
-                          ),
-                          AppDimens.small.height,
-                          const Text(
-                            "مدیر عامل",
-                            style: AppTextStyles.expansionTileChildren,
-                          ),
-                          Row(
-                            children: [
-                              IconWidget(
-                                  assetsName: Assets.svg.icon4,
-                                  text: AppText.insta),
-                              AppDimens.padding.width,
-                              IconWidget(
-                                  assetsName: Assets.svg.icon2,
-                                  text: AppText.email)
-                            ],
-                          )
-                        ],
-                      ),
-                    )
+                    ListView.builder(
+                      itemCount: userList.length,
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                      return UsersCart(imgUrl: userList[index]!['imgUrl'], name:  userList[index]!['name'], side: userList[index]!['side']);
+                    },)
+                    
                   ]),
 
-                  (size.height * 0.1).height,
+                  (size.height * 0.05).height,
                   Footer(
                       color: AppColors.primaryDefaultG,
                       logoPath: Assets.svg.groper360)

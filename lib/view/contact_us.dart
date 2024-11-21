@@ -78,7 +78,7 @@ class ContactUs extends StatelessWidget {
                     uploadResume: false,
                   ),
                   (size.height * 0.12).height,
-
+        
                   Footer(color: maincolor, logoPath: Assets.svg.groper360),
                 ],
               ),
