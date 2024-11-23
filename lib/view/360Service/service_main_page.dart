@@ -9,6 +9,7 @@ import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Service/service_single.dart';
+import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/Expan_service.dart';
 import 'package:service_360/widgets/footer.dart';
 
@@ -40,9 +41,12 @@ class ServiceMainPage extends StatelessWidget {
                         CupertinoIcons.left_chevron,
                         color: Colors.white,
                       )),
-                  SvgPicture.asset(
-                    Assets.svg.service360,
-                    height: size.height * 0.0343,
+                  GestureDetector(
+                    onTap: () => Get.to(const LandingPage()),
+                    child: SvgPicture.asset(
+                      Assets.svg.service360,
+                      height: size.height * 0.0343,
+                    ),
                   ),
                   IconButton(
                       onPressed: () {},
@@ -74,6 +78,7 @@ class ServiceMainPage extends StatelessWidget {
               physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return ExpanService(
+                  expantileOpen: false,
                   title: serviceTitle[index],
                   children: [
                     GestureDetector(

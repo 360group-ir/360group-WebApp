@@ -64,13 +64,12 @@ class Group1 extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           Assets.svg.groper360,
-                          height: 64,
+                          height: size.height * .068,
                         ),
                         (AppDimens.large * 3).height,
                         Image.asset(
                           Assets.png.qrcode.path,
                         ),
-                        // (AppDimens.xlarge).height
                       ],
                     ),
                   ),
@@ -178,12 +177,18 @@ class Group1 extends StatelessWidget {
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemBuilder: (context, index) {
-                      return UsersCart(imgUrl: userList[index]!['imgUrl'], name:  userList[index]!['name'], side: userList[index]!['side']);
-                    },)
-                    
+                        return UsersCart(
+                          imgUrl: userList[index]!['imgUrl'],
+                          name: userList[index]!['name'],
+                          side: userList[index]!['side'],
+                          // email:userList[index]!['emailUrl'] ,
+                        );
+                      },
+                    )
                   ]),
 
-                  (size.height * 0.05).height,
+                  AppDimens.xlarge.height,
+
                   Footer(
                       color: AppColors.primaryDefaultG,
                       logoPath: Assets.svg.groper360)

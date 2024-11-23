@@ -8,6 +8,7 @@ import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/gen/assets.gen.dart';
+import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/Expan_service.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/requierment_widget.dart';
@@ -52,9 +53,12 @@ class ServiceSingle extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                        SvgPicture.asset(
-                          Assets.svg.service360,
-                          height: size.height * 0.0343,
+                        GestureDetector(
+                          onTap: () => Get.to(const LandingPage()),
+                          child: SvgPicture.asset(
+                            Assets.svg.service360,
+                            height: size.height * 0.0343,
+                          ),
                         ),
                         IconButton(
                             onPressed: () {},
@@ -85,6 +89,7 @@ class ServiceSingle extends StatelessWidget {
                     ),
                   ),
                   ExpanService(
+                    expantileOpen: true,
                     title: AppText.complement,
                     children: [
                       Text(
@@ -97,6 +102,7 @@ class ServiceSingle extends StatelessWidget {
                     ],
                   ),
                   ExpanService(
+                    expantileOpen: true,
                     title: AppText.reason + title,
                     children: [
                       Text(
@@ -109,20 +115,26 @@ class ServiceSingle extends StatelessWidget {
                     ],
                   ),
                   ExpanService(
+                    expantileOpen: true,
                     title: AppText.keywords,
                     children: [RequiermentList(items: keyword)],
                   ),
                   (AppDimens.xlarge).height,
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                        color: AppColors.primaryDefaultS,
-                        borderRadius: BorderRadius.circular(4)),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        AppText.knowMore,
-                        style: AppTextStyles.landingPage.copyWith(fontSize: 16),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.padding),
+                    child: Container(
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: AppColors.primaryDefaultS,
+                          borderRadius: BorderRadius.circular(4)),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          AppText.getadvise,
+                          style:
+                              AppTextStyles.landingPage.copyWith(fontSize: 16),
+                        ),
                       ),
                     ),
                   ),

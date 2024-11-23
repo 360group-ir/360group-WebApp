@@ -62,13 +62,13 @@ class Group2 extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           Assets.svg.groper360,
-                          height: 64,
+                          height: size.height*.068,
                         ),
                         (AppDimens.large * 3).height,
                         Image.asset(
                           Assets.png.qrcode.path,
+
                         ),
-                        (AppDimens.xlarge).height
                       ],
                     ),
                   ),
@@ -100,8 +100,12 @@ class Group2 extends StatelessWidget {
                   ),
                   // Pan list
                   const ExpanGroup(title: AppText.departman1, children: [
-                    CostumTextButton(title: 'طراح رابط کاربری',),
-                    CostumTextButton(title: 'طراح گرافیک',),
+                    CostumTextButton(
+                      title: 'طراح رابط کاربری',
+                    ),
+                    CostumTextButton(
+                      title: 'طراح گرافیک',
+                    ),
                     CostumTextButton()
                   ]),
 

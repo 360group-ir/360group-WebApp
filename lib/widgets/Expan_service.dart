@@ -5,9 +5,10 @@ import 'package:service_360/component/res/text_styles.dart';
 
 // ignore: must_be_immutable
 class ExpanService extends StatelessWidget {
-  ExpanService({super.key, required this.title, required this.children});
+  ExpanService({super.key, required this.title, required this.children, required this.expantileOpen});
   final String title; 
   List<Widget> children;
+  final bool expantileOpen;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -17,6 +18,7 @@ class ExpanService extends StatelessWidget {
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(4)),
           child: ExpansionTile(
+            initiallyExpanded: expantileOpen,
               expansionAnimationStyle: AnimationStyle(
                   curve: Curves.ease,
                   duration: const Duration(milliseconds: 600)),

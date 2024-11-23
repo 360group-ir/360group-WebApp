@@ -22,11 +22,12 @@ class RequiermentList extends StatelessWidget {
             itemCount: items.length,
             itemBuilder: (context, index) {
               return ListTile(
+                titleAlignment: ListTileTitleAlignment.titleHeight,
                 minVerticalPadding: AppDimens.small,
                 minTileHeight: 10,
                 trailing: const Icon(
                   Icons.circle,
-                  size: 4,
+                  size: 6,
                   color: Colors.black,
                 ),
                 title: Text(

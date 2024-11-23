@@ -50,19 +50,22 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
 
             // indicator
             Positioned(
-              bottom: size.height * 0.12,
+              bottom: size.height * 0.11,
               right: 0,
               left: 0,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: items.asMap().entries.map((entry) {
                   return GestureDetector(
-                    onTap: () => setState(() => _current = entry.key),
+                    onTap: () {
+                      setState(() => _current = entry.key );
+                      controller.animateToPage(_current); 
+                    },
                     child: Container(
-                      width: 10,
-                      height: 10,
+                      width: 12,
+                      height: 12,
                       margin: const EdgeInsets.symmetric(
-                          vertical: 8.0, horizontal: 4.0),
+                          vertical: 8.0, horizontal: 5),
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _current == entry.key

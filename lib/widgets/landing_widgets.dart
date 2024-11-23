@@ -29,23 +29,23 @@ class _GroupeWidgetState extends State<GroupeWidget> {
       width: double.infinity,
       color: AppColors.primaryDefaultG,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          (size.height*0.3).height,
+          (size.height * 0.34).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.groper360,
+              height: size.height * 0.19,
             ),
           ),
-          (size.height*0.03).height,
+          (size.height * 0.03).height,
           const Text(
             AppText.landingSgroup,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.center,
             style: AppTextStyles.landingPage,
           ),
-          (size.height*0.065).height,
+          (size.height * 0.08).height,
           Container(
             width: 190,
             height: 40,
@@ -65,7 +65,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
                   style: TextStyle(color: Colors.black, fontSize: 18),
                 )),
           ),
-
+          (size.height * 0.162).height
         ],
       ),
     );
@@ -91,24 +91,23 @@ class _ServiceWidgetState extends State<ServiceWidget> {
       width: double.infinity,
       color: AppColors.primaryDefaultS,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-
         children: [
-          (size.height*0.3).height,
+          (size.height * 0.34).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.service360,
+              height: size.height * 0.19,
             ),
           ),
-          (size.height*0.03).height,
+          (size.height * 0.03).height,
           const Text(
             AppText.landingService,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.center,
             style: AppTextStyles.landingPage,
           ),
-          (size.height*0.065).height,
+          (size.height * 0.08).height,
           Container(
             width: 190,
             height: 40,
@@ -121,14 +120,13 @@ class _ServiceWidgetState extends State<ServiceWidget> {
             child: ElevatedButton(
                 onPressed: () {
                   Get.to(const ServiceMainPage());
-                  
                 },
                 child: const Text(
                   AppText.showServices,
                   style: TextStyle(color: Colors.black, fontSize: 18),
                 )),
           ),
-          // (size.height*0.19).height
+          (size.height * 0.162).height
         ],
       ),
     );
@@ -154,30 +152,27 @@ class _ToolsWidgetState extends State<ToolsWidget> {
       width: double.infinity,
       color: AppColors.primaryDefaultT,
       child: Column(
-
-        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          (size.height*0.3).height,
+          (size.height * 0.34).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.tools360,
+              height: size.height * 0.19,
             ),
           ),
-          (size.height*0.03).height,
+          (size.height * 0.03).height,
           const Text(
             AppText.landingTools,
             textAlign: TextAlign.center,
             textDirection: TextDirection.rtl,
             style: AppTextStyles.landingPageTools,
           ),
-          (size.height*0.065).height,
+          (size.height * 0.08).height,
           Container(
             width: 190,
-            height: 44,
-            decoration: const BoxDecoration(
-
-              boxShadow: [
+            height: 40,
+            decoration: const BoxDecoration(boxShadow: [
               BoxShadow(
                   color: AppColors.shadowColor1,
                   offset: Offset(0, 16),
@@ -188,10 +183,11 @@ class _ToolsWidgetState extends State<ToolsWidget> {
                 child: const Text(
                   AppText.comingSoon,
                   textDirection: TextDirection.rtl,
-                  style: TextStyle(color: Color.fromARGB(255, 161, 161, 170), fontSize: 18),
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 161, 161, 170), fontSize: 18),
                 )),
           ),
-          // (size.height*0.19).height
+          (size.height * 0.162).height
         ],
       ),
     );
