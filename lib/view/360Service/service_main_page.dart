@@ -105,7 +105,7 @@ class ServiceMainPage extends StatelessWidget {
                       serviceDesc[index],
                       style:
                           AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-                      textAlign: TextAlign.justify,
+                      textAlign: TextAlign.right,
                       textDirection: TextDirection.rtl,
                     ),
                     AppDimens.padding.height,

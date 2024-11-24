@@ -46,6 +46,7 @@ class _SendReqFormState extends State<SendReqForm> {
         duration: const Duration(seconds: 4),
       );
       // مسیر فایل: result.files.single.path
+      //TODO:
       print('File Selected: ${result.files.single.name}');
     } else {
       print('No file selected');
@@ -77,14 +78,17 @@ class _SendReqFormState extends State<SendReqForm> {
           const ReqFormTextfeild(
             hintText: 'نام و نام خانوادگی ',
             maxLin: 1,
+            keyboardType: TextInputType.name,
           ),
           const ReqFormTextfeild(
             hintText: ' شماره موبایل ',
             maxLin: 1,
+            keyboardType: TextInputType.number,
           ),
           const ReqFormTextfeild(
             hintText: 'متن درخواست  ',
             maxLin: 6,
+            keyboardType: TextInputType.text,
           ),
           AppDimens.padding.height,
           // Upload Button

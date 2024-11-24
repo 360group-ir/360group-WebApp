@@ -18,6 +18,7 @@ class ExpanService extends StatelessWidget {
           decoration: BoxDecoration(
               color: Colors.white, borderRadius: BorderRadius.circular(4)),
           child: ExpansionTile(
+            clipBehavior: Clip.hardEdge,
             initiallyExpanded: expantileOpen,
               expansionAnimationStyle: AnimationStyle(
                   curve: Curves.ease,

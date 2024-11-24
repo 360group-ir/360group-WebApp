@@ -54,7 +54,7 @@ class ServiceSingle extends StatelessWidget {
                               color: Colors.white,
                             )),
                         GestureDetector(
-                          onTap: () => Get.to(const LandingPage()),
+                          onTap: () => Get.offAll(const LandingPage(),),
                           child: SvgPicture.asset(
                             Assets.svg.service360,
                             height: size.height * 0.0343,
@@ -96,7 +96,7 @@ class ServiceSingle extends StatelessWidget {
                         complement,
                         style:
                             AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-                        textAlign: TextAlign.justify,
+                        textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                       )
                     ],
@@ -109,12 +109,12 @@ class ServiceSingle extends StatelessWidget {
                         importance,
                         style:
                             AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-                        textAlign: TextAlign.justify,
+                        textAlign: TextAlign.right,
                         textDirection: TextDirection.rtl,
                       ),
                     ],
                   ),
-                  ExpanService(
+                  ExpanService( 
                     expantileOpen: true,
                     title: AppText.keywords,
                     children: [RequiermentList(items: keyword)],

@@ -1,6 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/widgets/landing_widgets.dart';
 
 // ignore: must_be_immutable
@@ -26,6 +26,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: AppColors.scaffoldBG2,
       body: Builder(
         builder: (context) {
           return Stack(children: [
@@ -35,13 +36,11 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                     viewportFraction: 1.0,
                     enlargeCenterPage: false,
                     initialPage: 1,
+                    animateToClosest: true,
+                    scrollPhysics: const PageScrollPhysics(),
                     onPageChanged: (index, reason) {
                       setState(() {
-                        //TODO: Kdebug Mode
                         _current = index;
-                        if (kDebugMode) {
-                          print(_current);
-                        }
                       });
                     },
                     enableInfiniteScroll: false),
@@ -50,7 +49,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
 
             // indicator
             Positioned(
-              bottom: size.height * 0.11,
+              bottom: size.height * 0.1,
               right: 0,
               left: 0,
               child: Row(
@@ -58,8 +57,8 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                 children: items.asMap().entries.map((entry) {
                   return GestureDetector(
                     onTap: () {
-                      setState(() => _current = entry.key );
-                      controller.animateToPage(_current); 
+                      setState(() => _current = entry.key);
+                      controller.animateToPage(_current);
                     },
                     child: Container(
                       width: 12,

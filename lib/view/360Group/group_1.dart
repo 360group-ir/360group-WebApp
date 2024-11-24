@@ -64,11 +64,12 @@ class Group1 extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           Assets.svg.groper360,
-                          height: size.height * .068,
+                          height: size.height * .085,
                         ),
                         (AppDimens.large * 3).height,
                         Image.asset(
                           Assets.png.qrcode.path,
+                           height: size.height * .128,
                         ),
                       ],
                     ),
@@ -181,7 +182,8 @@ class Group1 extends StatelessWidget {
                           imgUrl: userList[index]!['imgUrl'],
                           name: userList[index]!['name'],
                           side: userList[index]!['side'],
-                          // email:userList[index]!['emailUrl'] ,
+                          email:userList[index]!['emailUrl'] ,
+                          linkdin:userList[index]!['LinkdinUrl'] ,
                         );
                       },
                     )

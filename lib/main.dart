@@ -6,14 +6,21 @@ import 'package:get/get.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    Center(
-      child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 430),
-          child: const MyApp()),
+    LayoutBuilder(
+      builder: (context, constraints) {
+        final isDesktop = constraints.maxWidth > 800; // تشخیص دسکتاپ
+        return Center(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(
+              maxWidth: isDesktop ? 435 : constraints.maxWidth,
+            ),
+            child: const MyApp(),
+          ),
+        );
+      },
     ),
   );
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 

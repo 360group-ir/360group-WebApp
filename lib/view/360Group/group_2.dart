@@ -8,6 +8,7 @@ import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/gen/assets.gen.dart';
+import 'package:service_360/view/360Group/group_3.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/text_button.dart';
@@ -49,11 +50,11 @@ class Group2 extends StatelessWidget {
                   ),
                 )),
             body: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
+              physics: const ClampingScrollPhysics(),
               child: Column(
                 children: [
                   //Qr code groupe
-                  Container(
+                   Container(
                     color: AppColors.primaryDefaultG,
                     height: 400,
                     width: size.width,
@@ -62,12 +63,12 @@ class Group2 extends StatelessWidget {
                       children: [
                         SvgPicture.asset(
                           Assets.svg.groper360,
-                          height: size.height*.068,
+                          height: size.height * .085,
                         ),
                         (AppDimens.large * 3).height,
                         Image.asset(
                           Assets.png.qrcode.path,
-
+                           height: size.height * .128,
                         ),
                       ],
                     ),
@@ -99,14 +100,18 @@ class Group2 extends StatelessWidget {
                     ),
                   ),
                   // Pan list
-                  const ExpanGroup(title: AppText.departman1, children: [
+                   ExpanGroup(title: AppText.departman1, children: [
                     CostumTextButton(
-                      title: 'طراح رابط کاربری',
+                      title: 'طراح رابط کاربری',onpress: (){
+                        Get.to(const Group3(jobOfferTitle: "front End"));
+                      },
                     ),
                     CostumTextButton(
-                      title: 'طراح گرافیک',
+                      title: 'طراح گرافیک',onpress: (){
+                        Get.to(const Group3(jobOfferTitle: "front End"));
+                      }
                     ),
-                    CostumTextButton()
+                    const CostumTextButton()
                   ]),
 
                   (AppDimens.xlarge).height,

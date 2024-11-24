@@ -30,7 +30,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
       color: AppColors.primaryDefaultG,
       child: Column(
         children: [
-          (size.height * 0.34).height,
+          (size.height * 0.32).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
@@ -45,7 +45,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
             textAlign: TextAlign.center,
             style: AppTextStyles.landingPage,
           ),
-          (size.height * 0.08).height,
+          (size.height * 0.07).height,
           Container(
             width: 190,
             height: 40,
@@ -62,10 +62,10 @@ class _GroupeWidgetState extends State<GroupeWidget> {
                 child: const Text(
                   AppText.knowMore,
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.black, fontSize: 18),
+                  style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.162).height
+          (size.height * 0.12).height
         ],
       ),
     );
@@ -92,7 +92,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
       color: AppColors.primaryDefaultS,
       child: Column(
         children: [
-          (size.height * 0.34).height,
+          (size.height * 0.32).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
@@ -107,7 +107,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
             textAlign: TextAlign.center,
             style: AppTextStyles.landingPage,
           ),
-          (size.height * 0.08).height,
+          (size.height * 0.07).height,
           Container(
             width: 190,
             height: 40,
@@ -123,10 +123,10 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                 },
                 child: const Text(
                   AppText.showServices,
-                  style: TextStyle(color: Colors.black, fontSize: 18),
+                  style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.162).height
+          (size.height * 0.12).height
         ],
       ),
     );
@@ -153,7 +153,7 @@ class _ToolsWidgetState extends State<ToolsWidget> {
       color: AppColors.primaryDefaultT,
       child: Column(
         children: [
-          (size.height * 0.34).height,
+          (size.height * 0.32).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
@@ -168,7 +168,7 @@ class _ToolsWidgetState extends State<ToolsWidget> {
             textDirection: TextDirection.rtl,
             style: AppTextStyles.landingPageTools,
           ),
-          (size.height * 0.08).height,
+          (size.height * 0.07).height,
           Container(
             width: 190,
             height: 40,
@@ -187,7 +187,7 @@ class _ToolsWidgetState extends State<ToolsWidget> {
                       color: Color.fromARGB(255, 161, 161, 170), fontSize: 18),
                 )),
           ),
-          (size.height * 0.162).height
+          (size.height * 0.12).height
         ],
       ),
     );

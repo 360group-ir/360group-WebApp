@@ -130,7 +130,11 @@ List<String> serviceImportance = [
   'گیمیفیکیشن تنها یک ابزار سرگرمی نیست، بلکه یک راهبرد اثربخش برای افزایش تعامل و انگیزه در میان کارکنان، دانش‌آموزان و مشتریان است. به‌کارگیری گیمیفیکیشن به‌خصوص در محیط‌های کسب‌وکار و آموزش، نشان داده است که می‌تواند بهره‌وری و انگیزه افراد را به طرز چشمگیری افزایش دهد.',
 ];
 
-List<String> frontItems = [
+Map <String ,Map > jobOfferMap = {
+  "front End" : {
+    "title" : AppText.front,
+    'desc' : AppText.frontdesc,
+    "reqLIst" : [
   'تسلط کامل به HTML، CSS و JavaScript',
   'آشنایی با فریم‌ورک‌ها و کتابخانه‌ها: مانند React، Vue.js یا Angular',
   'آشنایی با CSS Preprocessors: مانند SASS یا LESS',
@@ -143,7 +147,11 @@ List<String> frontItems = [
   'مهارت‌های نرم: کار تیمی، مدیریت زمان و ارتباطات',
   'آشنایی با Progressive Web Apps (PWA)',
   'دارای تجربه کاری مرتبط علاقه‌مند به یادگیری و به‌روز بودن با تکنولوژی‌های جدید',
-];
+],
+
+  },
+};
+ 
 
 Map<int, List<String>> keyWords = {
   0: [

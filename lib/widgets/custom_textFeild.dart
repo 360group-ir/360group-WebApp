@@ -5,18 +5,19 @@ import 'package:service_360/component/res/app_colors.dart';
 
 class CustomTextFeild extends StatelessWidget {
   const CustomTextFeild({
-    super.key,
+    super.key, required this.keyboardType,
   });
-
+final TextInputType keyboardType ;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(vertical: AppDimens.small),
+    return  Padding(
+      padding: const EdgeInsets.symmetric(vertical: AppDimens.small),
       child: SizedBox(
         height: 40,
         child: TextField(
+          keyboardType: keyboardType,
           textAlign: TextAlign.center,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "....",
             alignLabelWithHint: true,
             focusColor: AppColors.neutralLight,

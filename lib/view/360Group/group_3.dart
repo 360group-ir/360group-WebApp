@@ -14,8 +14,9 @@ import 'package:service_360/widgets/requierment_widget.dart';
 import 'package:service_360/widgets/send_req_form.dart';
 
 class Group3 extends StatelessWidget {
-  const Group3({super.key});
+  const Group3({super.key, required this.jobOfferTitle});
 
+final String jobOfferTitle ;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -43,7 +44,7 @@ class Group3 extends StatelessWidget {
                               color: Colors.white,
                             )),
                         GestureDetector(
-                          onTap: () => Get.to(const LandingPage()),
+                          onTap: () => Get.offAll(const LandingPage() , transition: Transition.cupertino),
                           child: SvgPicture.asset(
                             Assets.svg.groper360,
                             height: size.height * 0.0343,
@@ -57,16 +58,17 @@ class Group3 extends StatelessWidget {
                   ),
                 )),
             body: SingleChildScrollView(
+              physics: const ClampingScrollPhysics(),
               child: Column(
                 children: [
                   AppDimens.xlarge.height,
-                  const Padding(
+                   Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: AppDimens.padding),
+                        const EdgeInsets.symmetric(horizontal: AppDimens.padding),
                     child: Align(
                       alignment: Alignment.centerRight,
                       child: Text(
-                        AppText.front,
+                        jobOfferMap[jobOfferTitle]!['title'],
                         style: AppTextStyles.titleStyle,
                         textDirection: TextDirection.rtl,
                       ),
@@ -75,11 +77,11 @@ class Group3 extends StatelessWidget {
 
                   AppDimens.xlarge.height,
 
-                  const Padding(
+                   Padding(
                     padding:
-                        EdgeInsets.symmetric(horizontal: AppDimens.padding),
+                        const EdgeInsets.symmetric(horizontal: AppDimens.padding),
                     child: Text(
-                      AppText.frontdesc,
+                      jobOfferMap[jobOfferTitle]!['desc'],
                       textDirection: TextDirection.rtl,
                       style: AppTextStyles.descriptionStyle,
                     ),
@@ -106,7 +108,9 @@ class Group3 extends StatelessWidget {
                             ),
                           ),
                         ),
-                        RequiermentList(items: frontItems,),
+                        RequiermentList(
+                          items: jobOfferMap[jobOfferTitle]!['reqLIst'],
+                        ),
                       ],
                     ),
                   ),

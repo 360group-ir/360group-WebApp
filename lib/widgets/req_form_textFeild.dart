@@ -8,17 +8,18 @@ import 'package:service_360/component/res/text_styles.dart';
 class ReqFormTextfeild extends StatelessWidget {
   const ReqFormTextfeild({
     super.key,
-    required this.hintText, required this.maxLin,
+    required this.hintText, required this.maxLin, required this.keyboardType,
   });
   final String hintText;
   final int maxLin ;
+  final TextInputType keyboardType ;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(
            AppDimens.small ,AppDimens.padding,AppDimens.small,0),
       child: Container(
-        // height: 40,
         padding:const EdgeInsets.symmetric(horizontal:  AppDimens.small) ,
         decoration: const BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -38,6 +39,7 @@ class ReqFormTextfeild extends StatelessWidget {
         child: TextField(
           textAlign: TextAlign.right,
           maxLines: maxLin,
+          keyboardType:keyboardType ,
           decoration: InputDecoration(
               hintText: hintText,
               hintTextDirection: TextDirection.rtl,
