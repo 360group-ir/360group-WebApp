@@ -15,22 +15,25 @@ final String title ;
 final onpress ;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(AppDimens.small),
-      child: Container(
-        width: double.infinity,
-        height: 48,
-        decoration: BoxDecoration(
-              color: AppColors.neutralLight,
-              border: Border.all(color: AppColors.neutralDark),
-              borderRadius: BorderRadius.circular(4)),
-        child: TextButton(
-          onPressed: onpress,
-          child:   Center(
-                child: Text(
-              title,
-              style: AppTextStyles.descriptionTitleStyle,
-            )),
+    return ConstrainedBox(
+      constraints: const BoxConstraints(maxWidth: 435),
+      child: Padding(
+        padding: const EdgeInsets.all(AppDimens.small),
+        child: Container(
+          width: double.infinity,
+          height: 48,
+          decoration: BoxDecoration(
+                color: AppColors.neutralLight,
+                border: Border.all(color: AppColors.neutralDark),
+                borderRadius: BorderRadius.circular(4)),
+          child: TextButton(
+            onPressed: onpress,
+            child:   Center(
+                  child: Text(
+                title,
+                style: AppTextStyles.descriptionTitleStyle,
+              )),
+          ),
         ),
       ),
     );

@@ -13,9 +13,9 @@ class FullscreenSlider extends StatefulWidget {
 
 class _FullscreenSliderState extends State<FullscreenSlider> {
   final List<Widget> items = [
-    const ServiceWidget(),
-    const GroupeWidget(),
     const ToolsWidget(),
+    const GroupeWidget(),
+    const ServiceWidget(),
   ];
 
   final CarouselSliderController controller = CarouselSliderController();
@@ -36,6 +36,11 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                     viewportFraction: 1.0,
                     enlargeCenterPage: false,
                     initialPage: 1,
+                    autoPlayAnimationDuration: Durations.extralong4,
+                    autoPlayCurve: Easing.legacy,
+                    pauseAutoPlayOnManualNavigate: true,
+                    pauseAutoPlayOnTouch: true,
+                    autoPlay: true,
                     animateToClosest: true,
                     scrollPhysics: const PageScrollPhysics(),
                     onPageChanged: (index, reason) {
@@ -43,7 +48,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                         _current = index;
                       });
                     },
-                    enableInfiniteScroll: false),
+                    enableInfiniteScroll: true),
                 carouselController: controller,
                 items: items),
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:service_360/component/responsive.dart';
 import 'package:service_360/view/landing_page.dart';
 import 'package:get/get.dart';
 
@@ -8,12 +9,17 @@ void main() {
   runApp(
     LayoutBuilder(
       builder: (context, constraints) {
-        final isDesktop = constraints.maxWidth > 800; // تشخیص دسکتاپ
         return Center(
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxWidth: isDesktop ? 435 : constraints.maxWidth,
-            ),
+                maxWidth: Responsive.isDesktop(context)
+                    // ? 1080
+                    ?constraints.maxWidth
+                    : Responsive.isTablet(context)
+                        ? constraints.maxWidth
+                        : Responsive.isMobile(context)
+                            ? constraints.maxWidth
+                            : 435),
             child: const MyApp(),
           ),
         );
@@ -21,6 +27,7 @@ void main() {
     ),
   );
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -36,7 +43,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
       ),
-      
+      defaultTransition: Transition.cupertinoDialog,
+      transitionDuration: Durations.extralong4,
       debugShowCheckedModeBanner: false,
       home: const LandingPage(),
     );

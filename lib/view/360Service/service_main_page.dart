@@ -7,6 +7,7 @@ import 'package:service_360/component/extentions.dart';
 import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
+import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Service/service_single.dart';
 import 'package:service_360/view/landing_page.dart';
@@ -58,84 +59,98 @@ class ServiceMainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 360 title
-            const Padding(
-              padding: EdgeInsets.fromLTRB(
-                  0, AppDimens.xlarge, AppDimens.padding, 0),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Text(
-                  AppText.serviceTitle,
-                  style: AppTextStyles.titleStyle,
-                  textDirection: TextDirection.rtl,
-                ),
-              ),
-            ),
-            // List view
-            ListView.builder(
-              shrinkWrap: true,
-              itemCount: serviceTitle.length,
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return ExpanService(
-                  expantileOpen: false,
-                  title: serviceTitle[index],
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.to(
-                            ServiceSingle(
-                              title: serviceTitle[index],
-                              complement: serviceComplement[index],
-                              importance: serviceImportance[index],
-                              keyword: keyWords[index]!.toList(growable: true),
-                            ),
-                            transition: Transition.leftToRight,
-                            fullscreenDialog: true);
-                      },
-                      child: SizedBox(
-                          // width: size.width,
-                          // height: size.width,
-                          child: Image.asset(
-                        Assets.png.imagePlaceH.path,
-                      )),
-                    ),
-                    AppDimens.padding.height,
-                    Text(
-                      serviceDesc[index],
-                      style:
-                          AppTextStyles.tileChildrenStyle.copyWith(height: 2),
-                      textAlign: TextAlign.right,
-                      textDirection: TextDirection.rtl,
-                    ),
-                    AppDimens.padding.height,
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: AppColors.primaryDefaultS,
-                          borderRadius: BorderRadius.circular(4)),
-                      child: TextButton(
-                        onPressed: () {
-                          Get.to(
-                              ServiceSingle(
-                                title: serviceTitle[index],
-                                complement: serviceComplement[index],
-                                importance: serviceImportance[index],
-                                keyword: keyWords[index]!.toList(growable: true),
-                              ),
-                              transition: Transition.leftToRight,
-                              fullscreenDialog: true);
-                        },
-                        child: Text(
-                          AppText.knowMore,
-                          style:
-                              AppTextStyles.landingPage.copyWith(fontSize: 16),
-                        ),
+           
+            ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: Responsive.isDesktop(context)?1080:size.width),
+              child: Column(
+                children: [
+                   // 360 title
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(
+                        0, AppDimens.xlarge, AppDimens.padding, 0),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: Text(
+                        AppText.serviceTitle,
+                        style: AppTextStyles.titleStyle,
+                        textDirection: TextDirection.rtl,
                       ),
                     ),
-                  ],
-                );
-              },
+                  ),
+                  // List view
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: serviceTitle.length,
+                    physics: const BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return ExpanService(
+                        expantileOpen: false,
+                        title: serviceTitle[index],
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              Get.to(
+                                  ServiceSingle(
+                                    title: serviceTitle[index],
+                                    complement: serviceComplement[index],
+                                    importance: serviceImportance[index],
+                                    keyword: keyWords[index]!.toList(growable: true),
+                                  ),
+                                  transition: Transition.leftToRight,
+                                  fullscreenDialog: true);
+                            },
+                            child: Visibility(
+                              visible: false,
+                              child: SizedBox(
+                                  // width: size.width,
+                                  // height: size.width,
+                                  child: Image.asset(
+                                Assets.png.imagePlaceH.path,
+                              )),
+                            ),
+                          ),
+                          AppDimens.padding.height,
+                          Text(
+                            serviceDesc[index],
+                            style:
+                                AppTextStyles.tileChildrenStyle.copyWith(height: 2),
+                            textAlign: TextAlign.right,
+                            textDirection: TextDirection.rtl,
+                          ),
+                          AppDimens.padding.height,
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 435),
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: AppColors.primaryDefaultS,
+                                  borderRadius: BorderRadius.circular(4)),
+                              child: TextButton(
+                                onPressed: () {
+                                  Get.to(
+                                      ServiceSingle(
+                                        title: serviceTitle[index],
+                                        complement: serviceComplement[index],
+                                        importance: serviceImportance[index],
+                                        keyword: keyWords[index]!.toList(growable: true),
+                                      ),
+                                      transition: Transition.leftToRight,
+                                      fullscreenDialog: true);
+                                },
+                                child: Text(
+                                  AppText.knowMore,
+                                  style:
+                                      AppTextStyles.landingPage.copyWith(fontSize: 16),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                ],
+              ),
             ),
             (size.height * 0.05).height,
             Footer(

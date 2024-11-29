@@ -131,7 +131,6 @@ class _SendReqFormState extends State<SendReqForm> {
                           CupertinoIcons.checkmark,
                           color: Colors.green,
                           weight: 28,
-                          grade: 20,
                         ),
                 ),
               ),

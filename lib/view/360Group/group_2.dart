@@ -7,6 +7,7 @@ import 'package:service_360/component/extentions.dart';
 import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
+import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Group/group_3.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
@@ -54,65 +55,80 @@ class Group2 extends StatelessWidget {
               child: Column(
                 children: [
                   //Qr code groupe
-                   Container(
+                  Container(
                     color: AppColors.primaryDefaultG,
-                    height: 400,
+                    // height: 400,
                     width: size.width,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        (AppDimens.large).height,
                         SvgPicture.asset(
                           Assets.svg.groper360,
-                          height: size.height * .085,
+                          width: Responsive.isDesktop(context)
+                              ? size.width * 0.2
+                              : size.width * 0.3,
                         ),
-                        (AppDimens.large * 3).height,
+                        (AppDimens.large * 2).height,
                         Image.asset(
                           Assets.png.qrcode.path,
-                           height: size.height * .128,
                         ),
+                        (AppDimens.large).height,
                       ],
                     ),
                   ),
                   AppDimens.xlarge.height,
-                  //Job Offers Text
-                  const Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: AppDimens.padding),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        AppText.jobOfferTitle,
-                        style: AppTextStyles.titleStyle,
-                        textDirection: TextDirection.rtl,
-                        textAlign: TextAlign.justify,
-                      ),
+                  //constrainteed box
+                  ConstrainedBox(
+                    constraints: BoxConstraints(
+                        maxWidth:
+                            Responsive.isDesktop(context) ? 1080 : size.width),
+                    child: Column(
+                      children: [
+                        //Job Offers Text
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.padding),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              AppText.jobOfferTitle,
+                              style: AppTextStyles.titleStyle,
+                              textDirection: TextDirection.rtl,
+                              textAlign: TextAlign.justify,
+                            ),
+                          ),
+                        ),
+                        AppDimens.xlarge.height,
+                        // Job offer text
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: AppDimens.padding),
+                          child: Text(
+                            AppText.jobOffersdesc,
+                            textDirection: TextDirection.rtl,
+                            style: AppTextStyles.descriptionStyle,
+                          ),
+                        ),
+                        // Pan list
+                        ExpanGroup(title: AppText.departman1, children: [
+                          CostumTextButton(
+                            title: 'طراح رابط کاربری',
+                            onpress: () {
+                              Get.to(const Group3(jobOfferTitle: "front End"));
+                            },
+                          ),
+                          CostumTextButton(
+                              title: 'طراح گرافیک',
+                              onpress: () {
+                                Get.to(
+                                    const Group3(jobOfferTitle: "front End"));
+                              }),
+                          const CostumTextButton()
+                        ]),
+                      ],
                     ),
                   ),
-                  AppDimens.xlarge.height,
-                  // Job offer text
-                  const Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: AppDimens.padding),
-                    child: Text(
-                      AppText.jobOffers2,
-                      textDirection: TextDirection.rtl,
-                      style: AppTextStyles.descriptionStyle,
-                    ),
-                  ),
-                  // Pan list
-                   ExpanGroup(title: AppText.departman1, children: [
-                    CostumTextButton(
-                      title: 'طراح رابط کاربری',onpress: (){
-                        Get.to(const Group3(jobOfferTitle: "front End"));
-                      },
-                    ),
-                    CostumTextButton(
-                      title: 'طراح گرافیک',onpress: (){
-                        Get.to(const Group3(jobOfferTitle: "front End"));
-                      }
-                    ),
-                    const CostumTextButton()
-                  ]),
 
                   (AppDimens.xlarge).height,
 

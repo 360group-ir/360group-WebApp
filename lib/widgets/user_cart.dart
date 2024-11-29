@@ -21,7 +21,8 @@ class UsersCart extends StatefulWidget {
     required this.imgUrl,
     required this.name,
     required this.side,
-    required this.email, required this.linkdin,
+    required this.email,
+    required this.linkdin,
   });
   final List<String> imgUrl;
   final String name;
@@ -55,8 +56,10 @@ class _UsersCartState extends State<UsersCart> {
 
   @override
   Widget build(BuildContext context) {
+    // Size size = MediaQuery.sizeOf(context);s
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: AppDimens.small),
+      padding: const EdgeInsets.symmetric(
+          vertical: AppDimens.small, horizontal: AppDimens.padding),
       child: SizedBox(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -68,7 +71,7 @@ class _UsersCartState extends State<UsersCart> {
                 onTap: () {
                   if (_currentIndex != widget.imgUrl.length - 1) {
                     setState(() {
-                      _currentIndex = _currentIndex+1;
+                      _currentIndex = _currentIndex + 1;
                     });
                   } else {
                     setState(() {
@@ -83,13 +86,14 @@ class _UsersCartState extends State<UsersCart> {
                   fadeOutDuration: Durations.long2,
                   placeholder: (context, url) {
                     return SizedBox(
-                      height: 457.5,
+                      height: Responsive.isDesktop(context)? 596 : 505,
                       child: Center(
                           child: LoadingAnimationWidget.progressiveDots(
                               color: AppColors.primaryDefaultG, size: 50)),
                     );
                   },
                   cacheManager: CustomCacheManager.instance,
+                  
                 ),
               ),
             ).animate().fadeIn(duration: Durations.medium3),
@@ -110,13 +114,13 @@ class _UsersCartState extends State<UsersCart> {
                 IconWidget(
                   assetsName: Assets.svg.icon3,
                   text: AppText.linkdin,
-                  onpress:()=> launchUrl(Uri.parse(widget.linkdin)),
+                  onpress: () => launchUrl(Uri.parse(widget.linkdin)),
                 ),
                 AppDimens.padding.width,
                 IconWidget(
                   assetsName: Assets.svg.icon2,
                   text: AppText.email,
-                  onpress:()=> launchUrl(Uri.parse("mailto:${widget.email}")),
+                  onpress: () => launchUrl(Uri.parse("mailto:${widget.email}")),
                 )
               ],
             )
@@ -129,7 +133,7 @@ class _UsersCartState extends State<UsersCart> {
   Future<void> _sendEmail(String path) async {
     final Uri emailUri = Uri(
       scheme: 'mailto',
-      path: path, // 
+      path: path, //
       query: Uri.encodeFull(
           'subject=موضوع ایمیل&body=متن ایمیل'), // موضوع و متن ایمیل
     );
@@ -147,9 +151,9 @@ Map<int, Map> userList = {
     'name': "سینا گلزار",
     'side': "مدیر عامل",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/sina%20Golzar/IMG_2868.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/sina%20Golzar/IMG_2865.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/sina%20Golzar/IMG_2857.png"
+      'https://360bucket.storage.c2.liara.space/images%20/sina/IMG_2857%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/sina/IMG_2865%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/sina/IMG_2868%201080.png'
     ],
     'LinkdinUrl':
         "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
@@ -159,43 +163,40 @@ Map<int, Map> userList = {
     'name': "احسان قابچی",
     'side': "مدیریت اجرایی",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Ehsan%20Ghabchi/IMG_2817.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Ehsan%20Ghabchi/IMG_2824.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Ehsan%20Ghabchi/IMG_2827.png",
+      'https://360bucket.storage.c2.liara.space/images%20/ehsan/IMG_2817%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/ehsan/IMG_2824%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/ehsan/IMG_2827%201080.png',
     ],
-    'LinkdinUrl':
-        "https://www.linkedin.com/in/ehsanghabchi/",
+    'LinkdinUrl': "https://www.linkedin.com/in/ehsanghabchi/",
     'emailUrl': "ghabchi@360group.ir",
   },
   2: {
     'name': "امیرحسین اسکندرپور",
     'side': "مسئول فناوری و زیر ساخت",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/amirhossein%20EskandarPour/IMG_3056.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/amirhossein%20EskandarPour/IMG_3066.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/amirhossein%20EskandarPour/IMG_3068.png",
+      'https://360bucket.storage.c2.liara.space/images%20/amirhossein/IMG_3056%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/amirhossein/IMG_3066%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/amirhossein/IMG_3068%201080.png',
     ],
-    'LinkdinUrl':
-        "https://www.linkedin.com/in/amirhossein-es/",
+    'LinkdinUrl': "https://www.linkedin.com/in/amirhossein-es/",
     'emailUrl': "eskandarpour@360group.ir",
   },
   3: {
     'name': "زهرا سراجی",
     'side': "طراحی گرافیکی",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Zahra%20Seraji/IMG_2763.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Zahra%20Seraji/IMG_2756%20ss.png",
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/Zahra%20Seraji/IMG_2769.png'
+      'https://360bucket.storage.c2.liara.space/images%20/zahra/IMG_2756%20ss%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/zahra/IMG_2763%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/zahra/IMG_2769%201080.png',
     ],
-    'LinkdinUrl':
-        "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
+    'LinkdinUrl': "https://www.linkedin.com/in/zahra-seraji/",
     'emailUrl': "seraji@360group.ir",
   },
   4: {
     'name': "مهرداد صفری",
     'side': "حسابداری",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/mehrdad%20safari%20/IMG_2979.png"
+      "https://360bucket.storage.c2.liara.space/images%20/mehrdad/IMG_2979%201080%20%281%29.png"
     ],
     'LinkdinUrl':
         "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
@@ -205,48 +206,44 @@ Map<int, Map> userList = {
     'name': "امید غدیری",
     'side': "مسئول تولید محتوا و طراحی",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Omid%20Ghadiri/IMG_2831.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Omid%20Ghadiri/IMG_2800.png",
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Omid%20Ghadiri/IMG_2792.png"
+      "https://360bucket.storage.c2.liara.space/images%20/omid/IMG_2792%201080.png",
+      "https://360bucket.storage.c2.liara.space/images%20/omid/IMG_2800%201080.png",
+      "https://360bucket.storage.c2.liara.space/images%20/omid/IMG_2831%201080.png"
     ],
-    'LinkdinUrl':
-        "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
+    'LinkdinUrl': "http://www.linkedin.com/in/omid-ghadiri/",
     'emailUrl': "ghadiri@360group.ir",
   },
   6: {
     'name': "رامتین بریلی",
     'side': "توسعه دهنده اپلیکیشن ( فلاتر)",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/Ramtin%20Boreli%20/IMG_3021.png",
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/Ramtin%20Boreli%20/IMG_3008.png',
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/Ramtin%20Boreli%20/IMG_3022.png'
+      'https://360bucket.storage.c2.liara.space/images%20/ramtin/IMG_3021%201080.png',
+      "https://360bucket.storage.c2.liara.space/images%20/ramtin/IMG_3008%201080.png",
+      'https://360bucket.storage.c2.liara.space/images%20/ramtin/IMG_3022%201080.png'
     ],
-    'LinkdinUrl':
-        "https://www.linkedin.com/in/ramtin-boreili/",
+    'LinkdinUrl': "https://www.linkedin.com/in/ramtin-boreili/",
     'emailUrl': "boreili@360group.ir",
   },
   7: {
-    'name': "امیر علی زیبا دخت",
+    'name': "امیر علی زیبادخت",
     'side': "کارشناس تولید محتوا ",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/amir%20ali%20zibadokht/Amirali.png",
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/amir%20ali%20zibadokht/57d67505-8142-43d9-8619-dcd94589d81d.png',
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/amir%20ali%20zibadokht/b253a91f-05c4-4524-9ce4-3f85f3608ec0.png'
+      "https://360bucket.storage.c2.liara.space/images%20/amirali/Amirali%201080.png",
+      'https://360bucket.storage.c2.liara.space/images%20/amirali/amirali%202%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/amirali/amirali%203%201080.png'
     ],
-    'LinkdinUrl':
-        "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
+    'LinkdinUrl': "https://www.linkedin.com/in/amirali-zibadokht/",
     'emailUrl': "https://ramtindev.storage.c2.liara.space/360%20text/image.png",
   },
   8: {
     'name': "شایان علم بیگی",
     'side': "توسعه دهنده بک اند",
     'imgUrl': [
-      "https://360bucket.storage.c2.liara.space/Our%20Team%20/shayan%20Beigi%20/IMG_3261.png",
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/shayan%20Beigi%20/IMG_3262.png',
-      'https://360bucket.storage.c2.liara.space/Our%20Team%20/shayan%20Beigi%20/IMG_3264.png'
+      "https://360bucket.storage.c2.liara.space/images%20/shayan/IMG_3261%201080.png",
+      'https://360bucket.storage.c2.liara.space/images%20/shayan/IMG_3262%201080.png',
+      'https://360bucket.storage.c2.liara.space/images%20/shayan/IMG_3264%201080.png'
     ],
-    'LinkdinUrl':
-        "https://www.linkedin.com/in/shayan-alambeigi/",
+    'LinkdinUrl': "https://www.linkedin.com/in/shayan-alambeigi/",
     'emailUrl': "beigi@360group.ir",
   },
 };
@@ -257,7 +254,7 @@ class CustomCacheManager {
       'customCacheKey',
       stalePeriod: const Duration(days: 7), // مدت زمانی که فایل‌ها در کش بمانند
       maxNrOfCacheObjects: 150,
-       // تعداد فایل‌های کش
+      // تعداد فایل‌های کش
     ),
   );
 }
