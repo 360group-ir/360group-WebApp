@@ -11,6 +11,7 @@ import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/Expan_service.dart';
+import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/requierment_widget.dart';
 import 'package:service_360/widgets/video_player.dart';
@@ -33,6 +34,7 @@ class ServiceSingle extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
+          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultS),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -64,7 +66,7 @@ class ServiceSingle extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {showFullScreenDrawer(context , AppColors.primaryDefaultS);},
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
                     ),

@@ -10,6 +10,7 @@ import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/landing_page.dart';
+import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/requierment_widget.dart';
 import 'package:service_360/widgets/send_req_form.dart';
@@ -23,6 +24,7 @@ class Group3 extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
+          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -53,7 +55,9 @@ class Group3 extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
+                            },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
                     ),

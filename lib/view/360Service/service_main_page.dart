@@ -12,6 +12,7 @@ import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Service/service_single.dart';
 import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/Expan_service.dart';
+import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 
 class ServiceMainPage extends StatelessWidget {
@@ -22,6 +23,7 @@ class ServiceMainPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
+          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultS),
       backgroundColor: AppColors.neutralLight,
       appBar: PreferredSize(
           preferredSize: Size(size.width, size.height * 0.08),
@@ -50,7 +52,7 @@ class ServiceMainPage extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {showFullScreenDrawer(context,AppColors.primaryDefaultS);},
                       icon: SvgPicture.asset(Assets.svg.group)),
                 ],
               ),

@@ -11,6 +11,7 @@ import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Group/group_3.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
+import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/text_button.dart';
 
@@ -22,6 +23,7 @@ class Group2 extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
+          drawer: CustomDrawer(partColor: AppColors.primaryDefaultG,),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -44,7 +46,9 @@ class Group2 extends StatelessWidget {
                               color: Colors.white,
                             )),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
+                            },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
                     ),
@@ -130,7 +134,7 @@ class Group2 extends StatelessWidget {
                     ),
                   ),
 
-                  (AppDimens.xlarge).height,
+                  (size.height*.1).height,
 
                   Footer(
                     color: AppColors.primaryDefaultG,

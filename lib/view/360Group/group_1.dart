@@ -32,7 +32,7 @@ class Group1 extends StatelessWidget {
     return SafeArea(
         child: Scaffold(
             backgroundColor: AppColors.neutralLight,
-            drawer: CustomDrawer(),
+            drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,),
             // appBar
             appBar: PreferredSize(
                 preferredSize: Size(
@@ -58,7 +58,7 @@ class Group1 extends StatelessWidget {
                         const Expanded(child: SizedBox()),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(context);
+                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -286,7 +286,7 @@ class Group1 extends StatelessWidget {
                   ),
                   // about us
 
-                  (AppDimens.xlarge * 2).height,
+                  (size.height*.1).height,
 
                   Footer(
                       color: AppColors.primaryDefaultG,
