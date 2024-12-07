@@ -24,7 +24,7 @@ class Group3 extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,),
+          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,logo: 0,),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -56,7 +56,7 @@ class Group3 extends StatelessWidget {
                         ),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
+                              showFullScreenDrawer(context,AppColors.primaryDefaultG,0);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],

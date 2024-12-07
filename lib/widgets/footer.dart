@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:service_360/component/dimens.dart';
 import 'package:service_360/component/extentions.dart';
 import 'package:service_360/gen/assets.gen.dart';
+import 'package:service_360/view/360Group/group_1.dart';
 import 'package:service_360/view/contact_us.dart';
 
 class Footer extends StatelessWidget {
@@ -34,20 +35,21 @@ class Footer extends StatelessWidget {
             children: [
               IconButton(
                   onPressed: () {
-                    Get.to( ContactUs(
+                    Get.to(ContactUs(
                       maincolor: color,
                     ));
                   },
-                  icon: SvgPicture.asset(
-                    Assets.svg.vector1,
-                    height: 30,
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn)
-                  )),
+                  hoverColor: Colors.transparent,
+                  icon: SvgPicture.asset(Assets.svg.vector1,
+                      height: 30,
+                      colorFilter: const ColorFilter.mode(
+                          Colors.white, BlendMode.srcIn))),
               (AppDimens.large * 2).width,
               IconButton(
+                  hoverColor: Colors.transparent,
                   onPressed: () {
-                    // launchUrl();
+                    launchURL(
+                        'https://www.instagram.com/360group.ir?igsh=ZGR3OGN3ejF4aXIx');
                   },
                   icon: SvgPicture.asset(
                     Assets.svg.instagram,
@@ -57,17 +59,14 @@ class Footer extends StatelessWidget {
                   )),
               (AppDimens.large * 2).width,
               IconButton(
+                  hoverColor: Colors.transparent,
                   onPressed: () {
-                    Get.to( ContactUs(
-                      maincolor: color,
-                    ));
+                    sendEmail('marketing@360group.ir');
                   },
-                  icon: SvgPicture.asset(
-                    Assets.svg.mail,
-                    height: 38,
-                    colorFilter:
-                        const ColorFilter.mode(Colors.white, BlendMode.srcIn)
-                  ))
+                  icon: SvgPicture.asset(Assets.svg.mail,
+                      height: 38,
+                      colorFilter: const ColorFilter.mode(
+                          Colors.white, BlendMode.srcIn)))
             ],
           ),
         ],

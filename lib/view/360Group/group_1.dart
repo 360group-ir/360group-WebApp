@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -12,9 +13,11 @@ import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Group/group_2.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
 import 'package:service_360/widgets/Icon_widget.dart';
+import 'package:service_360/widgets/costum_bottomshit.dart';
 import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/user_cart.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Group1 extends StatelessWidget {
   const Group1({super.key});
@@ -23,16 +26,13 @@ class Group1 extends StatelessWidget {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
-    // int crossAxisCount = 2;
-    // if (Responsive.isTablet(context)) {
-    //   crossAxisCount = 4;
-    // } else if (Responsive.isDesktop(context)) {
-    //   crossAxisCount = 6;
-    // }
     return SafeArea(
         child: Scaffold(
             backgroundColor: AppColors.neutralLight,
-            drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,),
+            drawer: const CustomDrawer(
+              partColor: AppColors.primaryDefaultG,
+              logo: 0,
+            ),
             // appBar
             appBar: PreferredSize(
                 preferredSize: Size(
@@ -45,7 +45,6 @@ class Group1 extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         horizontal: AppDimens.padding),
                     child: Row(
-                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                             onPressed: () {
@@ -58,7 +57,8 @@ class Group1 extends StatelessWidget {
                         const Expanded(child: SizedBox()),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
+                              showFullScreenDrawer(
+                                  context, AppColors.primaryDefaultG, 0);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -81,8 +81,8 @@ class Group1 extends StatelessWidget {
                         SvgPicture.asset(
                           Assets.svg.groper360,
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.2
-                              : size.width * 0.3,
+                              ? size.width * 0.15
+                              : size.width * 0.2,
                         ),
                         (AppDimens.large * 2).height,
                         Image.asset(
@@ -105,7 +105,7 @@ class Group1 extends StatelessWidget {
                         ExpanGroup(
                           title: "درباره ما ",
                           children: [
-                            AppDimens.padding.height,
+                            AppDimens.small.height,
                             const Text(
                               AppText.aboutUs,
                               style: AppTextStyles.tileChildrenStyle,
@@ -118,78 +118,47 @@ class Group1 extends StatelessWidget {
                         //Contact Us
                         ExpanGroup(title: 'راه‌های ارتباطی', children: [
                           AppDimens.small.height,
-                          // Responsive.isMobile ?
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: AppDimens.large),
+                                horizontal: AppDimens.padding),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: Responsive.isDesktop(context)
+                                  ? MainAxisAlignment.spaceEvenly
+                                  : MainAxisAlignment.spaceBetween,
                               children: [
                                 IconWidget(
-                                  assetsName: Assets.svg.vector,
+                                  iconName: CupertinoIcons.phone_fill,
                                   text: AppText.phone,
-                                ),
-                                Visibility(
-                                  visible: Responsive.isTablet(context)
-                                      ? true
-                                      : Responsive.isDesktop(context)
-                                          ? true
-                                          : false,
-                                  child: IconWidget(
-                                    assetsName: Assets.svg.icon3,
-                                    text: AppText.linkdin,
-                                  ),
+                                  onpress: () {
+                                    makePhoneCall('tel:${02191099213}');
+                                  },
                                 ),
                                 IconWidget(
-                                  assetsName: Assets.svg.icon,
-                                  text: AppText.website,
-                                ),
-                                IconWidget(
-                                  assetsName: Assets.svg.icon1,
+                                  iconName: CupertinoIcons.location_solid,
                                   text: AppText.address,
-                                ),
-                                Visibility(
-                                  visible: Responsive.isTablet(context)
-                                      ? true
-                                      : Responsive.isDesktop(context)
-                                          ? true
-                                          : false,
-                                  child: IconWidget(
-                                    assetsName: Assets.svg.icon4,
-                                    text: AppText.insta,
-                                  ),
+                                  onpress: () {
+                                    Get.bottomSheet(
+                                      MainBottomShit(),
+                                      isScrollControlled: true,
+                                    );
+                                  },
                                 ),
                                 IconWidget(
-                                  assetsName: Assets.svg.icon2,
+                                  assetsName: Assets.svg.icon4,
+                                  text: AppText.insta,
+                                  onpress: () {
+                                    launchURL(
+                                        'https://www.instagram.com/360group.ir?igsh=ZGR3OGN3ejF4aXIx');
+                                  },
+                                ),
+                                IconWidget(
+                                  iconName: CupertinoIcons.mail_solid,
                                   text: AppText.email,
+                                  onpress: () {
+                                    sendEmail('marketing@360group.ir');
+                                  },
                                 ),
                               ],
-                            ),
-                          ),
-                          (AppDimens.padding * 2).height,
-                          Visibility(
-                            visible: Responsive.isTablet(context)
-                                ? false
-                                : Responsive.isDesktop(context)
-                                    ? false
-                                    : true,
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: AppDimens.large),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  IconWidget(
-                                    assetsName: Assets.svg.icon3,
-                                    text: AppText.linkdin,
-                                  ),
-                                  IconWidget(
-                                    assetsName: Assets.svg.icon4,
-                                    text: AppText.insta,
-                                  ),
-                                ],
-                              ),
                             ),
                           ),
                         ]),
@@ -208,20 +177,33 @@ class Group1 extends StatelessWidget {
                           ),
                           AppDimens.xlarge.height,
                           ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 435),
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
+                            constraints: const BoxConstraints(maxWidth: 192),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors
+                                  .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
+                              child: Container(
+                                height: 48,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
                                   color: AppColors.primaryDefaultG,
-                                  borderRadius: BorderRadius.circular(4)),
-                              child: TextButton(
-                                onPressed: () {
-                                  Get.to(const Group2());
-                                },
-                                child: Text(
-                                  AppText.knowMore,
-                                  style: AppTextStyles.landingPage
-                                      .copyWith(fontSize: 16),
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: TextButton(
+                                  onPressed: () {
+                                    Get.to(const Group2());
+                                  },
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: AppColors
+                                        .primaryDefaultG, // رنگ پس‌زمینه
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    AppText.knowMore,
+                                    style: AppTextStyles.landingPage
+                                        .copyWith(fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
@@ -286,11 +268,16 @@ class Group1 extends StatelessWidget {
                   ),
                   // about us
 
-                  (size.height*.1).height,
+                  (size.height * 0.1).height,
 
-                  Footer(
-                      color: AppColors.primaryDefaultG,
-                      logoPath: Assets.svg.groper360)
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: Footer(
+                        color: AppColors.primaryDefaultG,
+                        logoPath: Assets.svg.groper360),
+                  )
                 ],
               ),
             )));
@@ -323,3 +310,48 @@ List<Map<String, dynamic>> items = [
     "text": AppText.insta,
   },
 ];
+
+void makePhoneCall(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    print('Could not launch $url');
+  }
+}
+
+void launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    if (kDebugMode) {
+      print('Could not launch $url');
+    }
+  }
+}
+
+void sendEmail(String recipientEmail) async {
+  const String subject = "موضوع ایمیل"; // موضوع ایمیل
+  const String body = "سلام، این متن پیش‌فرض ایمیل است."; // متن ایمیل
+
+  final Uri emailUri = Uri(
+    scheme: 'mailto',
+    path: recipientEmail,
+    query: encodeQueryParameters(<String, String>{
+      'subject': subject,
+      'body': body,
+    }),
+  );
+
+  if (await canLaunchUrl(emailUri)) {
+    await launchUrl(emailUri);
+  } else {
+    throw 'Could not launch $emailUri';
+  }
+}
+
+String? encodeQueryParameters(Map<String, String> params) {
+  return params.entries
+      .map((e) =>
+          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+      .join('&');
+}

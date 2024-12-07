@@ -14,38 +14,47 @@ import 'package:service_360/view/contact_us.dart';
 import 'package:service_360/view/landing_page.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key, required this.partColor});
+  const CustomDrawer({super.key, required this.partColor, required this.logo});
   final Color partColor;
+  final int logo;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
+        appBar: PreferredSize(
+            preferredSize: Size(size.width, size.height * 0.08),
+            child: Container(
+              height: size.height * 0.08,
+              color: partColor,
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: AppDimens.padding),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    IconButton(
+                        onPressed: () {
+                          Get.back();
+                        },
+                        icon: const Icon(
+                          CupertinoIcons.left_chevron,
+                          color: Colors.white,
+                        )),
+                  ],
+                ),
+              ),
+            )),
         body: Container(
           color: partColor,
           height: size.height,
           width: double.infinity,
           child: Column(
             children: [
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: AppDimens.small ,vertical: 4),
-                child: Row(
-                  children: [
-                    IconButton(
-                        onPressed: () => Get.back(),
-                        icon: const Icon(
-                          CupertinoIcons.xmark,
-                          color: Colors.white,
-                        )),
-                    (size.height * 0.045).height,
-                    const SizedBox.square()
-                  ],
-                ),
-              ),
+              AppDimens.small.height,
               SvgPicture.asset(
-                Assets.svg.groper360,
-                height: size.height * 0.18,
+                logo==0 ? Assets.svg.groper360 : Assets.svg.service360,
+                height: size.height * 0.15,
                 colorFilter:
                     const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
@@ -64,7 +73,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.offAll(const Group1());
+                  Get.to(const Group1());
                 },
               ),
               (size.height * 0.04).height,
@@ -114,7 +123,7 @@ class CustomDrawer extends StatelessWidget {
   }
 }
 
-void showFullScreenDrawer(BuildContext context, Color partColor) {
+void showFullScreenDrawer(BuildContext context, Color partColor , int logo) {
   showModalBottomSheet(
     useRootNavigator: false,
     constraints: const BoxConstraints(maxWidth: double.infinity),
@@ -126,6 +135,7 @@ void showFullScreenDrawer(BuildContext context, Color partColor) {
     builder: (BuildContext context) {
       return CustomDrawer(
         partColor: partColor,
+        logo: logo,
       );
     },
     backgroundColor: Colors.transparent,

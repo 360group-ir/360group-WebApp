@@ -46,7 +46,7 @@ dependencies:
   cached_network_image: ^3.4.1
   flutter_animate: ^4.5.0
   flutter_cache_manager: ^3.0.0
-
+  dio: ^5.7.0
 
 
 dev_dependencies:

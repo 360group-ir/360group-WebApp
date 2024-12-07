@@ -23,7 +23,10 @@ class Group2 extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: CustomDrawer(partColor: AppColors.primaryDefaultG,),
+            drawer: const CustomDrawer(
+              partColor: AppColors.primaryDefaultG,
+              logo: 0,
+            ),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -47,7 +50,11 @@ class Group2 extends StatelessWidget {
                             )),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(context,AppColors.primaryDefaultG,);
+                              showFullScreenDrawer(
+                                context,
+                                AppColors.primaryDefaultG,
+                                0
+                              );
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -70,8 +77,8 @@ class Group2 extends StatelessWidget {
                         SvgPicture.asset(
                           Assets.svg.groper360,
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.2
-                              : size.width * 0.3,
+                              ? size.width * 0.15
+                              : size.width * 0.2,
                         ),
                         (AppDimens.large * 2).height,
                         Image.asset(
@@ -128,18 +135,22 @@ class Group2 extends StatelessWidget {
                                 Get.to(
                                     const Group3(jobOfferTitle: "front End"));
                               }),
-                          const CostumTextButton()
+                         
                         ]),
                       ],
                     ),
                   ),
 
-                  (size.height*.1).height,
+                  (size.height * 0.1).height,
 
-                  Footer(
-                    color: AppColors.primaryDefaultG,
-                    logoPath: Assets.svg.groper360,
-                  ),
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: Footer(
+                        color: AppColors.primaryDefaultG,
+                        logoPath: Assets.svg.groper360),
+                  )
                 ],
               ),
             )));

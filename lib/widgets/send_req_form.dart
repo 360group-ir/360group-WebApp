@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:service_360/component/dimens.dart';
 import 'package:service_360/component/extentions.dart';
 import 'package:service_360/component/res/app_colors.dart';
 import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
+import 'package:service_360/controller/contact_us_controller.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/widgets/req_form_textFeild.dart';
 
@@ -27,7 +29,7 @@ class SendReqForm extends StatefulWidget {
 
 class _SendReqFormState extends State<SendReqForm> {
   String? selectedFileName; // برای ذخیره نام فایل انتخاب شده
-
+  ContactUsController cUsController = Get.put(ContactUsController());
   Future<void> _pickFile() async {
     // انتخاب فایل با File Picker
     FilePickerResult? result = await FilePicker.platform.pickFiles(
@@ -75,20 +77,26 @@ class _SendReqFormState extends State<SendReqForm> {
             ),
           ),
           // Form Fields
-          const ReqFormTextfeild(
+
+          ReqFormTextfeild(
             hintText: 'نام و نام خانوادگی ',
             maxLin: 1,
-            keyboardType: TextInputType.name,
+            controller: cUsController.emailController,
+            inputType: TextInputType.name,
           ),
-          const ReqFormTextfeild(
+
+          ReqFormTextfeild(
             hintText: ' شماره موبایل ',
             maxLin: 1,
-            keyboardType: TextInputType.number,
+            controller: cUsController.mobileController,
+            inputType: TextInputType.phone,
           ),
-          const ReqFormTextfeild(
+
+          ReqFormTextfeild(
             hintText: 'متن درخواست  ',
-            maxLin: 6,
-            keyboardType: TextInputType.text,
+            maxLin: 10,
+            controller: cUsController.contentController,
+            inputType: TextInputType.multiline,
           ),
           AppDimens.padding.height,
           // Upload Button
@@ -102,8 +110,8 @@ class _SendReqFormState extends State<SendReqForm> {
                   decoration: BoxDecoration(
                       boxShadow: const [
                         BoxShadow(
-                          color: AppColors.shadowColor2,
-                          offset: Offset(0, 2),
+                          color: AppColors.shadowColor,
+                          offset: Offset(0, 1),
                           blurRadius: 4,
                         ),
                         BoxShadow(
@@ -137,32 +145,43 @@ class _SendReqFormState extends State<SendReqForm> {
             ),
           (AppDimens.padding * 2).height,
           // Submit Button
-          ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 435),
-            child: Container(
-              height: 48,
-              width: double.infinity,
-              margin: const EdgeInsets.symmetric(horizontal: AppDimens.medium),
-              decoration: BoxDecoration(
-                  color: widget.color, borderRadius: BorderRadius.circular(4)),
-              child: TextButton(
-                onPressed: () {
-                  // TODO: ارسال اطلاعات و فایل به سرور
-                  Get.snackbar(
-                    'فرم ثبت شد',
-                    'فرم شما ثبت و ارسال شد همکاران ما در اسرع وقت با شما تماس حاصل میکنند',
-                    backgroundColor: AppColors.neutralLight,
-                    duration: const Duration(seconds: 4),
-                  );
-                  // print('Form Submitted');
-                },
-                child: Text(
-                  AppText.send,
-                  style: AppTextStyles.landingPage.copyWith(fontSize: 16),
+          Obx(() => ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 192),
+                child: MouseRegion(
+                  cursor: SystemMouseCursors.click,
+                  child: Container(
+                    height: 48,
+                    width: double.infinity,
+                    margin: const EdgeInsets.symmetric(
+                        horizontal: AppDimens.medium),
+                    decoration: BoxDecoration(
+                        color: widget.color,
+                        borderRadius: BorderRadius.circular(4)),
+                    child: TextButton(
+                      onPressed: cUsController.sendContactUs,
+                      style: TextButton.styleFrom(
+                        backgroundColor:
+                            AppColors.primaryDefaultS, // رنگ پس‌زمینه
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                      ),
+                      child: cUsController.isLoading.value
+                          ? Center(
+                              child: LoadingAnimationWidget.progressiveDots(
+                                color: Colors.white,
+                                size: 38,
+                              ),
+                            )
+                          : Text(
+                              AppText.sendReq,
+                              style: AppTextStyles.landingPage
+                                  .copyWith(fontSize: 16),
+                            ),
+                    ),
+                  ),
                 ),
-              ),
-            ),
-          ),
+              )),
           AppDimens.medium.height,
         ],
       ),

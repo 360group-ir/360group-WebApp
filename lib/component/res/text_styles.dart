@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:service_360/component/res/app_colors.dart';
 
 class AppTextStyles {
-  
   //Code
   static const TextStyle expansionTileChildren = TextStyle(
       color: AppColors.neutralDarker,
@@ -30,6 +29,8 @@ class AppTextStyles {
       color: AppColors.neutralDefault,
       fontSize: 16,
       fontWeight: FontWeight.w600);
+  static const TextStyle snackbar = TextStyle(
+      color: AppColors.neutralLight, fontSize: 16, fontWeight: FontWeight.w600);
 
   static const TextStyle tileTxtStyle =
       TextStyle(color: Colors.black, fontSize: 18, fontWeight: FontWeight.w700);

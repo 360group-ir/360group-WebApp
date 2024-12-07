@@ -10,8 +10,8 @@ class AppColors {
   static const Color neutralDark = Color.fromARGB(255, 110, 110, 115);
   static const Color neutralDefault = Color.fromARGB(255, 161, 161, 170);
   //TODO: Design System 
-  static const Color shadowColor1 = Color.fromARGB(42, 0, 0, 0);
-  static const Color shadowColor2 = Color.fromARGB(25, 12, 12, 13);
+  static const Color shadowColor = Color.fromARGB(25, 12, 12, 13);
+  static const Color shadowColor1 = Color.fromARGB(13, 12, 12, 13);
   static const Color scaffoldBG2 = Color.fromARGB(255, 250, 250, 252);
 
 }

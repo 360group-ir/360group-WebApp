@@ -34,7 +34,10 @@ class ServiceSingle extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultS),
+            drawer: const CustomDrawer(
+              partColor: AppColors.primaryDefaultS,
+              logo: 1,
+            ),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -66,7 +69,10 @@ class ServiceSingle extends StatelessWidget {
                           ),
                         ),
                         IconButton(
-                            onPressed: () {showFullScreenDrawer(context , AppColors.primaryDefaultS);},
+                            onPressed: () {
+                              showFullScreenDrawer(
+                                  context, AppColors.primaryDefaultS, 1);
+                            },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
                     ),
@@ -82,9 +88,9 @@ class ServiceSingle extends StatelessWidget {
                     child: Column(
                       children: [
                         Container(
-                          margin:const EdgeInsets.symmetric(
-                              horizontal: AppDimens.padding,
-                              vertical: AppDimens.xlarge) ,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: AppDimens.padding,
+                                vertical: AppDimens.xlarge),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(4)),
@@ -136,18 +142,29 @@ class ServiceSingle extends StatelessWidget {
                           children: [RequiermentList(items: keyword)],
                         ),
                         (AppDimens.xlarge).height,
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: AppDimens.padding),
-                          child: ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 435),
+                        //Button
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 192),
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors
+                                .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
                             child: Container(
+                              height: 48,
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                  color: AppColors.primaryDefaultS,
-                                  borderRadius: BorderRadius.circular(4)),
+                                color: AppColors.primaryDefaultS,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                },
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      AppColors.primaryDefaultS, // رنگ پس‌زمینه
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                ),
                                 child: Text(
                                   AppText.getadvise,
                                   style: AppTextStyles.landingPage

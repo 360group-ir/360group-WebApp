@@ -25,7 +25,10 @@ class ContactUs extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: CustomDrawer(partColor: maincolor,),
+            drawer: CustomDrawer(
+              partColor: maincolor,
+              logo: 0,
+            ),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -52,7 +55,10 @@ class ContactUs extends StatelessWidget {
                           height: size.height * 0.0343,
                         ),
                         IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              showFullScreenDrawer(
+                                  context, maincolor, 0);
+                            },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
                     ),

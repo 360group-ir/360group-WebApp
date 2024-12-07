@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
@@ -56,7 +57,7 @@ class _UsersCartState extends State<UsersCart> {
 
   @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.sizeOf(context);s
+    // Size size = MediaQuery.sizeOf(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
           vertical: AppDimens.small, horizontal: AppDimens.padding),
@@ -64,39 +65,42 @@ class _UsersCartState extends State<UsersCart> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            MouseRegion(
-              onEnter: (_) => _onHover(true), // هاور ماوس
-              onExit: (_) => _onHover(false),
-              child: GestureDetector(
-                onTap: () {
-                  if (_currentIndex != widget.imgUrl.length - 1) {
-                    setState(() {
-                      _currentIndex = _currentIndex + 1;
-                    });
-                  } else {
-                    setState(() {
-                      _currentIndex = 0;
-                    });
-                  }
-                },
-                child: CachedNetworkImage(
-                  useOldImageOnUrlChange: false,
-                  imageUrl: widget.imgUrl[_currentIndex],
-                  fadeInDuration: Durations.long2,
-                  fadeOutDuration: Durations.long2,
-                  placeholder: (context, url) {
-                    return SizedBox(
-                      height: Responsive.isDesktop(context)? 596 : 505,
-                      child: Center(
-                          child: LoadingAnimationWidget.progressiveDots(
-                              color: AppColors.primaryDefaultG, size: 50)),
-                    );
+            Container(
+              height: Responsive.isDesktop(context)? 596 : 505,
+              child: MouseRegion(
+                onEnter: (_) => _onHover(true), // هاور ماوس
+                onExit: (_) => _onHover(false),
+                child: GestureDetector(
+                  onTap: () {
+                    if (_currentIndex != widget.imgUrl.length - 1) {
+                      setState(() {
+                        _currentIndex = _currentIndex + 1;
+                      });
+                    } else {
+                      setState(() {
+                        _currentIndex = 0;
+                      });
+                    }
                   },
-                  cacheManager: CustomCacheManager.instance,
-                  
+                  child: CachedNetworkImage(
+                    useOldImageOnUrlChange: false,
+                    imageUrl: widget.imgUrl[_currentIndex],
+                    fadeInDuration: Durations.long2,
+                    fadeOutDuration: Durations.long2,
+                    placeholder: (context, url) {
+                      return SizedBox(
+                        height: Responsive.isDesktop(context)? 596 : 505,
+                        child: Center(
+                            child: LoadingAnimationWidget.progressiveDots(
+                                color: AppColors.primaryDefaultG, size: 55)),
+                      );
+                    },
+                    cacheManager: CustomCacheManager.instance,
+                    
+                  ),
                 ),
-              ),
-            ).animate().fadeIn(duration: Durations.medium3),
+              ).animate().fadeIn(duration: Durations.medium3),
+            ),
             AppDimens.small.height,
             Text(
               widget.name,
@@ -118,7 +122,7 @@ class _UsersCartState extends State<UsersCart> {
                 ),
                 AppDimens.padding.width,
                 IconWidget(
-                  assetsName: Assets.svg.icon2,
+                  iconName: CupertinoIcons.mail_solid,
                   text: AppText.email,
                   onpress: () => launchUrl(Uri.parse("mailto:${widget.email}")),
                 )
@@ -225,8 +229,8 @@ Map<int, Map> userList = {
     'emailUrl': "boreili@360group.ir",
   },
   7: {
-    'name': "امیر علی زیبادخت",
-    'side': "کارشناس تولید محتوا ",
+    'name': "امیرعلی زیبادخت",
+    'side': "کارشناس تولید محتوا و طراحی هوش مصنوعی ",
     'imgUrl': [
       "https://360bucket.storage.c2.liara.space/images%20/amirali/Amirali%201080.png",
       'https://360bucket.storage.c2.liara.space/images%20/amirali/amirali%202%201080.png',
@@ -252,9 +256,8 @@ class CustomCacheManager {
   static final BaseCacheManager instance = CacheManager(
     Config(
       'customCacheKey',
-      stalePeriod: const Duration(days: 7), // مدت زمانی که فایل‌ها در کش بمانند
+      stalePeriod: const Duration(days: 7), 
       maxNrOfCacheObjects: 150,
-      // تعداد فایل‌های کش
     ),
   );
 }

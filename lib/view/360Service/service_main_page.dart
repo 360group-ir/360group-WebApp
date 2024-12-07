@@ -23,7 +23,10 @@ class ServiceMainPage extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultS),
+      drawer: const CustomDrawer(
+        partColor: AppColors.primaryDefaultS,
+        logo: 1,
+      ),
       backgroundColor: AppColors.neutralLight,
       appBar: PreferredSize(
           preferredSize: Size(size.width, size.height * 0.08),
@@ -52,7 +55,10 @@ class ServiceMainPage extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                      onPressed: () {showFullScreenDrawer(context,AppColors.primaryDefaultS);},
+                      onPressed: () {
+                        showFullScreenDrawer(
+                            context, AppColors.primaryDefaultS,1);
+                      },
                       icon: SvgPicture.asset(Assets.svg.group)),
                 ],
               ),
@@ -61,12 +67,12 @@ class ServiceMainPage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-           
             ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: Responsive.isDesktop(context)?1080:size.width),
+              constraints: BoxConstraints(
+                  maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
               child: Column(
                 children: [
-                   // 360 title
+                  // 360 title
                   const Padding(
                     padding: EdgeInsets.fromLTRB(
                         0, AppDimens.xlarge, AppDimens.padding, 0),
@@ -96,7 +102,8 @@ class ServiceMainPage extends StatelessWidget {
                                     title: serviceTitle[index],
                                     complement: serviceComplement[index],
                                     importance: serviceImportance[index],
-                                    keyword: keyWords[index]!.toList(growable: true),
+                                    keyword:
+                                        keyWords[index]!.toList(growable: true),
                                   ),
                                   transition: Transition.leftToRight,
                                   fullscreenDialog: true);
@@ -104,8 +111,6 @@ class ServiceMainPage extends StatelessWidget {
                             child: Visibility(
                               visible: false,
                               child: SizedBox(
-                                  // width: size.width,
-                                  // height: size.width,
                                   child: Image.asset(
                                 Assets.png.imagePlaceH.path,
                               )),
@@ -114,39 +119,83 @@ class ServiceMainPage extends StatelessWidget {
                           AppDimens.padding.height,
                           Text(
                             serviceDesc[index],
-                            style:
-                                AppTextStyles.tileChildrenStyle.copyWith(height: 2),
+                            style: AppTextStyles.tileChildrenStyle
+                                .copyWith(height: 2),
                             textAlign: TextAlign.right,
                             textDirection: TextDirection.rtl,
+                            locale: const Locale("Fa"),
                           ),
                           AppDimens.padding.height,
                           ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 435),
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
+                            constraints: const BoxConstraints(maxWidth: 192),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors
+                                  .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
+                              child: Container(
+                                height: 48,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
                                   color: AppColors.primaryDefaultS,
-                                  borderRadius: BorderRadius.circular(4)),
-                              child: TextButton(
-                                onPressed: () {
+                                  borderRadius: BorderRadius.circular(4),
+                                ),
+                                child: TextButton(
+                                  onPressed: () {
                                   Get.to(
                                       ServiceSingle(
                                         title: serviceTitle[index],
                                         complement: serviceComplement[index],
                                         importance: serviceImportance[index],
-                                        keyword: keyWords[index]!.toList(growable: true),
+                                        keyword: keyWords[index]!
+                                            .toList(growable: true),
                                       ),
                                       transition: Transition.leftToRight,
                                       fullscreenDialog: true);
                                 },
-                                child: Text(
-                                  AppText.knowMore,
-                                  style:
-                                      AppTextStyles.landingPage.copyWith(fontSize: 16),
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: AppColors
+                                        .primaryDefaultS, // رنگ پس‌زمینه
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    AppText.knowMore,
+                                    style: AppTextStyles.landingPage
+                                        .copyWith(fontSize: 16),
+                                  ),
                                 ),
                               ),
                             ),
                           ),
+                          // ConstrainedBox(
+                          //   constraints: const BoxConstraints(maxWidth: 192),
+                          //   child: Container(
+                          //     width: double.infinity,
+                          //     height: 48,
+                          //     decoration: BoxDecoration(
+                          //         color: AppColors.primaryDefaultS,
+                          //         borderRadius: BorderRadius.circular(4)),
+                          //     child: TextButton(
+                          //       onPressed: () {
+                          //         Get.to(
+                          //             ServiceSingle(
+                          //               title: serviceTitle[index],
+                          //               complement: serviceComplement[index],
+                          //               importance: serviceImportance[index],
+                          //               keyword: keyWords[index]!
+                          //                   .toList(growable: true),
+                          //             ),
+                          //             transition: Transition.leftToRight,
+                          //             fullscreenDialog: true);
+                          //       },
+                          //       child: Text(
+                          //         AppText.knowMore,
+                          //         style: AppTextStyles.landingPage
+                          //             .copyWith(fontSize: 16),
+                          //       ),
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       );
                     },

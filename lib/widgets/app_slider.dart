@@ -73,8 +73,8 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
                         color: _current == entry.key
-                            ? Colors.white
-                            : Colors.white54,
+                            ? Colors.white.withAlpha(220)
+                            : Colors.white30,
                       ),
                     ),
                   );
