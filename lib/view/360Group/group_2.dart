@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:service_360/component/dimens.dart';
 import 'package:service_360/component/extentions.dart';
 import 'package:service_360/component/res/app_colors.dart';
@@ -10,6 +11,7 @@ import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Group/group_3.dart';
+import 'package:service_360/view/contact_us.dart';
 import 'package:service_360/widgets/Expan_Gruope.dart';
 import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
@@ -51,10 +53,7 @@ class Group2 extends StatelessWidget {
                         IconButton(
                             onPressed: () {
                               showFullScreenDrawer(
-                                context,
-                                AppColors.primaryDefaultG,
-                                0
-                              );
+                                  context, AppColors.primaryDefaultG, 0);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -72,17 +71,29 @@ class Group2 extends StatelessWidget {
                     width: size.width,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      children: [ 
                         (AppDimens.large).height,
                         SvgPicture.asset(
-                          Assets.svg.groper360,
+                          Assets.svg.logo3603,
+                          colorFilter: const ColorFilter.mode(
+                              AppColors.neutralLight, BlendMode.srcIn),
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.15
-                              : size.width * 0.2,
+                              ? size.width * 0.3
+                              : size.width * 0.4,
                         ),
-                        (AppDimens.large * 2).height,
-                        Image.asset(
-                          Assets.png.qrcode.path,
+                        
+                        (AppDimens.large ).height,
+                        QrImageView(
+                          data: Uri.base.toString(),
+                          version: QrVersions.auto,
+                          size: size.height * 0.18,
+                          dataModuleStyle: const QrDataModuleStyle(
+                              dataModuleShape: QrDataModuleShape.square,
+                              color: Colors.white),
+                          eyeStyle: const QrEyeStyle(
+                            eyeShape: QrEyeShape.square,
+                            color: Colors.white,
+                          ),
                         ),
                         (AppDimens.large).height,
                       ],
@@ -122,35 +133,64 @@ class Group2 extends StatelessWidget {
                           ),
                         ),
                         // Pan list
-                        ExpanGroup(title: AppText.departman1, children: [
-                          CostumTextButton(
-                            title: 'طراح رابط کاربری',
-                            onpress: () {
-                              Get.to(const Group3(jobOfferTitle: "front End"));
-                            },
+                        ExpanGroup(
+                            title: AppText.departman1,
+                            expantileOpen: true,
+                            children: [
+                              CostumTextButton(
+                                title: 'طراح رابط کاربری',
+                                onpress: () {
+                                  Get.to(
+                                      const Group3(jobOfferTitle: "front End"));
+                                },
+                              ),
+                            ]),
+                        //Button
+                        AppDimens.xlarge.height,
+                        ConstrainedBox(
+                          constraints: const BoxConstraints(maxWidth: 192),
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors
+                                .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
+                            child: Container(
+                              height: 48,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: AppColors.primaryDefaultG,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                              child: TextButton(
+                                onPressed: () {
+                                  Get.to(const ContactUs(
+                                    maincolor: AppColors.primaryDefaultG,
+                                    uploadResume: true,
+                                  ));
+                                },
+                                style: TextButton.styleFrom(
+                                  backgroundColor:
+                                      AppColors.primaryDefaultG, // رنگ پس‌زمینه
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                ),
+                                child: Text(
+                                  "به ما به پیوندید",
+                                  style: AppTextStyles.landingPage
+                                      .copyWith(fontSize: 16),
+                                ),
+                              ),
+                            ),
                           ),
-                          CostumTextButton(
-                              title: 'طراح گرافیک',
-                              onpress: () {
-                                Get.to(
-                                    const Group3(jobOfferTitle: "front End"));
-                              }),
-                         
-                        ]),
+                        ),
                       ],
                     ),
                   ),
 
                   (size.height * 0.1).height,
 
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    child: Footer(
-                        color: AppColors.primaryDefaultG,
-                        logoPath: Assets.svg.groper360),
-                  )
+                  Footer(
+                      color: AppColors.primaryDefaultG,
+                      logoPath: Assets.svg.groper360)
                 ],
               ),
             )));

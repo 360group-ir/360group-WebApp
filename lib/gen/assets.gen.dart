@@ -71,6 +71,24 @@ class $AssetsSvgGen {
   /// File path: assets/svg/instagram.svg
   String get instagram => 'assets/svg/instagram.svg';
 
+  /// File path: assets/svg/logo3603.svg
+  String get logo3603 => 'assets/svg/logo3603.svg';
+
+  /// File path: assets/svg/logo3605.svg
+  String get logo3605 => 'assets/svg/logo3605.svg';
+
+  /// File path: assets/svg/logo3607.svg
+  String get logo3607 => 'assets/svg/logo3607.svg';
+
+  /// File path: assets/svg/logo360GB.svg
+  String get logo360GB => 'assets/svg/logo360GB.svg';
+
+  /// File path: assets/svg/logo360SB.svg
+  String get logo360SB => 'assets/svg/logo360SB.svg';
+
+  /// File path: assets/svg/logo360TB.svg
+  String get logo360TB => 'assets/svg/logo360TB.svg';
+
   /// File path: assets/svg/service360.svg
   String get service360 => 'assets/svg/service360.svg';
 
@@ -97,6 +115,12 @@ class $AssetsSvgGen {
         email,
         groper360,
         instagram,
+        logo3603,
+        logo3605,
+        logo3607,
+        logo360GB,
+        logo360SB,
+        logo360TB,
         service360,
         tools360,
         upload

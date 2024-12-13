@@ -30,12 +30,13 @@ class _GroupeWidgetState extends State<GroupeWidget> {
       color: AppColors.primaryDefaultG,
       child: Column(
         children: [
-          (size.height * 0.32).height,
+          (size.height * 0.15).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
-              Assets.svg.groper360,
-              height: size.height * 0.19,
+              Assets.svg.logo3603,
+              colorFilter: const ColorFilter.mode(AppColors.neutralLight, BlendMode.srcIn),
+              height: size.height * 0.40,
             ),
           ),
           (size.height * 0.03).height,
@@ -65,7 +66,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
                   style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.12).height
+          (size.height * 0.19).height
         ],
       ),
     );
@@ -92,12 +93,13 @@ class _ServiceWidgetState extends State<ServiceWidget> {
       color: AppColors.primaryDefaultS,
       child: Column(
         children: [
-          (size.height * 0.32).height,
+          (size.height * 0.15).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
-              Assets.svg.service360,
-              height: size.height * 0.19,
+              Assets.svg.logo3607,
+              colorFilter: const ColorFilter.mode(AppColors.neutralLight, BlendMode.srcIn),
+              height: size.height * 0.40,
             ),
           ),
           (size.height * 0.03).height,
@@ -126,7 +128,7 @@ class _ServiceWidgetState extends State<ServiceWidget> {
                   style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.12).height
+           (size.height * 0.19).height
         ],
       ),
     );
@@ -153,12 +155,12 @@ class _ToolsWidgetState extends State<ToolsWidget> {
       color: AppColors.primaryDefaultT,
       child: Column(
         children: [
-          (size.height * 0.32).height,
+          (size.height * 0.15).height,
           Padding(
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
-              Assets.svg.tools360,
-              height: size.height * 0.19,
+              Assets.svg.logo360TB,
+              height: size.height * 0.40,
             ),
           ),
           (size.height * 0.03).height,
@@ -187,7 +189,7 @@ class _ToolsWidgetState extends State<ToolsWidget> {
                       color: Color.fromARGB(255, 161, 161, 170), fontSize: 18),
                 )),
           ),
-          (size.height * 0.12).height
+          (size.height * 0.19).height
         ],
       ),
     );

@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -65,7 +63,7 @@ class _UsersCartState extends State<UsersCart> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Container(
+            SizedBox(
               height: Responsive.isDesktop(context)? 596 : 505,
               child: MouseRegion(
                 onEnter: (_) => _onHover(true), // هاور ماوس
@@ -134,20 +132,6 @@ class _UsersCartState extends State<UsersCart> {
     );
   }
 
-  Future<void> _sendEmail(String path) async {
-    final Uri emailUri = Uri(
-      scheme: 'mailto',
-      path: path, //
-      query: Uri.encodeFull(
-          'subject=موضوع ایمیل&body=متن ایمیل'), // موضوع و متن ایمیل
-    );
-
-    if (await canLaunchUrl(emailUri)) {
-      await launchUrl(emailUri);
-    } else {
-      throw 'Could not launch $emailUri';
-    }
-  }
 }
 
 Map<int, Map> userList = {

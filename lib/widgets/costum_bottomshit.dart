@@ -16,7 +16,8 @@ class MainBottomShit extends StatelessWidget {
     super.key,
   });
 
-  final Uri urlLoc = Uri.parse('https://maps.app.goo.gl/AWRzbnFLYJu42dq1A?g_st=com.google.maps.preview.copy');
+  final Uri urlLoc = Uri.parse(
+      'https://maps.app.goo.gl/AWRzbnFLYJu42dq1A?g_st=com.google.maps.preview.copy');
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class MainBottomShit extends StatelessWidget {
           color: Colors.white,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(4), topRight: Radius.circular(4))),
-      height: size.height * 0.38,
+      height: size.height * 0.5,
       child: Padding(
         padding: const EdgeInsets.all(AppDimens.padding),
         child: Column(
@@ -40,7 +41,7 @@ class MainBottomShit extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(10))),
               ),
             ),
-            AppDimens.small.height,
+            AppDimens.medium.height,
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
@@ -52,7 +53,7 @@ class MainBottomShit extends StatelessWidget {
                 SvgPicture.asset(Assets.svg.icon1),
               ],
             ),
-            (size.height * 0.035).height,
+            (size.height * 0.05).height,
             Align(
               alignment: Alignment.centerRight,
               child: Text(
@@ -62,14 +63,13 @@ class MainBottomShit extends StatelessWidget {
                 style: AppTextStyles.tileChildrenStyle.copyWith(height: 2),
               ),
             ),
-
+            (size.height * 0.05).height,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   width: size.width * 0.75,
-                  height:48, 
-                  // size.width * 0.11,
+                  height: 48,
                   decoration: BoxDecoration(
                       color: AppColors.neutralLight,
                       border: Border.all(color: AppColors.neutralDark),

@@ -11,7 +11,7 @@ import 'package:service_360/view/360Group/group_1.dart';
 import 'package:service_360/view/360Group/group_2.dart';
 import 'package:service_360/view/360Service/service_main_page.dart';
 import 'package:service_360/view/contact_us.dart';
-import 'package:service_360/view/landing_page.dart';
+import 'package:service_360/widgets/app_slider.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key, required this.partColor, required this.logo});
@@ -50,24 +50,25 @@ class CustomDrawer extends StatelessWidget {
           height: size.height,
           width: double.infinity,
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               AppDimens.small.height,
               SvgPicture.asset(
-                logo==0 ? Assets.svg.groper360 : Assets.svg.service360,
-                height: size.height * 0.15,
+                logo==0 ? Assets.svg.logo3603 : Assets.svg.logo3607,
+                width: size.height * 0.26,
                 colorFilter:
                     const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
-              (size.height * 0.05).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('صفحه اصلی',
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.offAll(const LandingPage());
+                  Get.offAll(const FullscreenSlider());
                 },
               ),
-              (size.height * 0.04).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('گروه ۳۶۰',
                     textAlign: TextAlign.center,
@@ -76,7 +77,7 @@ class CustomDrawer extends StatelessWidget {
                   Get.to(const Group1());
                 },
               ),
-              (size.height * 0.04).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('خدمات ۳۶۰',
                     textAlign: TextAlign.center,
@@ -85,16 +86,16 @@ class CustomDrawer extends StatelessWidget {
                   Get.to(const ServiceMainPage());
                 },
               ),
-              (size.height * 0.04).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('ابزار ۳۶۰',
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const LandingPage());
+                  Get.to(const FullscreenSlider());
                 },
               ),
-              (size.height * 0.04).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('فرصت های شغلی',
                     textAlign: TextAlign.center,
@@ -103,7 +104,7 @@ class CustomDrawer extends StatelessWidget {
                   Get.to(const Group2());
                 },
               ),
-              (size.height * 0.04).height,
+              (size.height * 0.03).height,
               ListTile(
                 title: const Text('ارتباط با ما',
                     textAlign: TextAlign.center,

@@ -17,9 +17,11 @@ class ContactUs extends StatelessWidget {
   const ContactUs({
     super.key,
     required this.maincolor,
+    this.uploadResume = false,
   });
 
   final Color maincolor;
+  final bool uploadResume;
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -50,14 +52,9 @@ class ContactUs extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                        SvgPicture.asset(
-                          Assets.svg.groper360,
-                          height: size.height * 0.0343,
-                        ),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(
-                                  context, maincolor, 0);
+                              showFullScreenDrawer(context, maincolor, 0);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -91,7 +88,7 @@ class ContactUs extends StatelessWidget {
                         AppDimens.xlarge.height,
                         SendReqForm(
                           color: maincolor,
-                          uploadResume: false,
+                          uploadResume: uploadResume,
                         ),
                       ],
                     ),

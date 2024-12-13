@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/view/landing_page.dart';
+import 'package:service_360/widgets/app_slider.dart';
 
 
 class Splashscreen extends StatefulWidget {
@@ -16,7 +16,7 @@ class _SplashscreenState extends State<Splashscreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3)).then((onValue) {
-      Get.off(const LandingPage());
+      Get.off(const FullscreenSlider());
     });
     super.initState();
   }

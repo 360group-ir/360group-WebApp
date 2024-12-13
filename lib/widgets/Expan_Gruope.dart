@@ -8,9 +8,11 @@ class ExpanGroup extends StatelessWidget {
     super.key,
     required this.title,
     required this.children,
+    this.expantileOpen = false,
   });
   final String title;
   final List<Widget> children;
+  final bool expantileOpen;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,14 +23,16 @@ class ExpanGroup extends StatelessWidget {
             color: Colors.white, borderRadius: BorderRadius.circular(4)),
         child: ExpansionTile(
           expansionAnimationStyle: AnimationStyle(
-              curve: Curves.ease, duration: const Duration(milliseconds: 600)), 
+              curve: Curves.ease, duration: const Duration(milliseconds: 600)),
           title: Text(
             title,
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.right,
             style: AppTextStyles.tileTxtStyle,
           ),
-          childrenPadding: const EdgeInsets.all(AppDimens.medium),
+          initiallyExpanded: expantileOpen,
+          childrenPadding: const EdgeInsets.symmetric(
+              horizontal: AppDimens.medium, vertical: AppDimens.small),
           iconColor: AppColors.primaryDefaultG,
           collapsedIconColor: Colors.black,
           children: children,

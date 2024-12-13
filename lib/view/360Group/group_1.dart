@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 import 'package:service_360/component/dimens.dart';
 import 'package:service_360/component/extentions.dart';
 import 'package:service_360/component/res/app_colors.dart';
@@ -79,14 +80,26 @@ class Group1 extends StatelessWidget {
                       children: [
                         (AppDimens.large).height,
                         SvgPicture.asset(
-                          Assets.svg.groper360,
+                          Assets.svg.logo3603,
+                          colorFilter: const ColorFilter.mode(
+                              AppColors.neutralLight, BlendMode.srcIn),
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.15
-                              : size.width * 0.2,
+                              ? size.width * 0.3
+                              : size.width * 0.4,
                         ),
-                        (AppDimens.large * 2).height,
-                        Image.asset(
-                          Assets.png.qrcode.path,
+                        
+                        (AppDimens.large ).height,
+                        QrImageView(
+                          data: Uri.base.toString(),
+                          version: QrVersions.auto,
+                          size: size.height * 0.18,
+                          dataModuleStyle: const QrDataModuleStyle(
+                              dataModuleShape: QrDataModuleShape.square,
+                              color: Colors.white),
+                          eyeStyle: const QrEyeStyle(
+                            eyeShape: QrEyeShape.square,
+                            color: Colors.white,
+                          ),
                         ),
                         (AppDimens.large).height,
                       ],
@@ -104,6 +117,7 @@ class Group1 extends StatelessWidget {
                       children: [
                         ExpanGroup(
                           title: "درباره ما ",
+                          expantileOpen: true,
                           children: [
                             AppDimens.small.height,
                             const Text(
@@ -116,52 +130,56 @@ class Group1 extends StatelessWidget {
                         ),
 
                         //Contact Us
-                        ExpanGroup(title: 'راه‌های ارتباطی', children: [
-                          AppDimens.small.height,
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: AppDimens.padding),
-                            child: Row(
-                              mainAxisAlignment: Responsive.isDesktop(context)
-                                  ? MainAxisAlignment.spaceEvenly
-                                  : MainAxisAlignment.spaceBetween,
-                              children: [
-                                IconWidget(
-                                  iconName: CupertinoIcons.phone_fill,
-                                  text: AppText.phone,
-                                  onpress: () {
-                                    makePhoneCall('tel:${02191099213}');
-                                  },
+                        ExpanGroup(
+                            title: 'راه‌های ارتباطی',
+                            expantileOpen: true,
+                            children: [
+                              AppDimens.small.height,
+                              Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: AppDimens.padding),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      Responsive.isDesktop(context)
+                                          ? MainAxisAlignment.spaceEvenly
+                                          : MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    IconWidget(
+                                      iconName: CupertinoIcons.phone_fill,
+                                      text: AppText.phone,
+                                      onpress: () {
+                                        makePhoneCall('tel:${02191099213}');
+                                      },
+                                    ),
+                                    IconWidget(
+                                      iconName: CupertinoIcons.location_solid,
+                                      text: AppText.address,
+                                      onpress: () {
+                                        Get.bottomSheet(
+                                          MainBottomShit(),
+                                          isScrollControlled: true,
+                                        );
+                                      },
+                                    ),
+                                    IconWidget(
+                                      assetsName: Assets.svg.icon4,
+                                      text: AppText.insta,
+                                      onpress: () {
+                                        launchURL(
+                                            'https://www.instagram.com/360group.ir?igsh=ZGR3OGN3ejF4aXIx');
+                                      },
+                                    ),
+                                    IconWidget(
+                                      iconName: CupertinoIcons.mail_solid,
+                                      text: AppText.email,
+                                      onpress: () {
+                                        sendEmail('marketing@360group.ir');
+                                      },
+                                    ),
+                                  ],
                                 ),
-                                IconWidget(
-                                  iconName: CupertinoIcons.location_solid,
-                                  text: AppText.address,
-                                  onpress: () {
-                                    Get.bottomSheet(
-                                      MainBottomShit(),
-                                      isScrollControlled: true,
-                                    );
-                                  },
-                                ),
-                                IconWidget(
-                                  assetsName: Assets.svg.icon4,
-                                  text: AppText.insta,
-                                  onpress: () {
-                                    launchURL(
-                                        'https://www.instagram.com/360group.ir?igsh=ZGR3OGN3ejF4aXIx');
-                                  },
-                                ),
-                                IconWidget(
-                                  iconName: CupertinoIcons.mail_solid,
-                                  text: AppText.email,
-                                  onpress: () {
-                                    sendEmail('marketing@360group.ir');
-                                  },
-                                ),
-                              ],
-                            ),
-                          ),
-                        ]),
+                              ),
+                            ]),
 
                         // Job offers
                         ExpanGroup(title: "فرصت‌های شغلی", children: [
@@ -270,14 +288,9 @@ class Group1 extends StatelessWidget {
 
                   (size.height * 0.1).height,
 
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    child: Footer(
-                        color: AppColors.primaryDefaultG,
-                        logoPath: Assets.svg.groper360),
-                  )
+                  Footer(
+                      color: AppColors.primaryDefaultG,
+                      logoPath: Assets.svg.groper360)
                 ],
               ),
             )));

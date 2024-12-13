@@ -10,7 +10,6 @@ import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
 import 'package:service_360/view/360Service/service_single.dart';
-import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/Expan_service.dart';
 import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
@@ -47,17 +46,10 @@ class ServiceMainPage extends StatelessWidget {
                         CupertinoIcons.left_chevron,
                         color: Colors.white,
                       )),
-                  GestureDetector(
-                    onTap: () => Get.to(const LandingPage()),
-                    child: SvgPicture.asset(
-                      Assets.svg.service360,
-                      height: size.height * 0.0343,
-                    ),
-                  ),
                   IconButton(
                       onPressed: () {
                         showFullScreenDrawer(
-                            context, AppColors.primaryDefaultS,1);
+                            context, AppColors.primaryDefaultS, 1);
                       },
                       icon: SvgPicture.asset(Assets.svg.group)),
                 ],
@@ -92,7 +84,7 @@ class ServiceMainPage extends StatelessWidget {
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return ExpanService(
-                        expantileOpen: false,
+                        expantileOpen: index == 0,
                         title: serviceTitle[index],
                         children: [
                           GestureDetector(
@@ -116,7 +108,7 @@ class ServiceMainPage extends StatelessWidget {
                               )),
                             ),
                           ),
-                          AppDimens.padding.height,
+                          // AppDimens.small.height,
                           Text(
                             serviceDesc[index],
                             style: AppTextStyles.tileChildrenStyle
@@ -129,8 +121,7 @@ class ServiceMainPage extends StatelessWidget {
                           ConstrainedBox(
                             constraints: const BoxConstraints(maxWidth: 192),
                             child: MouseRegion(
-                              cursor: SystemMouseCursors
-                                  .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
+                              cursor: SystemMouseCursors.click, //Mouse to click
                               child: Container(
                                 height: 48,
                                 width: double.infinity,
@@ -140,17 +131,17 @@ class ServiceMainPage extends StatelessWidget {
                                 ),
                                 child: TextButton(
                                   onPressed: () {
-                                  Get.to(
-                                      ServiceSingle(
-                                        title: serviceTitle[index],
-                                        complement: serviceComplement[index],
-                                        importance: serviceImportance[index],
-                                        keyword: keyWords[index]!
-                                            .toList(growable: true),
-                                      ),
-                                      transition: Transition.leftToRight,
-                                      fullscreenDialog: true);
-                                },
+                                    Get.to(
+                                        ServiceSingle(
+                                          title: serviceTitle[index],
+                                          complement: serviceComplement[index],
+                                          importance: serviceImportance[index],
+                                          keyword: keyWords[index]!
+                                              .toList(growable: true),
+                                        ),
+                                        transition: Transition.leftToRight,
+                                        fullscreenDialog: true);
+                                  },
                                   style: TextButton.styleFrom(
                                     backgroundColor: AppColors
                                         .primaryDefaultS, // رنگ پس‌زمینه
@@ -167,35 +158,6 @@ class ServiceMainPage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          // ConstrainedBox(
-                          //   constraints: const BoxConstraints(maxWidth: 192),
-                          //   child: Container(
-                          //     width: double.infinity,
-                          //     height: 48,
-                          //     decoration: BoxDecoration(
-                          //         color: AppColors.primaryDefaultS,
-                          //         borderRadius: BorderRadius.circular(4)),
-                          //     child: TextButton(
-                          //       onPressed: () {
-                          //         Get.to(
-                          //             ServiceSingle(
-                          //               title: serviceTitle[index],
-                          //               complement: serviceComplement[index],
-                          //               importance: serviceImportance[index],
-                          //               keyword: keyWords[index]!
-                          //                   .toList(growable: true),
-                          //             ),
-                          //             transition: Transition.leftToRight,
-                          //             fullscreenDialog: true);
-                          //       },
-                          //       child: Text(
-                          //         AppText.knowMore,
-                          //         style: AppTextStyles.landingPage
-                          //             .copyWith(fontSize: 16),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       );
                     },

@@ -9,7 +9,6 @@ import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/landing_page.dart';
 import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
 import 'package:service_360/widgets/requierment_widget.dart';
@@ -46,14 +45,6 @@ class Group3 extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                        GestureDetector(
-                          onTap: () => Get.offAll(const LandingPage(),
-                              transition: Transition.cupertino),
-                          child: SvgPicture.asset(
-                            Assets.svg.groper360,
-                            height: size.height * 0.0343,
-                          ),
-                        ),
                         IconButton(
                             onPressed: () {
                               showFullScreenDrawer(context,AppColors.primaryDefaultG,0);

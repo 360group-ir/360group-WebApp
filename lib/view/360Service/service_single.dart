@@ -9,7 +9,7 @@ import 'package:service_360/component/res/app_text.dart';
 import 'package:service_360/component/res/text_styles.dart';
 import 'package:service_360/component/responsive.dart';
 import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/landing_page.dart';
+import 'package:service_360/view/contact_us.dart';
 import 'package:service_360/widgets/Expan_service.dart';
 import 'package:service_360/widgets/drawer.dart';
 import 'package:service_360/widgets/footer.dart';
@@ -24,7 +24,7 @@ class ServiceSingle extends StatelessWidget {
       required this.importance,
       required this.keyword});
 
-  final String title;
+  final String title; 
   final String complement;
   final String importance;
   final List<String> keyword;
@@ -59,15 +59,7 @@ class ServiceSingle extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                        GestureDetector(
-                          onTap: () => Get.offAll(
-                            const LandingPage(),
-                          ),
-                          child: SvgPicture.asset(
-                            Assets.svg.service360,
-                            height: size.height * 0.0343,
-                          ),
-                        ),
+                        
                         IconButton(
                             onPressed: () {
                               showFullScreenDrawer(
@@ -124,7 +116,7 @@ class ServiceSingle extends StatelessWidget {
                           ],
                         ),
                         ExpanService(
-                          expantileOpen: true,
+                          expantileOpen: false,
                           title: AppText.reason + title,
                           children: [
                             Text(
@@ -137,7 +129,7 @@ class ServiceSingle extends StatelessWidget {
                           ],
                         ),
                         ExpanService(
-                          expantileOpen: true,
+                          expantileOpen: false,
                           title: AppText.keywords,
                           children: [RequiermentList(items: keyword)],
                         ),
@@ -157,6 +149,7 @@ class ServiceSingle extends StatelessWidget {
                               ),
                               child: TextButton(
                                 onPressed: () {
+                                  Get.to(const ContactUs(maincolor: AppColors.primaryDefaultS));
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor:

@@ -161,7 +161,7 @@ class _SendReqFormState extends State<SendReqForm> {
                       onPressed: cUsController.sendContactUs,
                       style: TextButton.styleFrom(
                         backgroundColor:
-                            AppColors.primaryDefaultS, // رنگ پس‌زمینه
+                            widget.color, // رنگ پس‌زمینه
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(4),
                         ),
