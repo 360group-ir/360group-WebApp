@@ -1,21 +1,21 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/main.dart';
+import 'package:Group360/view/contact_us.dart';
+import 'package:Group360/widgets/Expan_Gruope.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
+import 'package:Group360/widgets/text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/360Group/group_3.dart';
-import 'package:service_360/view/contact_us.dart';
-import 'package:service_360/widgets/Expan_Gruope.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
-import 'package:service_360/widgets/text_button.dart';
 
 class Group2 extends StatelessWidget {
   const Group2({super.key});
@@ -71,18 +71,17 @@ class Group2 extends StatelessWidget {
                     width: size.width,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: [ 
+                      children: [
                         (AppDimens.large).height,
                         SvgPicture.asset(
                           Assets.svg.logo3603,
                           colorFilter: const ColorFilter.mode(
                               AppColors.neutralLight, BlendMode.srcIn),
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.3
-                              : size.width * 0.4,
+                              ? size.width * 0.2
+                              : size.width * 0.40,
                         ),
-                        
-                        (AppDimens.large ).height,
+                        (AppDimens.large).height,
                         QrImageView(
                           data: Uri.base.toString(),
                           version: QrVersions.auto,
@@ -140,8 +139,9 @@ class Group2 extends StatelessWidget {
                               CostumTextButton(
                                 title: 'طراح رابط کاربری',
                                 onpress: () {
-                                  Get.to(
-                                      const Group3(jobOfferTitle: "front End"));
+                                  Get.toNamed(
+                                    '${RouteName.jobofferSingle}?jobOfferTitle=frontEnd'
+                                  );
                                 },
                               ),
                             ]),
@@ -163,7 +163,7 @@ class Group2 extends StatelessWidget {
                                 onPressed: () {
                                   Get.to(const ContactUs(
                                     maincolor: AppColors.primaryDefaultG,
-                                    uploadResume: true,
+                                    uploadResume: false,
                                   ));
                                 },
                                 style: TextButton.styleFrom(
@@ -190,7 +190,7 @@ class Group2 extends StatelessWidget {
 
                   Footer(
                       color: AppColors.primaryDefaultG,
-                      logoPath: Assets.svg.groper360)
+                      logoPath: Assets.svg.footer)
                 ],
               ),
             )));

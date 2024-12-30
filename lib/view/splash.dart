@@ -1,9 +1,8 @@
+import 'package:Group360/view/app_slider.dart';
+import 'package:design_system_360/Colors/mapped.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/widgets/app_slider.dart';
-
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
@@ -25,18 +24,17 @@ class _SplashscreenState extends State<Splashscreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: AppColors.scaffoldBG2,
+        backgroundColor: MappedColors.surface.Background!,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Center(
-            child: LoadingAnimationWidget.progressiveDots(
-              color: AppColors.primaryDefaultG,
-              size: MediaQuery.sizeOf(context).width*0.07,
-            ),
-          )
+                child: LoadingAnimationWidget.progressiveDots(
+                  color: MappedColors.surface.PrimaryG!,
+                  size: MediaQuery.sizeOf(context).width * 0.07,
+                ),
+              )
             ],
           ),
         ),

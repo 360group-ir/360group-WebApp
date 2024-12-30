@@ -1,13 +1,13 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/gen/assets.gen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/gen/assets.gen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
@@ -17,7 +17,7 @@ class MainBottomShit extends StatelessWidget {
   });
 
   final Uri urlLoc = Uri.parse(
-      'https://maps.app.goo.gl/AWRzbnFLYJu42dq1A?g_st=com.google.maps.preview.copy');
+      'https://maps.app.goo.gl/NC1ZVXvjPyw6bjTp8');
 
   @override
   Widget build(BuildContext context) {

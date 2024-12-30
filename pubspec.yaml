@@ -1,4 +1,4 @@
-name: service_360
+name: Group360
 description: "360 Group website"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -48,6 +48,8 @@ dependencies:
   flutter_cache_manager: ^3.0.0
   dio: ^5.7.0
   qr_flutter: ^4.1.0
+  url_strategy: ^0.2.0
+  design_system_360: ^1.0.1
 
 
 dev_dependencies:

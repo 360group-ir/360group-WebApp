@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/res/text_styles.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/res/text_styles.dart';
 
 class RequiermentList extends StatelessWidget {
   const RequiermentList({

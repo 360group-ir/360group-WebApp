@@ -1,29 +1,36 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
+import 'package:Group360/widgets/requierment_widget.dart';
+import 'package:Group360/widgets/send_req_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
-import 'package:service_360/widgets/requierment_widget.dart';
-import 'package:service_360/widgets/send_req_form.dart';
 
+// ignore: must_be_immutable
 class Group3 extends StatelessWidget {
-  const Group3({super.key, required this.jobOfferTitle});
+  const Group3({
+    super.key,
+  });
 
-  final String jobOfferTitle;
+
   @override
   Widget build(BuildContext context) {
+    String jobOfferTitle = Get.parameters['jobOfferTitle']!;
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
-          drawer: const CustomDrawer(partColor: AppColors.primaryDefaultG,logo: 0,),
+            drawer: const CustomDrawer(
+              partColor: AppColors.primaryDefaultG,
+              logo: 0,
+            ),
             backgroundColor: AppColors.neutralLight,
             // appBar
             appBar: PreferredSize(
@@ -47,7 +54,8 @@ class Group3 extends StatelessWidget {
                             )),
                         IconButton(
                             onPressed: () {
-                              showFullScreenDrawer(context,AppColors.primaryDefaultG,0);
+                              showFullScreenDrawer(
+                                  context, AppColors.primaryDefaultG, 0);
                             },
                             icon: SvgPicture.asset(Assets.svg.group)),
                       ],
@@ -130,7 +138,7 @@ class Group3 extends StatelessWidget {
                           AppDimens.xlarge.height,
                           const SendReqForm(
                             color: AppColors.primaryDefaultG,
-                            uploadResume: true,
+                            uploadResume: false,
                           ),
                           AppDimens.large.height,
                         ],
@@ -139,7 +147,7 @@ class Group3 extends StatelessWidget {
                   ),
                   Footer(
                     color: AppColors.primaryDefaultG,
-                    logoPath: Assets.svg.groper360,
+                    logoPath: Assets.svg.footer,
                   ),
                 ],
               ),

@@ -1,9 +1,10 @@
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/controller/Models/contact_us_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/controller/Models/contact_us_model.dart';
+
 
 class ContactUsController extends GetxController {
   final Dio _dio = Dio();

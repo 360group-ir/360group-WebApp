@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:get/get.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/controller/contact_us_controller.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/widgets/req_form_textFeild.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/controller/contact_us_controller.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/widgets/req_form_textFeild.dart';
 
 class SendReqForm extends StatefulWidget {
   const SendReqForm({

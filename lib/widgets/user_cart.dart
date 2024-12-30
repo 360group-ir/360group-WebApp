@@ -1,17 +1,14 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/widgets/Icon_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/widgets/Icon_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UsersCart extends StatefulWidget {
@@ -23,31 +20,27 @@ class UsersCart extends StatefulWidget {
     required this.email,
     required this.linkdin,
   });
+  
   final List<String> imgUrl;
   final String name;
   final String side;
   final String email;
   final String linkdin;
+
   @override
   State<UsersCart> createState() => _UsersCartState();
 }
 
 class _UsersCartState extends State<UsersCart> {
   int _currentIndex = 0; // عکس فعلی
-  // Timer? _timer; // تایمر برای موبایل
-
-  @override
-  void initState() {
-    super.initState();
-    // در اینجا هیچ‌گونه وابستگی به MediaQuery نداریم.
-  }
 
   void _onHover(bool isHovering) {
     if (Responsive.isDesktop(context)) {
-      // در دسکتاپ، هنگام هاور عکس تغییر می‌کند
       if (isHovering) {
-        setState(() {
-          _currentIndex = (_currentIndex + 1) % widget.imgUrl.length;
+        Future.delayed(const Duration(milliseconds: 300), () {
+          setState(() {
+            _currentIndex = (_currentIndex + 1) % widget.imgUrl.length;
+          });
         });
       }
     }
@@ -55,7 +48,6 @@ class _UsersCartState extends State<UsersCart> {
 
   @override
   Widget build(BuildContext context) {
-    // Size size = MediaQuery.sizeOf(context);
     return Padding(
       padding: const EdgeInsets.symmetric(
           vertical: AppDimens.small, horizontal: AppDimens.padding),
@@ -63,41 +55,32 @@ class _UsersCartState extends State<UsersCart> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            SizedBox(
-              height: Responsive.isDesktop(context)? 596 : 505,
-              child: MouseRegion(
-                onEnter: (_) => _onHover(true), // هاور ماوس
-                onExit: (_) => _onHover(false),
-                child: GestureDetector(
-                  onTap: () {
-                    if (_currentIndex != widget.imgUrl.length - 1) {
-                      setState(() {
-                        _currentIndex = _currentIndex + 1;
-                      });
-                    } else {
-                      setState(() {
-                        _currentIndex = 0;
-                      });
-                    }
-                  },
-                  child: CachedNetworkImage(
-                    useOldImageOnUrlChange: false,
-                    imageUrl: widget.imgUrl[_currentIndex],
-                    fadeInDuration: Durations.long2,
-                    fadeOutDuration: Durations.long2,
-                    placeholder: (context, url) {
-                      return SizedBox(
-                        height: Responsive.isDesktop(context)? 596 : 505,
-                        child: Center(
-                            child: LoadingAnimationWidget.progressiveDots(
-                                color: AppColors.primaryDefaultG, size: 55)),
-                      );
-                    },
-                    cacheManager: CustomCacheManager.instance,
-                    
+            MouseRegion(
+              onEnter: (_) => _onHover(true), // هاور ماوس
+              onExit: (_) => _onHover(false),
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _currentIndex = (_currentIndex + 1) % widget.imgUrl.length;
+                  });
+                },
+                child: CachedNetworkImage(
+                  imageUrl: widget.imgUrl[_currentIndex],
+                  height: Responsive.isDesktop(context) ? 596 : 505,
+                  fit: BoxFit.fitHeight,
+                  placeholder: (context, url) => SizedBox(
+                    height: Responsive.isDesktop(context) ? 596 : 505,
+                    child: const Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ),
+                  errorWidget: (context, url, error) => const Icon(
+                    Icons.error,
+                    size: 50,
+                    color: Colors.red,
                   ),
                 ),
-              ).animate().fadeIn(duration: Durations.medium3),
+              ),
             ),
             AppDimens.small.height,
             Text(
@@ -131,8 +114,8 @@ class _UsersCartState extends State<UsersCart> {
       ),
     );
   }
-
 }
+
 
 Map<int, Map> userList = {
   0: {
@@ -240,7 +223,7 @@ class CustomCacheManager {
   static final BaseCacheManager instance = CacheManager(
     Config(
       'customCacheKey',
-      stalePeriod: const Duration(days: 7), 
+      stalePeriod: const Duration(days: 7),
       maxNrOfCacheObjects: 150,
     ),
   );

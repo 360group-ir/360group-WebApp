@@ -1,7 +1,8 @@
+import 'package:Group360/widgets/landing_widgets.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:design_system_360/Colors/mapped.dart';
 import 'package:flutter/material.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/widgets/landing_widgets.dart';
+
 
 // ignore: must_be_immutable
 class FullscreenSlider extends StatefulWidget {
@@ -26,7 +27,7 @@ class _FullscreenSliderState extends State<FullscreenSlider> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBG2,
+      backgroundColor: MappedColors.surface.Background,
       body: Builder(
         builder: (context) {
           return Stack(children: [

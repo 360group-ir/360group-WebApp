@@ -1,23 +1,23 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/main.dart';
+import 'package:Group360/widgets/Expan_Gruope.dart';
+import 'package:Group360/widgets/Icon_widget.dart';
+import 'package:Group360/widgets/costum_bottomshit.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
+import 'package:Group360/widgets/user_cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:qr_flutter/qr_flutter.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/360Group/group_2.dart';
-import 'package:service_360/widgets/Expan_Gruope.dart';
-import 'package:service_360/widgets/Icon_widget.dart';
-import 'package:service_360/widgets/costum_bottomshit.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
-import 'package:service_360/widgets/user_cart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Group1 extends StatelessWidget {
@@ -84,11 +84,10 @@ class Group1 extends StatelessWidget {
                           colorFilter: const ColorFilter.mode(
                               AppColors.neutralLight, BlendMode.srcIn),
                           width: Responsive.isDesktop(context)
-                              ? size.width * 0.3
-                              : size.width * 0.4,
+                              ? size.width * 0.2
+                              : size.width * 0.40,
                         ),
-                        
-                        (AppDimens.large ).height,
+                        (AppDimens.large).height,
                         QrImageView(
                           data: Uri.base.toString(),
                           version: QrVersions.auto,
@@ -155,10 +154,15 @@ class Group1 extends StatelessWidget {
                                       iconName: CupertinoIcons.location_solid,
                                       text: AppText.address,
                                       onpress: () {
-                                        Get.bottomSheet(
-                                          MainBottomShit(),
-                                          isScrollControlled: true,
-                                        );
+                                        if (Responsive.isDesktop(context)) {
+                                          launchURL(
+                                              'https://maps.app.goo.gl/NC1ZVXvjPyw6bjTp8');
+                                        } else {
+                                          Get.bottomSheet(
+                                            MainBottomShit(),
+                                            isScrollControlled: true,
+                                          );
+                                        }
                                       },
                                     ),
                                     IconWidget(
@@ -173,7 +177,7 @@ class Group1 extends StatelessWidget {
                                       iconName: CupertinoIcons.mail_solid,
                                       text: AppText.email,
                                       onpress: () {
-                                        sendEmail('marketing@360group.ir');
+                                        sendEmail('info@360group.ir');
                                       },
                                     ),
                                   ],
@@ -208,7 +212,7 @@ class Group1 extends StatelessWidget {
                                 ),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.to(const Group2());
+                                    Get.toNamed(RouteName.jobOffers);
                                   },
                                   style: TextButton.styleFrom(
                                     backgroundColor: AppColors
@@ -230,8 +234,10 @@ class Group1 extends StatelessWidget {
                         ]),
 
                         // our Team
+                        //TODO : Fixing  our team 
                         Visibility(
-                          visible: Responsive.isDesktop(context) ? false : true,
+                          // visible: Responsive.isDesktop(context) ? false : true,\
+                          visible: false,
                           child: ExpanGroup(title: "تیم ما", children: [
                             ListView.builder(
                               itemCount: userList.length,
@@ -250,34 +256,39 @@ class Group1 extends StatelessWidget {
                           ]),
                         ),
                         Visibility(
-                          visible: Responsive.isDesktop(context) ? true : false,
+                          // visible: Responsive.isDesktop(context) ? true : false,
+                          visible: false,
                           child: ExpanGroup(
                             title: "تیم ما",
                             children: [
                               GridView.builder(
-                                itemCount: userList.length,
-                                physics:
-                                    const NeverScrollableScrollPhysics(), // غیرفعال کردن اسکرول
-                                shrinkWrap:
-                                    true, // برای گریدویو در ویجت‌های کوچک ضروری است
-                                gridDelegate:
-                                    const SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2, // تعداد ستون‌ها
-                                  crossAxisSpacing: 16.0, // فاصله بین ستون‌ها
-                                  mainAxisSpacing: 16.0, // فاصله بین ردیف‌ها
-                                  childAspectRatio:
-                                      2 / 3.1, // نسبت ابعاد هر آیتم
-                                ),
-                                itemBuilder: (context, index) {
-                                  return UsersCart(
-                                    imgUrl: userList[index]!['imgUrl'],
-                                    name: userList[index]!['name'],
-                                    side: userList[index]!['side'],
-                                    email: userList[index]!['emailUrl'],
-                                    linkdin: userList[index]!['LinkdinUrl'],
-                                  );
-                                },
-                              ),
+                                  itemCount: userList.length,
+                                  physics:
+                                      const NeverScrollableScrollPhysics(), // غیرفعال کردن اسکرول
+                                  // shrinkWrap:
+                                  //     true, // برای گریدویو در ویجت‌های کوچک ضروری است
+                                  gridDelegate:
+                                      const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 2, // تعداد ستون‌ها
+                                    crossAxisSpacing: 16.0, // فاصله بین ستون‌ها
+                                    mainAxisSpacing: 16.0, // فاصله بین ردیف‌ها
+                                    childAspectRatio:
+                                        2 / 3.1, // نسبت ابعاد هر آیتم
+                                  ),
+                                  itemBuilder: (context, index) {
+                                    try {
+                                      return UsersCart(
+                                        imgUrl: userList[index]!['imgUrl'],
+                                        name: userList[index]!['name'],
+                                        side: userList[index]!['side'],
+                                        email: userList[index]!['emailUrl'],
+                                        linkdin: userList[index]!['LinkdinUrl'],
+                                      );
+                                    } catch (e) {
+                                      return const Center(
+                                          child: Text('خطا در بارگذاری تصویر'));
+                                    }
+                                  }),
                             ],
                           ),
                         ),
@@ -290,7 +301,7 @@ class Group1 extends StatelessWidget {
 
                   Footer(
                       color: AppColors.primaryDefaultG,
-                      logoPath: Assets.svg.groper360)
+                      logoPath: Assets.svg.footer)
                 ],
               ),
             )));

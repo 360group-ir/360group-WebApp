@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/res/app_colors.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/res/app_colors.dart';
 import 'package:video_player/video_player.dart';
 
 class CustomVideoPlayer extends StatefulWidget {

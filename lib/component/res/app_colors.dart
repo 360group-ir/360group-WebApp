@@ -15,3 +15,4 @@ class AppColors {
   static const Color scaffoldBG2 = Color.fromARGB(255, 250, 250, 252);
 
 }
+

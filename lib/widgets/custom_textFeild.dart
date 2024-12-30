@@ -1,7 +1,7 @@
 
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/res/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/res/app_colors.dart';
 
 class CustomTextFeild extends StatelessWidget {
   const CustomTextFeild({

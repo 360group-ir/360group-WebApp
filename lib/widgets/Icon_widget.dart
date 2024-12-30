@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/text_styles.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/text_styles.dart';
 
 // ignore: must_be_immutable
 class IconWidget extends StatelessWidget {
@@ -47,8 +47,18 @@ class IconWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(AppDimens.small),
                 child: assetsName == ''
-                    ? Center(child: Icon(iconName , color: Colors.black,size: 28,))
-                    : SvgPicture.asset(assetsName , height: 28,),
+                    ? Center(
+                        child: Icon(
+                        iconName,
+                        color: Colors.black,
+                        size: 28,
+                      ))
+                    : SvgPicture.asset(
+                        assetsName,
+                        height: 28,
+                        placeholderBuilder: (BuildContext context) =>
+                            const CircularProgressIndicator(),
+                      ),
               ),
             ),
           ),

@@ -1,18 +1,17 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
+import 'package:Group360/widgets/send_req_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
-import 'package:service_360/widgets/send_req_form.dart';
-
 class ContactUs extends StatelessWidget {
   const ContactUs({
     super.key,
@@ -94,7 +93,7 @@ class ContactUs extends StatelessWidget {
                     ),
                   ),
                   (size.height * 0.12).height,
-                  Footer(color: maincolor, logoPath: Assets.svg.groper360),
+                  Footer(color: maincolor, logoPath: Assets.svg.footer),
                 ],
               ),
             )));

@@ -1,36 +1,33 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/view/contact_us.dart';
+import 'package:Group360/widgets/Expan_service.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
+import 'package:Group360/widgets/requierment_widget.dart';
+import 'package:Group360/widgets/video_player.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/contact_us.dart';
-import 'package:service_360/widgets/Expan_service.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
-import 'package:service_360/widgets/requierment_widget.dart';
-import 'package:service_360/widgets/video_player.dart';
 
 class ServiceSingle extends StatelessWidget {
-  const ServiceSingle(
-      {super.key,
-      required this.title,
-      required this.complement,
-      required this.importance,
-      required this.keyword});
-
-  final String title; 
-  final String complement;
-  final String importance;
-  final List<String> keyword;
-
+  const ServiceSingle({
+    super.key, required this.index,
+    // required this.title,
+    // required this.complement,
+    // required this.importance,
+    // required this.keyword
+  });
+final int index;
   @override
   Widget build(BuildContext context) {
+    // int index = int.parse(Get.parameters['index']!);
     Size size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
@@ -59,7 +56,6 @@ class ServiceSingle extends StatelessWidget {
                               CupertinoIcons.left_chevron,
                               color: Colors.white,
                             )),
-                        
                         IconButton(
                             onPressed: () {
                               showFullScreenDrawer(
@@ -96,7 +92,7 @@ class ServiceSingle extends StatelessWidget {
                           child: Align(
                             alignment: Alignment.centerRight,
                             child: Text(
-                              title,
+                              serviceTitle[index],
                               style: AppTextStyles.titleStyle,
                               textDirection: TextDirection.rtl,
                             ),
@@ -107,7 +103,7 @@ class ServiceSingle extends StatelessWidget {
                           title: AppText.complement,
                           children: [
                             Text(
-                              complement,
+                              serviceComplement[index],
                               style: AppTextStyles.tileChildrenStyle
                                   .copyWith(height: 2),
                               textAlign: TextAlign.right,
@@ -117,10 +113,10 @@ class ServiceSingle extends StatelessWidget {
                         ),
                         ExpanService(
                           expantileOpen: false,
-                          title: AppText.reason + title,
+                          title: AppText.reason + serviceTitle[index],
                           children: [
                             Text(
-                              importance,
+                              serviceImportance[index],
                               style: AppTextStyles.tileChildrenStyle
                                   .copyWith(height: 2),
                               textAlign: TextAlign.right,
@@ -131,7 +127,10 @@ class ServiceSingle extends StatelessWidget {
                         ExpanService(
                           expantileOpen: false,
                           title: AppText.keywords,
-                          children: [RequiermentList(items: keyword)],
+                          children: [
+                            RequiermentList(
+                                items: keyWords[index]!.toList(growable: true))
+                          ],
                         ),
                         (AppDimens.xlarge).height,
                         //Button
@@ -149,7 +148,8 @@ class ServiceSingle extends StatelessWidget {
                               ),
                               child: TextButton(
                                 onPressed: () {
-                                  Get.to(const ContactUs(maincolor: AppColors.primaryDefaultS));
+                                  Get.to(const ContactUs(
+                                      maincolor: AppColors.primaryDefaultS));
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor:
@@ -173,7 +173,7 @@ class ServiceSingle extends StatelessWidget {
                   (AppDimens.xlarge).height,
                   Footer(
                     color: AppColors.primaryDefaultS,
-                    logoPath: Assets.svg.groper360,
+                    logoPath: Assets.svg.footer,
                   ),
                 ],
               ),

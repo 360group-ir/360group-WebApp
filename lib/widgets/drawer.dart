@@ -1,17 +1,15 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/main.dart';
+import 'package:Group360/view/contact_us.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/360Group/group_1.dart';
-import 'package:service_360/view/360Group/group_2.dart';
-import 'package:service_360/view/360Service/service_main_page.dart';
-import 'package:service_360/view/contact_us.dart';
-import 'package:service_360/widgets/app_slider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key, required this.partColor, required this.logo});
@@ -54,8 +52,8 @@ class CustomDrawer extends StatelessWidget {
             children: [
               AppDimens.small.height,
               SvgPicture.asset(
-                logo==0 ? Assets.svg.logo3603 : Assets.svg.logo3607,
-                width: size.height * 0.26,
+                logo == 0 ? Assets.svg.logo3603 : Assets.svg.logo3607,
+                width: size.height * 0.23,
                 colorFilter:
                     const ColorFilter.mode(Colors.white, BlendMode.srcIn),
               ),
@@ -65,7 +63,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.offAll(const FullscreenSlider());
+                  Get.offNamed(RouteName.mainScreen);
                 },
               ),
               (size.height * 0.03).height,
@@ -74,7 +72,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const Group1());
+                  Get.toNamed(RouteName.group);
                 },
               ),
               (size.height * 0.03).height,
@@ -83,7 +81,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const ServiceMainPage());
+                  Get.toNamed(RouteName.services);
                 },
               ),
               (size.height * 0.03).height,
@@ -92,7 +90,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const FullscreenSlider());
+                  launchUrl(Uri.parse('https://360tools.io/'));
                 },
               ),
               (size.height * 0.03).height,
@@ -101,7 +99,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const Group2());
+                  Get.toNamed(RouteName.jobOffers);
                 },
               ),
               (size.height * 0.03).height,
@@ -124,7 +122,7 @@ class CustomDrawer extends StatelessWidget {
   }
 }
 
-void showFullScreenDrawer(BuildContext context, Color partColor , int logo) {
+void showFullScreenDrawer(BuildContext context, Color partColor, int logo) {
   showModalBottomSheet(
     useRootNavigator: false,
     constraints: const BoxConstraints(maxWidth: double.infinity),
@@ -134,9 +132,11 @@ void showFullScreenDrawer(BuildContext context, Color partColor , int logo) {
         reverseDuration: const Duration(milliseconds: 800)),
     isScrollControlled: true,
     builder: (BuildContext context) {
-      return CustomDrawer(
-        partColor: partColor,
-        logo: logo,
+      return SafeArea(
+        child: CustomDrawer(
+          partColor: partColor,
+          logo: logo,
+        ),
       );
     },
     backgroundColor: Colors.transparent,

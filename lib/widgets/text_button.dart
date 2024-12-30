@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
 
 class CostumTextButton extends StatelessWidget {
   const CostumTextButton({

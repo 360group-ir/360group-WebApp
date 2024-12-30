@@ -9,7 +9,7 @@ class AppText {
   static const String locationOnMap = "نمایش موقعیت روی نقشه";
 
   static const String knowMore = "بیشتر بدانید";
-  static const String getadvise = "دریافت مشاوره";
+  static const String getadvise = "دریافت مشاوره رایگان";
   static const String aboutUsT = "ارتباط با ما";
   static const String button = "دکمه";
   static const String complement = "تعریف";
@@ -36,6 +36,7 @@ class AppText {
   static const String frontdesc =
       "به یک توسعه‌دهنده فرانت‌اند حرفه‌ای و با تجربه برای همکاری در پروژه‌های جذاب و چالش‌برانگیز نیازمندیم.";
   static const String showServices = "مشاهده سرویس‌ها";
+  static const String showTools = "مشاهده ابزارها";
   static const String comingSoon = "به زودی...!";
   static const String jobOffers =
       '''آیا آماده‌ای با خلاقیت و اشتیاقت، مسیری نو بسازی؟
@@ -62,7 +63,8 @@ class AppText {
 علاقه‌مند به یادگیری و به‌روز بودن با تکنولوژی‌های جدید''';
 
   static const String aboutUs =
-      '''گروه ۳۶۰ درجه یک مجموعه نوآور است که با هدف فراهم آوردن راه‌حل‌های هوشمند و یکپارچه برای کسب‌وکارها، از دو بخش اصلی سرویس و ابزار تشکیل شده است. در بخش سرویس، ما به کسب‌وکارها کمک می‌کنیم تا با بهره‌گیری از استراتژی‌های پیشرفته و راهکارهای علمی، در بازار رقابتی خود به موفقیت دست یابند.
+      '''
+گروه ۳۶۰ درجه یک مجموعه نوآور است که با هدف فراهم آوردن راه‌حل‌های هوشمند و یکپارچه برای کسب‌وکارها، از دو بخش اصلی سرویس و ابزار تشکیل شده است. در بخش سرویس، ما به کسب‌وکارها کمک می‌کنیم تا با بهره‌گیری از استراتژی‌های پیشرفته و راهکارهای علمی، در بازار رقابتی خود به موفقیت دست یابند.
 
 در بخش ابزار، پلتفرم ما تمامی نیازهای مدیریتی و توسعه‌ای شما را در قالب یک داشبورد یکپارچه فراهم می‌کند. این پلتفرم به شما این امکان را می‌دهد تا تمامی جنبه‌های کسب‌وکار خود را تحت کنترل داشته باشید، از داده‌ها گرفته تا ابزارهای تخصصی برای تصمیم‌گیری‌های بهینه و سریع‌تر.
 
@@ -106,6 +108,19 @@ List<String> serviceDesc = [
   'با تکیه بر تجربه و دانش تیم ما، رویدادهای شما به فرصتی برای ایجاد ارتباطات ارزشمند، معرفی مؤثر برند و انتقال پیام‌های کلیدی تبدیل می‌شوند. از انتخاب مکان مناسب و برنامه‌ریزی محتوای جذاب گرفته تا مدیریت حرفه‌ای اجرا و هماهنگی‌های پس از رویداد، ما تمامی مراحل را با نگاهی ۳۶۰ درجه پوشش می‌دهیم. با این سرویس، فضایی خلاقانه و به‌یادماندنی بسازید که مخاطبانتان را به تعامل، یادگیری و ایجاد فرصت‌های جدید ترغیب کند.'
 ];
 
+List<String> imagesLink = [ 
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%A7%D9%93%D9%85%D9%88%D8%B2%D8%B4%20%D9%88%20%D8%AA%D9%88%D8%AC%DB%8C%D9%87%20%D9%BE%D8%B1%D8%B3%D9%86%D9%84.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1%DB%8C%D8%A7%D8%A8%DB%8C%20%D9%85%D8%AD%D8%AA%D9%88%D8%A7%20%282%29.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1%DB%8C%D8%A7%D8%A8%DB%8C%20%D9%85%D8%AD%D8%AA%D9%88%D8%A7%20%282%29.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%AA%D8%A8%D9%84%DB%8C%D8%BA%D8%A7%D8%AA.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%AA%D8%AD%D9%82%DB%8C%D9%82%D8%A7%D8%AA%20%D8%A8%D8%A7%D8%B2%D8%A7%D8%B1.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%AA%D8%B1%D9%88%DB%8C%D8%AC%20%D9%81%D8%B1%D9%88%D8%B4.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%AC%D8%B0%D8%A8%20%D9%88%20%D9%86%DA%AF%D9%87%20%D8%AF%D8%A7%D8%B4%D8%AA.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%B1%D9%88%D8%A7%D8%A8%D8%B7%20%D8%B9%D9%85%D9%88%D9%85%DB%8C.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C%20%D9%88%D8%A8%D8%B3%D8%A7%DB%8C%D9%86.jpg',
+  'https://360bucket.storage.c2.liara.space/Service%20images/%DA%AF%DB%8C%D9%85%DB%8C%D9%81%DB%8C%DA%A9%DB%8C%D8%B4%D9%86.jpg',
+];
+
 List<String> serviceComplement = [
   'آموزش و توجیه پرسنل به فرآیند توسعه دانش، مهارت‌ها و نگرش‌های کارکنان در جهت بهبود عملکرد و افزایش بهره‌وری سازمان اشاره دارد. این فرآیند شامل برنامه‌های آموزشی، کارگاه‌ها و دوره‌های توجیهی است که به کارکنان کمک می‌کند تا با اهداف سازمان، ابزارهای کاری، رویه‌ها و استانداردهای کاری آشنا شوند و توانایی‌های خود را ارتقا دهند. آموزش و توجیه پرسنل نه تنها برای کارکنان جدید، بلکه برای تمام اعضای سازمان به‌منظور بهبود مستمر ضروری است.',
   'آیا تا به حال فکر کرده‌اید که چطور می‌توانید با تولید محتوای جذاب، مخاطبان خود را به سمت برندتان جذب کنید؟ بازاریابی محتوا دقیقاً به همین منظور ایجاد شده است. این استراتژی با تولید محتوای ارزشمند و هدفمند، باعث می‌شود که نه تنها ترافیک ارگانیک سایتتان افزایش یابد، بلکه مخاطبان به شما اعتماد کنند و با شما درگیر شوند. محتواهای آموزشی، ویدئوهای جذاب و مقالات خواندنی، ابزاری قدرتمند برای تعامل با مشتریان شما هستند.',
@@ -146,26 +161,6 @@ List<String> serviceImportance = [
 '''
 ];
 
-Map<String, Map> jobOfferMap = {
-  "front End": {
-    "title": AppText.front,
-    'desc': AppText.frontdesc,
-    "reqLIst": [
-      'تسلط کامل به HTML، CSS و JavaScript',
-      'آشنایی با فریم‌ورک‌ها و کتابخانه‌ها: مانند React، Vue.js یا Angular',
-      'آشنایی با CSS Preprocessors: مانند SASS یا LESS',
-      'تجربه کار با ابزارهای مدیریت نسخه: مانند Git',
-      'آشنایی با Build Tools: مانند Gulp، Webpack یا Parcel',
-      'تسلط بر طراحی واکنش‌گرا (Responsive Design)',
-      'آشنایی با Cross-browser Compatibility: حل ناسازگاری مرورگرها',
-      'تجربه کار با ابزارهای طراحی UI/UX: مانند Figma، Sketch یا Adobe XD',
-      'توانایی ایجاد انیمیشن و تعاملات کاربر',
-      'مهارت‌های نرم: کار تیمی، مدیریت زمان و ارتباطات',
-      'آشنایی با Progressive Web Apps (PWA)',
-      'دارای تجربه کاری مرتبط علاقه‌مند به یادگیری و به‌روز بودن با تکنولوژی‌های جدید',
-    ],
-  },
-};
 
 Map<int, List<String>> keyWords = {
   0: [
@@ -272,4 +267,25 @@ Map<int, List<String>> keyWords = {
     '''ROI رویداد (Event Return on Investment):
     ارزیابی سودمندی رویداد نسبت به هزینه‌های صرف‌شده، از جمله رشد فروش، تقویت ارتباطات، افزایش آگاهی و هر شاخص کلیدی عملکرد (KPI) دیگر.''',
   ],
+};
+
+Map<String, Map> jobOfferMap = {
+  "frontEnd": {
+    "title": AppText.front,
+    'desc': AppText.frontdesc,
+    "reqLIst": [
+      'تسلط کامل به HTML، CSS و JavaScript',
+      'آشنایی با فریم‌ورک‌ها و کتابخانه‌ها: مانند React، Vue.js یا Angular',
+      'آشنایی با CSS Preprocessors: مانند SASS یا LESS',
+      'تجربه کار با ابزارهای مدیریت نسخه: مانند Git',
+      'آشنایی با Build Tools: مانند Gulp، Webpack یا Parcel',
+      'تسلط بر طراحی واکنش‌گرا (Responsive Design)',
+      'آشنایی با Cross-browser Compatibility: حل ناسازگاری مرورگرها',
+      'تجربه کار با ابزارهای طراحی UI/UX: مانند Figma، Sketch یا Adobe XD',
+      'توانایی ایجاد انیمیشن و تعاملات کاربر',
+      'مهارت‌های نرم: کار تیمی، مدیریت زمان و ارتباطات',
+      'آشنایی با Progressive Web Apps (PWA)',
+      'دارای تجربه کاری مرتبط علاقه‌مند به یادگیری و به‌روز بودن با تکنولوژی‌های جدید',
+    ],
+  },
 };

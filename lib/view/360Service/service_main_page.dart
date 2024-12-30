@@ -1,18 +1,19 @@
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/component/responsive.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:Group360/view/360Service/service_single.dart';
+import 'package:Group360/widgets/Expan_service.dart';
+import 'package:Group360/widgets/drawer.dart';
+import 'package:Group360/widgets/footer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/component/responsive.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/360Service/service_single.dart';
-import 'package:service_360/widgets/Expan_service.dart';
-import 'package:service_360/widgets/drawer.dart';
-import 'package:service_360/widgets/footer.dart';
+import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class ServiceMainPage extends StatelessWidget {
   const ServiceMainPage({super.key});
@@ -89,26 +90,40 @@ class ServiceMainPage extends StatelessWidget {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              Get.to(
-                                  ServiceSingle(
-                                    title: serviceTitle[index],
-                                    complement: serviceComplement[index],
-                                    importance: serviceImportance[index],
-                                    keyword:
-                                        keyWords[index]!.toList(growable: true),
-                                  ),
-                                  transition: Transition.leftToRight,
-                                  fullscreenDialog: true);
+                              // Get.toNamed(
+                              //   "/${serviceTitle[index]}?index=$index",
+                              // );
+                              // printError();
+                              Get.to(ServiceSingle(index: index),
+                                  routeName: '/${serviceTitle[index]}');
                             },
                             child: Visibility(
-                              visible: false,
+                              visible: true,
                               child: SizedBox(
-                                  child: Image.asset(
-                                Assets.png.imagePlaceH.path,
-                              )),
+                                  height: size.height * 0.4,
+                                  child: Image.network(
+                                    fit: BoxFit.fitWidth,
+                                    height: size.height * 0.4,
+                                    imagesLink[index],
+                                    loadingBuilder: (context, child,
+                                            loadingProgress) =>
+                                        loadingProgress == null
+                                            ? child
+                                            : Center(
+                                                child: LoadingAnimationWidget
+                                                    .progressiveDots(
+                                                  color:
+                                                      AppColors.primaryDefaultS,
+                                                  size:
+                                                      MediaQuery.sizeOf(context)
+                                                              .width *
+                                                          0.07,
+                                                ),
+                                              ),
+                                  )),
                             ),
                           ),
-                          // AppDimens.small.height,
+                          AppDimens.padding.height,
                           Text(
                             serviceDesc[index],
                             style: AppTextStyles.tileChildrenStyle
@@ -131,16 +146,8 @@ class ServiceMainPage extends StatelessWidget {
                                 ),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.to(
-                                        ServiceSingle(
-                                          title: serviceTitle[index],
-                                          complement: serviceComplement[index],
-                                          importance: serviceImportance[index],
-                                          keyword: keyWords[index]!
-                                              .toList(growable: true),
-                                        ),
-                                        transition: Transition.leftToRight,
-                                        fullscreenDialog: true);
+                                    Get.to(ServiceSingle(index: index),
+                                  routeName: '/${serviceTitle[index]}');
                                   },
                                   style: TextButton.styleFrom(
                                     backgroundColor: AppColors
@@ -168,7 +175,7 @@ class ServiceMainPage extends StatelessWidget {
             (size.height * 0.05).height,
             Footer(
               color: AppColors.primaryDefaultS,
-              logoPath: Assets.svg.service360,
+              logoPath: Assets.svg.footer,
             ),
           ],
         ),

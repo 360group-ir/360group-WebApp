@@ -1,14 +1,14 @@
+import 'package:Group360/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:service_360/component/res/app_colors.dart';
-import 'package:service_360/component/res/app_text.dart';
-import 'package:service_360/component/dimens.dart';
-import 'package:service_360/component/extentions.dart';
-import 'package:service_360/component/res/text_styles.dart';
-import 'package:service_360/gen/assets.gen.dart';
-import 'package:service_360/view/360Group/group_1.dart';
-import 'package:service_360/view/360Service/service_main_page.dart';
+import 'package:Group360/component/res/app_colors.dart';
+import 'package:Group360/component/res/app_text.dart';
+import 'package:Group360/component/dimens.dart';
+import 'package:Group360/component/extentions.dart';
+import 'package:Group360/component/res/text_styles.dart';
+import 'package:Group360/gen/assets.gen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 //Groupe Widget
 class GroupeWidget extends StatefulWidget {
@@ -35,18 +35,12 @@ class _GroupeWidgetState extends State<GroupeWidget> {
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.logo3603,
-              colorFilter: const ColorFilter.mode(AppColors.neutralLight, BlendMode.srcIn),
-              height: size.height * 0.40,
+              colorFilter: const ColorFilter.mode(
+                  AppColors.neutralLight, BlendMode.srcIn),
+              height: size.height * 0.5,
             ),
           ),
-          (size.height * 0.03).height,
-          const Text(
-            AppText.landingSgroup,
-            textDirection: TextDirection.rtl,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.landingPage,
-          ),
-          (size.height * 0.07).height,
+          (size.height * 0.04).height,
           Container(
             width: 190,
             height: 40,
@@ -58,7 +52,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
             ]),
             child: ElevatedButton(
                 onPressed: () {
-                  Get.to(const Group1());
+                  Get.toNamed(RouteName.group, preventDuplicates: true);
                 },
                 child: const Text(
                   AppText.knowMore,
@@ -66,7 +60,7 @@ class _GroupeWidgetState extends State<GroupeWidget> {
                   style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.19).height
+          (size.height * 0.18).height
         ],
       ),
     );
@@ -98,18 +92,12 @@ class _ServiceWidgetState extends State<ServiceWidget> {
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.logo3607,
-              colorFilter: const ColorFilter.mode(AppColors.neutralLight, BlendMode.srcIn),
-              height: size.height * 0.40,
+              colorFilter: const ColorFilter.mode(
+                  AppColors.neutralLight, BlendMode.srcIn),
+              height: size.height * 0.5,
             ),
           ),
-          (size.height * 0.03).height,
-          const Text(
-            AppText.landingService,
-            textDirection: TextDirection.rtl,
-            textAlign: TextAlign.center,
-            style: AppTextStyles.landingPage,
-          ),
-          (size.height * 0.07).height,
+          (size.height * 0.04).height,
           Container(
             width: 190,
             height: 40,
@@ -121,14 +109,14 @@ class _ServiceWidgetState extends State<ServiceWidget> {
             ]),
             child: ElevatedButton(
                 onPressed: () {
-                  Get.to(const ServiceMainPage());
+                  Get.toNamed(RouteName.services, preventDuplicates: true);
                 },
                 child: const Text(
                   AppText.showServices,
                   style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-           (size.height * 0.19).height
+          (size.height * 0.18).height
         ],
       ),
     );
@@ -160,17 +148,10 @@ class _ToolsWidgetState extends State<ToolsWidget> {
             padding: const EdgeInsets.all(AppDimens.large),
             child: SvgPicture.asset(
               Assets.svg.logo360TB,
-              height: size.height * 0.40,
+              height: size.height * 0.5,
             ),
           ),
-          (size.height * 0.03).height,
-          const Text(
-            AppText.landingTools,
-            textAlign: TextAlign.center,
-            textDirection: TextDirection.rtl,
-            style: AppTextStyles.landingPageTools,
-          ),
-          (size.height * 0.07).height,
+          (size.height * 0.04).height,
           Container(
             width: 190,
             height: 40,
@@ -181,15 +162,16 @@ class _ToolsWidgetState extends State<ToolsWidget> {
                   blurRadius: 16)
             ]),
             child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  await launchUrl(Uri.parse('https://360tools.io/'));
+                },
                 child: const Text(
-                  AppText.comingSoon,
+                  AppText.showTools,
                   textDirection: TextDirection.rtl,
-                  style: TextStyle(
-                      color: Color.fromARGB(255, 161, 161, 170), fontSize: 18),
+                  style: AppTextStyles.tileTxtStyle,
                 )),
           ),
-          (size.height * 0.19).height
+          (size.height * 0.18).height
         ],
       ),
     );

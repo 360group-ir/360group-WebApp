@@ -65,6 +65,9 @@ class $AssetsSvgGen {
   /// File path: assets/svg/email.svg
   String get email => 'assets/svg/email.svg';
 
+  /// File path: assets/svg/footer.svg
+  String get footer => 'assets/svg/footer.svg';
+
   /// File path: assets/svg/groper360.svg
   String get groper360 => 'assets/svg/groper360.svg';
 
@@ -113,6 +116,7 @@ class $AssetsSvgGen {
         vector,
         copy,
         email,
+        footer,
         groper360,
         instagram,
         logo3603,
