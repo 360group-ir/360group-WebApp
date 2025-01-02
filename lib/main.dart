@@ -59,7 +59,6 @@ class MyApp extends StatelessWidget {
       transitionDuration: Durations.extralong2,
       debugShowCheckedModeBanner: false,
       getPages: [
-        // GetPage(name: RouteName.splash, page: () => const Splashscreen()),
         GetPage(
             name: RouteName.mainScreen, page: () => const FullscreenSlider()),
         GetPage(name: RouteName.group, page: () => const Group1()),

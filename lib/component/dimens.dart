@@ -5,5 +5,4 @@ class AppDimens {
   static const double padding = 16;
   static const double large = 20;
   static const double xlarge = 24;
-
 }
