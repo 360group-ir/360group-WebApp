@@ -24,7 +24,7 @@ final TextInputType keyboardType ;
             fillColor: AppColors.neutralLight,
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(
-                      Radius.circular(4)))),
+                      Radius.circular(8)))),
         ),
       ),
     );

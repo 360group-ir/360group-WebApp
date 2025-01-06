@@ -23,7 +23,7 @@ class ReqFormTextfeild extends StatelessWidget {
       child: Container(
         padding:const EdgeInsets.symmetric(horizontal:  AppDimens.small) ,
         decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(4)),
+          borderRadius: BorderRadius.all(Radius.circular(8)),
           color: Colors.white,
           boxShadow: [
             BoxShadow(

@@ -9,7 +9,6 @@ import 'package:Group360/main.dart';
 import 'package:Group360/view/contact_us.dart';
 import 'package:Group360/widgets/Expan_Gruope.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
 import 'package:Group360/widgets/text_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -137,10 +136,10 @@ class Group2 extends StatelessWidget {
                             expantileOpen: true,
                             children: [
                               CostumTextButton(
-                                title: 'طراح رابط کاربری',
+                                title: 'بازاریاب تلفنی',
                                 onpress: () {
                                   Get.toNamed(
-                                    '${RouteName.jobofferSingle}?jobOfferTitle=frontEnd'
+                                    '${RouteName.jobofferSingle}?jobOfferTitle=sales'
                                   );
                                 },
                               ),
@@ -157,7 +156,7 @@ class Group2 extends StatelessWidget {
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: AppColors.primaryDefaultG,
-                                borderRadius: BorderRadius.circular(4),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: TextButton(
                                 onPressed: () {
@@ -170,7 +169,7 @@ class Group2 extends StatelessWidget {
                                   backgroundColor:
                                       AppColors.primaryDefaultG, // رنگ پس‌زمینه
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                                 child: Text(
@@ -188,9 +187,7 @@ class Group2 extends StatelessWidget {
 
                   (size.height * 0.1).height,
 
-                  Footer(
-                      color: AppColors.primaryDefaultG,
-                      logoPath: Assets.svg.footer)
+
                 ],
               ),
             )));

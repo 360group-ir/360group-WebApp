@@ -28,14 +28,14 @@ class CostumTextButton extends StatelessWidget {
             decoration: BoxDecoration(
               color: AppColors.neutralLight,
               border: Border.all(color: AppColors.neutralDark),
-              borderRadius: BorderRadius.circular(4),
+              borderRadius: BorderRadius.circular(8),
             ),
             child: TextButton(
               onPressed: onpress,
               style: TextButton.styleFrom(
                 backgroundColor: AppColors.neutralLight,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(8),
                 ),
               ),
               child: Center(

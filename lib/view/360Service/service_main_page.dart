@@ -8,7 +8,6 @@ import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/view/360Service/service_single.dart';
 import 'package:Group360/widgets/Expan_service.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -142,7 +141,7 @@ class ServiceMainPage extends StatelessWidget {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: AppColors.primaryDefaultS,
-                                  borderRadius: BorderRadius.circular(4),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: TextButton(
                                   onPressed: () {
@@ -153,7 +152,7 @@ class ServiceMainPage extends StatelessWidget {
                                     backgroundColor: AppColors
                                         .primaryDefaultS, // رنگ پس‌زمینه
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
                                   child: Text(
@@ -173,10 +172,6 @@ class ServiceMainPage extends StatelessWidget {
               ),
             ),
             (size.height * 0.05).height,
-            Footer(
-              color: AppColors.primaryDefaultS,
-              logoPath: Assets.svg.footer,
-            ),
           ],
         ),
       ),

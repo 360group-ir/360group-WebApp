@@ -6,7 +6,6 @@ import 'package:Group360/component/res/text_styles.dart';
 import 'package:Group360/component/responsive.dart';
 import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
 import 'package:Group360/widgets/send_req_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +92,6 @@ class ContactUs extends StatelessWidget {
                     ),
                   ),
                   (size.height * 0.12).height,
-                  Footer(color: maincolor, logoPath: Assets.svg.footer),
                 ],
               ),
             )));

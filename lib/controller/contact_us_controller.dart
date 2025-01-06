@@ -39,7 +39,7 @@ class ContactUsController extends GetxController {
         isSuccess.value = true;
         Get.snackbar("ثبت شد",
             "فرم شما با موفقیت ثبت و شد منتظر ارتباط کارشناسان ما بمانید .",
-            borderRadius: 4,
+            borderRadius: 8,
             icon: const Icon(
               CupertinoIcons.check_mark,
               color: Colors.white,
@@ -48,7 +48,7 @@ class ContactUsController extends GetxController {
       } else {
         errorMessage.value = response.data['message'] ?? 'Unknown error';
         Get.snackbar("ثبت شد", errorMessage.toString(),
-            borderRadius: 4,
+            borderRadius: 8,
             colorText: Colors.white,
             messageText: Text(
               errorMessage.toString(),

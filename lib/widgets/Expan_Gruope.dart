@@ -20,7 +20,7 @@ class ExpanGroup extends StatelessWidget {
           AppDimens.large, AppDimens.large, AppDimens.large, 0),
       child: Container(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(4)),
+            color: Colors.white, borderRadius: BorderRadius.circular(8)),
         child: ExpansionTile(
           expansionAnimationStyle: AnimationStyle(
               curve: Curves.ease, duration: const Duration(milliseconds: 600)),

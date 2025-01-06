@@ -10,7 +10,6 @@ import 'package:Group360/widgets/Expan_Gruope.dart';
 import 'package:Group360/widgets/Icon_widget.dart';
 import 'package:Group360/widgets/costum_bottomshit.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
 import 'package:Group360/widgets/user_cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -208,7 +207,7 @@ class Group1 extends StatelessWidget {
                                 width: double.infinity,
                                 decoration: BoxDecoration(
                                   color: AppColors.primaryDefaultG,
-                                  borderRadius: BorderRadius.circular(4),
+                                  borderRadius: BorderRadius.circular(8),
                                 ),
                                 child: TextButton(
                                   onPressed: () {
@@ -218,7 +217,7 @@ class Group1 extends StatelessWidget {
                                     backgroundColor: AppColors
                                         .primaryDefaultG, // رنگ پس‌زمینه
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(4),
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
                                   ),
                                   child: Text(
@@ -234,7 +233,7 @@ class Group1 extends StatelessWidget {
                         ]),
 
                         // our Team
-                        //TODO : Fixing  our team 
+                        //TODO : Fixing  our team
                         Visibility(
                           // visible: Responsive.isDesktop(context) ? false : true,\
                           visible: false,
@@ -298,10 +297,6 @@ class Group1 extends StatelessWidget {
                   // about us
 
                   (size.height * 0.1).height,
-
-                  Footer(
-                      color: AppColors.primaryDefaultG,
-                      logoPath: Assets.svg.footer)
                 ],
               ),
             )));
@@ -354,8 +349,8 @@ void launchURL(String url) async {
 }
 
 void sendEmail(String recipientEmail) async {
-  const String subject = "موضوع ایمیل"; // موضوع ایمیل
-  const String body = "سلام، این متن پیش‌فرض ایمیل است."; // متن ایمیل
+  const String subject = "موضوع ایمیل"; // email subject 
+  const String body = "سلام، این متن پیش‌فرض ایمیل است."; // email body
 
   final Uri emailUri = Uri(
     scheme: 'mailto',

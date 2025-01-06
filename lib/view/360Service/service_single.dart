@@ -8,7 +8,6 @@ import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/view/contact_us.dart';
 import 'package:Group360/widgets/Expan_service.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
 import 'package:Group360/widgets/requierment_widget.dart';
 import 'package:Group360/widgets/video_player.dart';
 import 'package:flutter/cupertino.dart';
@@ -81,7 +80,7 @@ final int index;
                                 vertical: AppDimens.xlarge),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(4)),
+                                borderRadius: BorderRadius.circular(8)),
                             child: Center(
                                 child: CustomVideoPlayer(
                                     videoUrl: Uri.parse("")))),
@@ -144,7 +143,7 @@ final int index;
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: AppColors.primaryDefaultS,
-                                borderRadius: BorderRadius.circular(4),
+                                borderRadius: BorderRadius.circular(8),
                               ),
                               child: TextButton(
                                 onPressed: () {
@@ -155,7 +154,7 @@ final int index;
                                   backgroundColor:
                                       AppColors.primaryDefaultS, // رنگ پس‌زمینه
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(4),
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
                                 ),
                                 child: Text(
@@ -171,10 +170,7 @@ final int index;
                     ),
                   ),
                   (AppDimens.xlarge).height,
-                  Footer(
-                    color: AppColors.primaryDefaultS,
-                    logoPath: Assets.svg.footer,
-                  ),
+
                 ],
               ),
             )));

@@ -61,7 +61,7 @@ class _SendReqFormState extends State<SendReqForm> {
       width: double.infinity,
       margin: const EdgeInsets.symmetric(horizontal: AppDimens.padding),
       decoration: BoxDecoration(
-          color: Colors.white, borderRadius: BorderRadius.circular(4)),
+          color: Colors.white, borderRadius: BorderRadius.circular(8)),
       child: Column(
         children: [
           const Padding(
@@ -121,7 +121,7 @@ class _SendReqFormState extends State<SendReqForm> {
                         ),
                       ],
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(4)),
+                      borderRadius: BorderRadius.circular(8)),
                   child: selectedFileName == null
                       ? Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -156,14 +156,14 @@ class _SendReqFormState extends State<SendReqForm> {
                         horizontal: AppDimens.medium),
                     decoration: BoxDecoration(
                         color: widget.color,
-                        borderRadius: BorderRadius.circular(4)),
+                        borderRadius: BorderRadius.circular(8)),
                     child: TextButton(
                       onPressed: cUsController.sendContactUs,
                       style: TextButton.styleFrom(
                         backgroundColor:
                             widget.color, // رنگ پس‌زمینه
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(4),
+                          borderRadius: BorderRadius.circular(8),
                         ),
                       ),
                       child: cUsController.isLoading.value

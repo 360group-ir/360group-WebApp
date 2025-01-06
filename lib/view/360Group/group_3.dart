@@ -6,7 +6,7 @@ import 'package:Group360/component/res/text_styles.dart';
 import 'package:Group360/component/responsive.dart';
 import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/widgets/drawer.dart';
-import 'package:Group360/widgets/footer.dart';
+
 import 'package:Group360/widgets/requierment_widget.dart';
 import 'package:Group360/widgets/send_req_form.dart';
 import 'package:flutter/cupertino.dart';
@@ -19,7 +19,6 @@ class Group3 extends StatelessWidget {
   const Group3({
     super.key,
   });
-
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +111,7 @@ class Group3 extends StatelessWidget {
                                 horizontal: AppDimens.padding),
                             decoration: BoxDecoration(
                                 color: Colors.white,
-                                borderRadius: BorderRadius.circular(4)),
+                                borderRadius: BorderRadius.circular(8)),
                             child: Column(
                               children: [
                                 const Padding(
@@ -120,7 +119,7 @@ class Group3 extends StatelessWidget {
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Text(
-                                      AppText.requierd,
+                                      AppText.sharyet,
                                       style:
                                           AppTextStyles.descriptionTitleStyle,
                                       textDirection: TextDirection.rtl,
@@ -134,8 +133,87 @@ class Group3 extends StatelessWidget {
                               ],
                             ),
                           ),
-                          // send req 2
                           AppDimens.xlarge.height,
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: AppDimens.padding),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)),
+                            child: Column(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(AppDimens.medium),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      "شرح وظایف",
+                                      style:
+                                          AppTextStyles.descriptionTitleStyle,
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                  ),
+                                ),
+                                RequiermentList(
+                                  items: jobOfferMap[jobOfferTitle]![
+                                      'responsibility'],
+                                ),
+                                AppDimens.medium.height
+                              ],
+                            ),
+                          ),
+                          AppDimens.xlarge.height,
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: AppDimens.padding),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)),
+                            child: Column(
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(AppDimens.medium),
+                                  child: Align(
+                                    alignment: Alignment.centerRight,
+                                    child: Text(
+                                      "مزایا و امکانات",
+                                      style:
+                                          AppTextStyles.descriptionTitleStyle,
+                                      textDirection: TextDirection.rtl,
+                                    ),
+                                  ),
+                                ),
+                                RequiermentList(
+                                  items:
+                                      jobOfferMap[jobOfferTitle]!['eqiupment'],
+                                ),
+                                AppDimens.medium.height
+                              ],
+                            ),
+                          ),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: AppDimens.xlarge,
+                                horizontal: AppDimens.xlarge),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                '''🔍 چه کسانی برای این موقعیت مناسب هستند؟
+دانشجویان و فارغ‌التحصیلان علاقه‌مند به حوزه دیجیتال و فناوری
+افرادی که مهارت‌های ارتباطی بالا دارند و از کار با مشتریان لذت می‌برند
+کسانی که به دنبال یادگیری و رشد شغلی در حوزه دیجیتال هستند.
+
+✨ فرصتی منحصربه‌فرد برای یادگیری، رشد و کسب درآمد در حوزه دیجیتال و فناوری!
+📢 همراه با آموزش + تجربه عملی + درآمد عالی''',
+                                textDirection: TextDirection.rtl,
+                                textAlign: TextAlign.right,
+                                style: AppTextStyles.descriptionStyle,
+                              ),
+                            ),
+                          ),
+                          // send req 2
                           const SendReqForm(
                             color: AppColors.primaryDefaultG,
                             uploadResume: false,
@@ -144,10 +222,6 @@ class Group3 extends StatelessWidget {
                         ],
                       ),
                     ),
-                  ),
-                  Footer(
-                    color: AppColors.primaryDefaultG,
-                    logoPath: Assets.svg.footer,
                   ),
                 ],
               ),

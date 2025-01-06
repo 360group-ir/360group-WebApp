@@ -33,7 +33,7 @@ class IconWidget extends StatelessWidget {
               width: 44,
               decoration: const BoxDecoration(
                   color: AppColors.neutralLight,
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  borderRadius: BorderRadius.all(Radius.circular(8)),
                   boxShadow: [
                     BoxShadow(
                         color: AppColors.shadowColor,

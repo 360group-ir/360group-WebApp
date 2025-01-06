@@ -26,7 +26,7 @@ class MainBottomShit extends StatelessWidget {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(4), topRight: Radius.circular(4))),
+              topLeft: Radius.circular(4), topRight: Radius.circular(8))),
       height: size.height * 0.5,
       child: Padding(
         padding: const EdgeInsets.all(AppDimens.padding),
@@ -73,7 +73,7 @@ class MainBottomShit extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.neutralLight,
                       border: Border.all(color: AppColors.neutralDark),
-                      borderRadius: BorderRadius.circular(4)),
+                      borderRadius: BorderRadius.circular(8)),
                   child: TextButton(
                     onPressed: () async {
                       if (await canLaunchUrl(urlLoc)) {
@@ -100,7 +100,7 @@ class MainBottomShit extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.neutralLight,
                       border: Border.all(color: AppColors.neutralDark),
-                      borderRadius: BorderRadius.circular(4)),
+                      borderRadius: BorderRadius.circular(8)),
                   child: TextButton(
                     onPressed: () async {
                       await Clipboard.setData(
