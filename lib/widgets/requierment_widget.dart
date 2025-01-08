@@ -32,7 +32,7 @@ class RequiermentList extends StatelessWidget {
                 title: Text(
                   items[index],
                   textDirection: TextDirection.rtl,
-                  style: AppTextStyles.descriptionStyle,
+                  style: AppTextStyles.descriptionStyle.copyWith(height: 2),
                 ),
                 contentPadding:
                     const EdgeInsets.symmetric(horizontal: 0, vertical: 0),

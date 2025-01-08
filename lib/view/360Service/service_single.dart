@@ -66,112 +66,114 @@ final int index;
                   ),
                 )),
             body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth:
-                            Responsive.isDesktop(context) ? 1080 : size.width),
-                    child: Column(
-                      children: [
-                        Container(
-                            margin: const EdgeInsets.symmetric(
+              child: Center(
+                child: Column(
+                  children: [
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                          maxWidth:
+                              Responsive.isDesktop(context) ? 1080 : size.width),
+                      child: Column(
+                        children: [
+                          Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: AppDimens.padding,
+                                  vertical: AppDimens.xlarge),
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(8)),
+                              child: Center(
+                                  child: CustomVideoPlayer(
+                                      videoUrl: Uri.parse("")))),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
                                 horizontal: AppDimens.padding,
                                 vertical: AppDimens.xlarge),
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(8)),
-                            child: Center(
-                                child: CustomVideoPlayer(
-                                    videoUrl: Uri.parse("")))),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: AppDimens.padding,
-                              vertical: AppDimens.xlarge),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              serviceTitle[index],
-                              style: AppTextStyles.titleStyle,
-                              textDirection: TextDirection.rtl,
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                serviceTitle[index],
+                                style: AppTextStyles.titleStyle,
+                                textDirection: TextDirection.rtl,
+                              ),
                             ),
                           ),
-                        ),
-                        ExpanService(
-                          expantileOpen: true,
-                          title: AppText.complement,
-                          children: [
-                            Text(
-                              serviceComplement[index],
-                              style: AppTextStyles.tileChildrenStyle
-                                  .copyWith(height: 2),
-                              textAlign: TextAlign.right,
-                              textDirection: TextDirection.rtl,
-                            )
-                          ],
-                        ),
-                        ExpanService(
-                          expantileOpen: false,
-                          title: AppText.reason + serviceTitle[index],
-                          children: [
-                            Text(
-                              serviceImportance[index],
-                              style: AppTextStyles.tileChildrenStyle
-                                  .copyWith(height: 2),
-                              textAlign: TextAlign.right,
-                              textDirection: TextDirection.rtl,
-                            ),
-                          ],
-                        ),
-                        ExpanService(
-                          expantileOpen: false,
-                          title: AppText.keywords,
-                          children: [
-                            RequiermentList(
-                                items: keyWords[index]!.toList(growable: true))
-                          ],
-                        ),
-                        (AppDimens.xlarge).height,
-                        //Button
-                        ConstrainedBox(
-                          constraints: const BoxConstraints(maxWidth: 192),
-                          child: MouseRegion(
-                            cursor: SystemMouseCursors
-                                .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
-                            child: Container(
-                              height: 48,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryDefaultS,
-                                borderRadius: BorderRadius.circular(8),
+                          ExpanService(
+                            expantileOpen: true,
+                            title: AppText.complement,
+                            children: [
+                              Text(
+                                serviceComplement[index],
+                                style: AppTextStyles.tileChildrenStyle
+                                    .copyWith(height: 2),
+                                textAlign: TextAlign.right,
+                                textDirection: TextDirection.rtl,
+                              )
+                            ],
+                          ),
+                          ExpanService(
+                            expantileOpen: false,
+                            title: AppText.reason + serviceTitle[index],
+                            children: [
+                              Text(
+                                serviceImportance[index],
+                                style: AppTextStyles.tileChildrenStyle
+                                    .copyWith(height: 2),
+                                textAlign: TextAlign.right,
+                                textDirection: TextDirection.rtl,
                               ),
-                              child: TextButton(
-                                onPressed: () {
-                                  Get.to(const ContactUs(
-                                      maincolor: AppColors.primaryDefaultS));
-                                },
-                                style: TextButton.styleFrom(
-                                  backgroundColor:
-                                      AppColors.primaryDefaultS, // رنگ پس‌زمینه
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8),
+                            ],
+                          ),
+                          ExpanService(
+                            expantileOpen: false,
+                            title: AppText.keywords,
+                            children: [
+                              RequiermentList(
+                                  items: keyWords[index]!.toList(growable: true))
+                            ],
+                          ),
+                          (AppDimens.xlarge).height,
+                          //Button
+                          ConstrainedBox(
+                            constraints: const BoxConstraints(maxWidth: 192),
+                            child: MouseRegion(
+                              cursor: SystemMouseCursors
+                                  .click, // نشانگر ماوس را به کلیک تغییر می‌دهد
+                              child: Container(
+                                height: 48,
+                                width: double.infinity,
+                                decoration: BoxDecoration(
+                                  color: AppColors.primaryDefaultS,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                child: TextButton(
+                                  onPressed: () {
+                                    Get.to(const ContactUs(
+                                        maincolor: AppColors.primaryDefaultS));
+                                  },
+                                  style: TextButton.styleFrom(
+                                    backgroundColor:
+                                        AppColors.primaryDefaultS, // رنگ پس‌زمینه
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    AppText.getadvise,
+                                    style: AppTextStyles.landingPage
+                                        .copyWith(fontSize: 16),
                                   ),
                                 ),
-                                child: Text(
-                                  AppText.getadvise,
-                                  style: AppTextStyles.landingPage
-                                      .copyWith(fontSize: 16),
-                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  (AppDimens.xlarge).height,
-
-                ],
+                    (AppDimens.xlarge).height,
+                
+                  ],
+                ),
               ),
             )));
   }

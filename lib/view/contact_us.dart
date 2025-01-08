@@ -60,39 +60,41 @@ class ContactUs extends StatelessWidget {
                   ),
                 )),
             body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  AppDimens.xlarge.height,
-                  ConstrainedBox(
-                    constraints: BoxConstraints(
-                        maxWidth:
-                            Responsive.isDesktop(context) ? 1080 : size.width),
-                    child: Column(
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: AppDimens.padding),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              AppText.aboutUsT,
-                              style: AppTextStyles.titleStyle,
-                              textDirection: TextDirection.rtl,
-                              textAlign: TextAlign.justify,
+              child: Center(
+                child: Column(
+                  children: [
+                    AppDimens.xlarge.height,
+                    ConstrainedBox(
+                      constraints: BoxConstraints(
+                          maxWidth:
+                              Responsive.isDesktop(context) ? 1080 : size.width),
+                      child: Column(
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: AppDimens.padding),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: Text(
+                                AppText.aboutUsT,
+                                style: AppTextStyles.titleStyle,
+                                textDirection: TextDirection.rtl,
+                                textAlign: TextAlign.justify,
+                              ),
                             ),
                           ),
-                        ),
-                        // send req 2
-                        AppDimens.xlarge.height,
-                        SendReqForm(
-                          color: maincolor,
-                          uploadResume: uploadResume,
-                        ),
-                      ],
+                          // send req 2
+                          AppDimens.xlarge.height,
+                          SendReqForm(
+                            color: maincolor,
+                            uploadResume: uploadResume,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  (size.height * 0.12).height,
-                ],
+                    (size.height * 0.12).height,
+                  ],
+                ),
               ),
             )));
   }

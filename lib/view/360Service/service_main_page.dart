@@ -57,122 +57,124 @@ class ServiceMainPage extends StatelessWidget {
             ),
           )),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ConstrainedBox(
-              constraints: BoxConstraints(
-                  maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
-              child: Column(
-                children: [
-                  // 360 title
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        0, AppDimens.xlarge, AppDimens.padding, 0),
-                    child: Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        AppText.serviceTitle,
-                        style: AppTextStyles.titleStyle,
-                        textDirection: TextDirection.rtl,
+        child: Center(
+          child: Column(
+            children: [
+              ConstrainedBox(
+                constraints: BoxConstraints(
+                    maxWidth: Responsive.isDesktop(context) ? 1080 : size.width),
+                child: Column(
+                  children: [
+                    // 360 title
+                    const Padding(
+                      padding: EdgeInsets.fromLTRB(
+                          0, AppDimens.xlarge, AppDimens.padding, 0),
+                      child: Align(
+                        alignment: Alignment.centerRight,
+                        child: Text(
+                          AppText.serviceTitle,
+                          style: AppTextStyles.titleStyle,
+                          textDirection: TextDirection.rtl,
+                        ),
                       ),
                     ),
-                  ),
-                  // List view
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: serviceTitle.length,
-                    physics: const BouncingScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return ExpanService(
-                        expantileOpen: index == 0,
-                        title: serviceTitle[index],
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              // Get.toNamed(
-                              //   "/${serviceTitle[index]}?index=$index",
-                              // );
-                              // printError();
-                              Get.to(ServiceSingle(index: index),
-                                  routeName: '/${serviceTitle[index]}');
-                            },
-                            child: Visibility(
-                              visible: true,
-                              child: SizedBox(
-                                  height: size.height * 0.4,
-                                  child: Image.network(
-                                    fit: BoxFit.fitWidth,
+                    // List view
+                    ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: serviceTitle.length,
+                      physics: const BouncingScrollPhysics(),
+                      itemBuilder: (context, index) {
+                        return ExpanService(
+                          expantileOpen: index == 0,
+                          title: serviceTitle[index],
+                          children: [
+                            GestureDetector(
+                              onTap: () {
+                                // Get.toNamed(
+                                //   "/${serviceTitle[index]}?index=$index",
+                                // );
+                                // printError();
+                                Get.to(ServiceSingle(index: index),
+                                    routeName: '/${serviceTitle[index]}');
+                              },
+                              child: Visibility(
+                                visible: true,
+                                child: SizedBox(
                                     height: size.height * 0.4,
-                                    imagesLink[index],
-                                    loadingBuilder: (context, child,
-                                            loadingProgress) =>
-                                        loadingProgress == null
-                                            ? child
-                                            : Center(
-                                                child: LoadingAnimationWidget
-                                                    .progressiveDots(
-                                                  color:
-                                                      AppColors.primaryDefaultS,
-                                                  size:
-                                                      MediaQuery.sizeOf(context)
-                                                              .width *
-                                                          0.07,
+                                    child: Image.network(
+                                      fit: BoxFit.fitWidth,
+                                      height: size.height * 0.4,
+                                      imagesLink[index],
+                                      loadingBuilder: (context, child,
+                                              loadingProgress) =>
+                                          loadingProgress == null
+                                              ? child
+                                              : Center(
+                                                  child: LoadingAnimationWidget
+                                                      .progressiveDots(
+                                                    color:
+                                                        AppColors.primaryDefaultS,
+                                                    size:
+                                                        MediaQuery.sizeOf(context)
+                                                                .width *
+                                                            0.07,
+                                                  ),
                                                 ),
-                                              ),
-                                  )),
+                                    )),
+                              ),
                             ),
-                          ),
-                          AppDimens.padding.height,
-                          Text(
-                            serviceDesc[index],
-                            style: AppTextStyles.tileChildrenStyle
-                                .copyWith(height: 2),
-                            textAlign: TextAlign.right,
-                            textDirection: TextDirection.rtl,
-                            locale: const Locale("Fa"),
-                          ),
-                          AppDimens.padding.height,
-                          ConstrainedBox(
-                            constraints: const BoxConstraints(maxWidth: 192),
-                            child: MouseRegion(
-                              cursor: SystemMouseCursors.click, //Mouse to click
-                              child: Container(
-                                height: 48,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  color: AppColors.primaryDefaultS,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                                child: TextButton(
-                                  onPressed: () {
-                                    Get.to(ServiceSingle(index: index),
-                                  routeName: '/${serviceTitle[index]}');
-                                  },
-                                  style: TextButton.styleFrom(
-                                    backgroundColor: AppColors
-                                        .primaryDefaultS, // رنگ پس‌زمینه
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
+                            AppDimens.padding.height,
+                            Text(
+                              serviceDesc[index],
+                              style: AppTextStyles.tileChildrenStyle
+                                  .copyWith(height: 2),
+                              textAlign: TextAlign.right,
+                              textDirection: TextDirection.rtl,
+                              locale: const Locale("Fa"),
+                            ),
+                            AppDimens.padding.height,
+                            ConstrainedBox(
+                              constraints: const BoxConstraints(maxWidth: 192),
+                              child: MouseRegion(
+                                cursor: SystemMouseCursors.click, //Mouse to click
+                                child: Container(
+                                  height: 48,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.primaryDefaultS,
+                                    borderRadius: BorderRadius.circular(8),
                                   ),
-                                  child: Text(
-                                    AppText.knowMore,
-                                    style: AppTextStyles.landingPage
-                                        .copyWith(fontSize: 16),
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Get.to(ServiceSingle(index: index),
+                                    routeName: '/${serviceTitle[index]}');
+                                    },
+                                    style: TextButton.styleFrom(
+                                      backgroundColor: AppColors
+                                          .primaryDefaultS, // رنگ پس‌زمینه
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      AppText.knowMore,
+                                      style: AppTextStyles.landingPage
+                                          .copyWith(fontSize: 16),
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
-                      );
-                    },
-                  ),
-                ],
+                          ],
+                        );
+                      },
+                    ),
+                  ],
+                ),
               ),
-            ),
-            (size.height * 0.05).height,
-          ],
+              (size.height * 0.05).height,
+            ],
+          ),
         ),
       ),
     ));

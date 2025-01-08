@@ -193,26 +193,36 @@ class Group3 extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.symmetric(
-                                vertical: AppDimens.xlarge,
-                                horizontal: AppDimens.xlarge),
-                            child: Align(
-                              alignment: Alignment.centerRight,
-                              child: Text(
-                                '''🔍 چه کسانی برای این موقعیت مناسب هستند؟
-دانشجویان و فارغ‌التحصیلان علاقه‌مند به حوزه دیجیتال و فناوری
-افرادی که مهارت‌های ارتباطی بالا دارند و از کار با مشتریان لذت می‌برند
-کسانی که به دنبال یادگیری و رشد شغلی در حوزه دیجیتال هستند.
-
-✨ فرصتی منحصربه‌فرد برای یادگیری، رشد و کسب درآمد در حوزه دیجیتال و فناوری!
-📢 همراه با آموزش + تجربه عملی + درآمد عالی''',
-                                textDirection: TextDirection.rtl,
-                                textAlign: TextAlign.right,
-                                style: AppTextStyles.descriptionStyle,
+                          AppDimens.xlarge.height,
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: AppDimens.padding),
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(8)),
+                            child:  Padding(
+                              padding: const EdgeInsets.all(AppDimens.padding),
+                              child: Align(
+                                alignment: Alignment.centerRight,
+                                child: Text(
+                                  '''🔍 چه کسانی برای این موقعیت مناسب هستند؟
+             دانشجویان و فارغ‌التحصیلان علاقه‌مند به حوزه دیجیتال و فناوری
+             افرادی که مهارت‌های ارتباطی بالا دارند و از کار با مشتریان لذت می‌برند
+             کسانی که به دنبال یادگیری و رشد شغلی در حوزه دیجیتال هستند.
+                            
+  ✨ فرصتی منحصربه‌فرد برای یادگیری، رشد و کسب درآمد در حوزه دیجیتال و فناوری!
+  📢 همراه با آموزش + تجربه عملی + درآمد عالی''',
+                                  textDirection: TextDirection.rtl,
+                                  textAlign: TextAlign.right,
+                                  style: AppTextStyles.descriptionStyle.copyWith(
+                                      height: 2
+                                      ),
+                                ),
                               ),
                             ),
                           ),
+                          AppDimens.xlarge.height,
                           // send req 2
                           const SendReqForm(
                             color: AppColors.primaryDefaultG,
