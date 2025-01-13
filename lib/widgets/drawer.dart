@@ -1,10 +1,8 @@
 import 'package:Group360/component/dimens.dart';
 import 'package:Group360/component/extentions.dart';
-import 'package:Group360/component/res/app_colors.dart';
 import 'package:Group360/component/res/text_styles.dart';
 import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/main.dart';
-import 'package:Group360/view/contact_us.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -108,9 +106,7 @@ class CustomDrawer extends StatelessWidget {
                     textAlign: TextAlign.center,
                     style: AppTextStyles.landingPage),
                 onTap: () {
-                  Get.to(const ContactUs(
-                    maincolor: AppColors.primaryDefaultG,
-                  ));
+                  Get.toNamed(RouteName.contactUs);
                 },
               ),
               (size.height * 0.04).height,

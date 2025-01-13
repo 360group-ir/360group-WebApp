@@ -5,7 +5,7 @@ import 'package:Group360/component/res/app_text.dart';
 import 'package:Group360/component/res/text_styles.dart';
 import 'package:Group360/component/responsive.dart';
 import 'package:Group360/gen/assets.gen.dart';
-import 'package:Group360/view/contact_us.dart';
+import 'package:Group360/main.dart';
 import 'package:Group360/widgets/Expan_service.dart';
 import 'package:Group360/widgets/drawer.dart';
 import 'package:Group360/widgets/requierment_widget.dart';
@@ -148,8 +148,7 @@ final int index;
                                 ),
                                 child: TextButton(
                                   onPressed: () {
-                                    Get.to(const ContactUs(
-                                        maincolor: AppColors.primaryDefaultS));
+                                    Get.toNamed(RouteName.contactUs);
                                   },
                                   style: TextButton.styleFrom(
                                     backgroundColor:

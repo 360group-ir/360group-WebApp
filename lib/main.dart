@@ -5,6 +5,7 @@ import 'package:Group360/view/360Group/group_2.dart';
 import 'package:Group360/view/360Group/group_3.dart';
 import 'package:Group360/view/360Service/service_main_page.dart';
 import 'package:Group360/view/app_slider.dart';
+import 'package:Group360/view/contact_us.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
-  
+
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -64,6 +65,11 @@ class MyApp extends StatelessWidget {
             name: RouteName.mainScreen, page: () => const FullscreenSlider()),
         GetPage(name: RouteName.group, page: () => const Group1()),
         GetPage(name: RouteName.jobOffers, page: () => const Group2()),
+        GetPage(
+            name: RouteName.contactUs,
+            page: () =>  const ContactUs(
+                  maincolor: AppColors.primaryDefaultG,
+                )),
         GetPage(name: RouteName.jobofferSingle, page: () => const Group3()),
         GetPage(name: RouteName.services, page: () => const ServiceMainPage()),
       ],
@@ -80,7 +86,7 @@ class RouteName {
   static String group = "/group";
   static String jobOffers = "/jobOffer";
   static String jobofferSingle = "/jobOffer/page";
-  static String contactUs = "/contactUs";
+  static String contactUs = "/contact";
   static String services = "/services";
   static String servicesSingle = "/serviceTitle";
 }

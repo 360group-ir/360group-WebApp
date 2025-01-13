@@ -139,8 +139,7 @@ class Group2 extends StatelessWidget {
                                 title: 'بازاریاب تلفنی',
                                 onpress: () {
                                   Get.toNamed(
-                                    '${RouteName.jobofferSingle}?jobOfferTitle=sales'
-                                  );
+                                      '${RouteName.jobofferSingle}?jobOfferTitle=sales');
                                 },
                               ),
                             ]),
@@ -160,10 +159,7 @@ class Group2 extends StatelessWidget {
                               ),
                               child: TextButton(
                                 onPressed: () {
-                                  Get.to(const ContactUs(
-                                    maincolor: AppColors.primaryDefaultG,
-                                    uploadResume: false,
-                                  ));
+                                  Get.toNamed(RouteName.contactUs);
                                 },
                                 style: TextButton.styleFrom(
                                   backgroundColor:
@@ -186,8 +182,6 @@ class Group2 extends StatelessWidget {
                   ),
 
                   (size.height * 0.1).height,
-
-
                 ],
               ),
             )));
