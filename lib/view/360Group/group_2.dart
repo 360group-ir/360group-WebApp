@@ -6,7 +6,6 @@ import 'package:Group360/component/res/text_styles.dart';
 import 'package:Group360/component/responsive.dart';
 import 'package:Group360/gen/assets.gen.dart';
 import 'package:Group360/main.dart';
-import 'package:Group360/view/contact_us.dart';
 import 'package:Group360/widgets/Expan_Gruope.dart';
 import 'package:Group360/widgets/drawer.dart';
 import 'package:Group360/widgets/text_button.dart';
